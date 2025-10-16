@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Define component width variables
+  $component-width: 728px;
+  $component-max-width: 80vw;
+
+// Define colors and default angle
+$primary-gradient-c1: #6A00FF;
+$primary-gradient-c2: #9c2dc4;
+$primary-gradient-c3: #C716A6;
+$primary-gradient-angle: 107deg;
+
+// Mixin you can @include wherever you need this background
+@mixin primary-gradient($angle: $primary-gradient-angle, $c1: $primary-gradient-c1, $c2: $primary-gradient-c2, $c3: $primary-gradient-c3) {
+    background: $c1;
+    background: -webkit-linear-gradient($angle, $c1 0%, $c2 45%, $c3 100%);
+    background: -moz-linear-gradient($angle, $c1 0%, $c2 45%, $c3 100%);
+    background: linear-gradient($angle, $c1 0%, $c2 45%, $c3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$c1}", endColorstr="#{$c3}", GradientType=1);
+}
+
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100 900;
+    src: local('Montserrat'), local('Montserrat-Regular');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 100 900;
+    src: local('Montserrat Italic'), local('Montserrat-Italic');
+    font-display: swap;
+}

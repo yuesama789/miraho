@@ -1,0 +1,37 @@
+@import '../../../styles/globals.scss';
+
+.customButton {
+    font-family: 'Montserrat', "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    border-radius: 100px;
+    font-size: 1rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.primary {
+    @include primary-gradient;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+.primary:hover {
+    //background-color: #5a00e0;
+}
+.secondary {
+    background-color: transparent;
+    color: #6a00ff;
+    border: 3px solid #6a00ff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.secondary:hover {
+    background-color: #6a00ff;
+    color: white;
+}
