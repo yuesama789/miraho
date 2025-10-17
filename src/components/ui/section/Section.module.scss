@@ -1,6 +1,8 @@
+@import '../../../styles/globals.scss';
+
 .section-container {
-    width: 728px;
-    max-width: 80dvw;
+    width: $component-width;
+    max-width: $component-max-width;
     min-height: 100dvh;
     margin: 0 auto;
     padding: 2rem 1rem;

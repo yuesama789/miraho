@@ -1,0 +1,31 @@
+@import '../../../styles/globals.scss';
+
+.storybox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    height: auto;
+    border-radius: 8px;
+
+    padding: 8px;
+
+    .storyboxHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .storyboxIcon {
+            width: 40px;
+            min-width: 40px;
+
+            font-size: $font-size-xl;
+            line-height: 1;
+        }
+    }
+
+    .storyboxText {
+        color: #0F172A;
+    }
+}
