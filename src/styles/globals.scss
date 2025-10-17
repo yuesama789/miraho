@@ -29,6 +29,15 @@ $font-size-3xl: 3.5rem;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$c1}", endColorstr="#{$c3}", GradientType=1);
 }
 
+@mixin gradient-font($angle: $primary-gradient-angle, $c1: $primary-gradient-c1, $c2: $primary-gradient-c2, $c3: $primary-gradient-c3) {
+    @include primary-gradient($angle, $c1, $c2, $c3);
+
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 @font-face {
     font-family: 'Montserrat';
@@ -52,26 +61,30 @@ h1 {
     margin: .75rem 0 0;
     font-weight: 800;
 
-    background: #6a00ff;
-    background: -webkit-linear-gradient(90deg, rgba(106, 0, 255, 1) 0%, rgba(155, 28, 201, 1) 51%, rgba(199, 22, 166, 1) 100%);
-    background: -moz-linear-gradient(90deg, rgba(106, 0, 255, 1) 0%, rgba(155, 28, 201, 1) 51%, rgba(199, 22, 166, 1) 100%);
-    background: linear-gradient(90deg, rgba(106, 0, 255, 1) 0%, rgba(155, 28, 201, 1) 51%, rgba(199, 22, 166, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6A00FF", endColorstr="#C716A6", GradientType=1);
-
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include gradient-font();
 }
 
 h2 {
+    font-size: $font-size-2xl;
+    margin: 10px 0;
+    font-weight: 700;
+    @include gradient-font();
+
+    @media (min-width: 600px) {
+        font-size: $font-size-xl;
+        margin: 0.5rem 0 0;
+        line-height: 1.1;
+    }
+}
+
+h3 {
     font-size: $font-size-xl;
     margin: 10px 0;
     font-weight: 600;
     color: #333;
 
     @media (min-width: 600px) {
-        font-size: 2rem;
+        font-size: $font-size-lg;
         margin: 1rem 0 0;
         line-height: 1.05;
     }

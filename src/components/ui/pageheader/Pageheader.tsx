@@ -25,7 +25,7 @@ const PageHeader: React.FC = () => {
                         <img src={MiraHo} alt="Mira Ho" />
                     </div>
                     <h1>Hi, ich bin Mira 👋</h1>
-                    <h2>Creative Frontend Developer</h2>
+                    <h3>Creative Frontend Developer</h3>
                     <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
                     <div className={styles.pageheader__buttons}>
                         <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
