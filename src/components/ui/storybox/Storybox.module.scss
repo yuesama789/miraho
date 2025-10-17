@@ -1,44 +1,39 @@
 @import '../../../styles/globals.scss';
 
 .storybox {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+    overflow: hidden;
 
     height: auto;
     border-radius: 16px;
 
-    padding: 1.5rem 16px;
+    padding: 1.5rem 2rem 1.5rem 3rem;
     margin: 2rem 0;
 
-    .storyboxHeader {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
 
-        .storyboxIcon {
-            width: 60px;
-            height: 60px;
-
-            font-size: $font-size-xl;
-
-            font-size: 1.5rem;
-            line-height: 1;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            border-radius: 100%;
-            justify-content: center;
-            margin: 1rem;
-        }
+    .storyboxIcon {
+        font-size: 7rem;
+        position: absolute;
+        top: 0rem;
+        right: 1rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        background-clip: text;
+        color: transparent;
     }
+    
 
     .storyboxText {
         color: #0F172A;
-        padding: 0 1rem 0px 2rem;
+        //padding: 0 1rem 0px 2rem;
         font-size: $font-size-sm;
         line-height: 1.25rem;
+    }
+
+    .storyboxText, h3 {
+        z-index: 5;
     }
 }

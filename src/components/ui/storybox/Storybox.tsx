@@ -29,19 +29,14 @@ const Storybox: React.FC<StoryboxProps> = ({ icon, color = "purple", title, text
             }}
             aria-label={title}
         >
-            <div className={styles.storyboxHeader}>
-                <div className={styles.storyboxIcon}
-                role="img" aria-hidden="true">
-                    {icon}
-                </div>
-                <h3>
-                    {title}
-                </h3>
-            </div>
 
-            <p 
-                className={styles.storyboxText}
-            >{text}</p>
+            <div className={styles.storyboxIcon} role="img" aria-hidden="true">
+                {icon}
+            </div>
+            <h3>
+                {title}
+            </h3>
+            <p className={styles.storyboxText}>{text}</p>
         </div>
     );
 };
