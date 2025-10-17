@@ -12,9 +12,9 @@ interface StoryboxProps {
 }
 
 const colorMap: Record<Color, { bg: string; fg: string }> = {
-    orange: { bg: "#FFF4E6", fg: "#D35400" },
-    pink: { bg: "#FFF0F6", fg: "#C2185B" },
-    purple: { bg: "#F5F3FF", fg: "#6D28D9" },
+    orange: { bg: "#fff1e7", fg: "#ffe2cd" },
+    pink: { bg: "#ffe7f5", fg: "#ffceea" },
+    purple: { bg: "#f2e8ff", fg: "#e4cfff" },
 };
 
 const Storybox: React.FC<StoryboxProps> = ({ icon, color = "purple", title, text, className = "" }) => {
@@ -25,12 +25,13 @@ const Storybox: React.FC<StoryboxProps> = ({ icon, color = "purple", title, text
             className={styles.storybox + " " +  className}
             style={{
                 border: "1px solid" + fg,
-                background: bg
+                background: `linear-gradient(135deg, ${bg} 0%, ${fg} 100%)`,
             }}
             aria-label={title}
         >
             <div className={styles.storyboxHeader}>
-                <div className={styles.storyboxIcon} role="img" aria-hidden="true">
+                <div className={styles.storyboxIcon}
+                role="img" aria-hidden="true">
                     {icon}
                 </div>
                 <h3>
@@ -38,7 +39,9 @@ const Storybox: React.FC<StoryboxProps> = ({ icon, color = "purple", title, text
                 </h3>
             </div>
 
-            <p className={styles.storyboxText}>{text}</p>
+            <p 
+                className={styles.storyboxText}
+            >{text}</p>
         </div>
     );
 };

@@ -3,12 +3,14 @@
 .storybox {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: flex-start;
+    text-align: left;
 
     height: auto;
-    border-radius: 8px;
+    border-radius: 16px;
 
-    padding: 8px;
+    padding: 1.5rem 16px;
+    margin: 2rem 0;
 
     .storyboxHeader {
         display: flex;
@@ -17,15 +19,26 @@
         align-items: center;
 
         .storyboxIcon {
-            width: 40px;
-            min-width: 40px;
+            width: 60px;
+            height: 60px;
 
             font-size: $font-size-xl;
+
+            font-size: 1.5rem;
             line-height: 1;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            border-radius: 100%;
+            justify-content: center;
+            margin: 1rem;
         }
     }
 
     .storyboxText {
         color: #0F172A;
+        padding: 0 1rem 0px 2rem;
+        font-size: $font-size-sm;
+        line-height: 1.25rem;
     }
 }

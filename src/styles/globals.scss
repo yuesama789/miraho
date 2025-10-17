@@ -38,6 +38,11 @@ $font-size-3xl: 3.5rem;
     -webkit-text-fill-color: transparent;
 }
 
+@mixin box-shadow() {
+    -webkit-box-shadow: 0px 20px 25px -5px rgba(0,0,0,0.2);
+    box-shadow: 0px 20px 25px -5px rgba(0,0,0,0.2);
+}
+
 
 @font-face {
     font-family: 'Montserrat';
