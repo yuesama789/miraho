@@ -1,14 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 // Define component width variables
-  $component-width: 728px;
-  $component-max-width: 80vw;
+$component-width: 728px;
+$component-max-width: 80vw;
 
 // Define colors and default angle
 $primary-gradient-c1: #6A00FF;
 $primary-gradient-c2: #9c2dc4;
 $primary-gradient-c3: #C716A6;
 $primary-gradient-angle: 107deg;
+
+// Define fontsizes
+$font-size-base: 16px;
+$font-size-smaller: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 3.5rem;
 
 // Mixin you can @include wherever you need this background
 @mixin primary-gradient($angle: $primary-gradient-angle, $c1: $primary-gradient-c1, $c2: $primary-gradient-c2, $c3: $primary-gradient-c3) {
@@ -34,4 +44,47 @@ $primary-gradient-angle: 107deg;
     font-weight: 100 900;
     src: local('Montserrat Italic'), local('Montserrat-Italic');
     font-display: swap;
+}
+
+
+h1 {
+    font-size: $font-size-3xl;
+    margin: .75rem 0 0;
+    font-weight: 800;
+
+    background: #6a00ff;
+    background: -webkit-linear-gradient(90deg, rgba(106, 0, 255, 1) 0%, rgba(155, 28, 201, 1) 51%, rgba(199, 22, 166, 1) 100%);
+    background: -moz-linear-gradient(90deg, rgba(106, 0, 255, 1) 0%, rgba(155, 28, 201, 1) 51%, rgba(199, 22, 166, 1) 100%);
+    background: linear-gradient(90deg, rgba(106, 0, 255, 1) 0%, rgba(155, 28, 201, 1) 51%, rgba(199, 22, 166, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6A00FF", endColorstr="#C716A6", GradientType=1);
+
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: $font-size-xl;
+    margin: 10px 0;
+    font-weight: 600;
+    color: #333;
+
+    @media (min-width: 600px) {
+        font-size: 2rem;
+        margin: 1rem 0 0;
+        line-height: 1.05;
+    }
+}
+
+.invisible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
 }

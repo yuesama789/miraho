@@ -38,7 +38,10 @@
         }
 
         .pageheader__description {
-            font-size: 1.25rem;
+            font-size: $font-size-md;
+            @media screen and (min-width: 600px) {
+                font-size: $font-size-lg;
+            }
         }
 
         .pageheader__buttons {

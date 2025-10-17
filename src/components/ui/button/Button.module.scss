@@ -3,10 +3,14 @@
 .customButton {
     font-family: 'Montserrat', "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     border-radius: 100px;
-    font-size: 1rem;
+    font-size: $font-size-sm;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: 600;
+
+    @media screen and (min-width: 600px) {
+        font-size: $font-size-md;
+    }
 }
 
 .primary {
