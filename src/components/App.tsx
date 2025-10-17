@@ -19,6 +19,10 @@ const App: React.FC = () => {
                 <Storybox icon="🌟" color="purple" title="Das Ziel" text="Nach einem Exkurs in der Projektmanagement habe ich meine Leidenschaft für das Designen von Webseiten weiter vertieft und arbeitete nun an spannenden Projekten. Dabei durfte ich mein Wissen in scrollgetriggerten Animationen und modernen Webtechnologien einbringen." />
                 <Imagebox src={ImageboxImage} alt="Description of image" className="custom-class" />
             </Section>
+            <Section backgroundColor='pink'>
+                <h2>Skills & Expertise</h2>
+                <p>This is another section content.</p>
+            </Section>
         </div>
     );
 };

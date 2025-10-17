@@ -1,9 +1,22 @@
 @import '../../../styles/globals.scss';
 
 .section-container {
-    width: $component-width;
-    max-width: $component-max-width;
     min-height: 100dvh;
     margin: 0 auto;
     padding: 2rem 1rem;
+}
+
+.pink {
+    background: radial-gradient(circle, $pink-gradient-c1 0%, $pink-gradient-c3 100%);
+}
+
+.orange {
+    background: radial-gradient(circle, $orange-gradient-c1 0%, $orange-gradient-c3 100%);
+}
+
+.purple {
+    background: radial-gradient(circle, $purple-gradient-c1 0%, $purple-gradient-c3 100%);
+}
+.none {
+    background: none;
 }
