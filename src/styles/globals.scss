@@ -30,6 +30,8 @@ $font-size-xl: 1.5rem;
 $font-size-2xl: 2rem;
 $font-size-3xl: 3.5rem;
 
+$gradient: linear-gradient(107deg, $primary-gradient-c1 0%, $primary-gradient-c2 45%, $primary-gradient-c3 100%);
+
 // Mixin you can @include wherever you need this background
 @mixin primary-gradient($angle: $primary-gradient-angle, $c1: $primary-gradient-c1, $c2: $primary-gradient-c2, $c3: $primary-gradient-c3) {
     background: $c1;

@@ -37,3 +37,15 @@
     background-color: #6a00ff;
     color: white;
 }
+
+.tertiary {
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+    @include gradient-font();
+
+    &::after {
+        content: '→';
+        padding: 0 0 0 .5rem;
+    }
+}

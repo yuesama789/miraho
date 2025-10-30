@@ -8,6 +8,7 @@ import Button from './ui/button/Button';
 
 
 import ImageboxImage from '../assets/images/MiraHo.jpg';
+import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 
 const App: React.FC = () => {
 
@@ -45,6 +46,11 @@ const App: React.FC = () => {
                 <div style={{ marginTop: '1rem' }}>
                     <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
                 </div>
+            </Section>
+            <Section>
+                <h2>Portfolio</h2>
+                <p>Some of my recent works.</p>
+                <TeaserContainer />
             </Section>
         </div>
     );
