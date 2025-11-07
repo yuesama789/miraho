@@ -3,7 +3,6 @@ import PageHeader from './ui/pageheader/Pageheader';
 import Section from './ui/section/Section';
 import Storybox from './ui/storybox/Storybox';
 import Imagebox from './ui/imagebox/Imagebox';
-import Badge from './ui/badge/Badge';
 import Button from './ui/button/Button';
 
 
@@ -11,6 +10,7 @@ import ImageboxImage from '../assets/images/MiraHo.jpg';
 import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 import Modal from './ui/modal/Modal';
 import { ModalProvider } from '../context/modalContext';
+import BadgeCloud from './ui/badgeCloud/BadgeCloud';
 
 const App: React.FC = () => {
 
@@ -35,19 +35,9 @@ const App: React.FC = () => {
                 <Section backgroundColor='pink'>
                     <h2>Skills & Expertise</h2>
                     <p>Here is the stuff I can do.</p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent:'flex-start' }}>
-                        <Badge color="blue">Web Design</Badge>
-                        <Badge color="green">Frontend Development</Badge>
-                        <Badge color="purple">UX/UI Design</Badge>
-                        <Badge color="red">Project Management</Badge>
-                        <Badge color="yellow">Typescript</Badge>
-                        <Badge color="gray">React</Badge>
-                        <Badge color="blue">Sass</Badge>
-                        <Badge color="green">Animation</Badge>
-                        <Badge color="purple">Accessibility</Badge>
-                    </div>
-                    <div style={{ marginTop: '1rem' }}>
-                        <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
+                    <BadgeCloud />
+                    <div style={{ marginTop: '2rem' }}>
+                        <Button type="secondary" onClick={() => alert('Button clicked!')} centered>{downloadIcon} Download CV</Button>
                     </div>
                 </Section>
                 <Section>

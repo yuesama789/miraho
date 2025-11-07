@@ -12,7 +12,7 @@ const modalMap: Record<string, ModalContent> = {
 // add more modal entries here
 };
 
-const Modal: React.FC<{  }> = ({  }) => {
+const Modal: React.FC = () => {
 
     const { isOpen, closeModal, retrieveModalId } = useModal();
 
