@@ -6,7 +6,19 @@
     .section-content {
         @include desktopTablet();
         margin: 0 auto;
-        padding: 2rem 1rem; 
+        padding: 2rem 1rem;
+
+        @media (min-width: 1200px) {
+            padding: 4rem 2rem;
+        }
+
+        p {
+            @media (min-width: 1200px) {
+                font-size: $font-size-lg;
+                margin: 1rem 0 0;
+                line-height: 1.05;
+            }
+        }
     }
 }
 
