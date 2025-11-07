@@ -4,15 +4,21 @@ import styles from './Section.module.scss';
 interface SectionProps {
     children: React.ReactNode;
     backgroundColor?: 'pink' | 'orange' | 'purple' | 'none';
-    additionalClassName?: string;
+    title: string;
+    description?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ children, backgroundColor, additionalClassName }) => {
+const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description }) => {
 
     const bg = backgroundColor ?? 'none';
-    const additionalClasses = additionalClassName ? additionalClassName : '';
 
-    return <div className={`${styles['section-container']} ${styles[bg]} ${styles[additionalClasses]}`}>{children}</div>;
+    return <div className={`${styles['section-container']} ${styles[bg]}`}>
+        <div className={styles['section-content']}>
+            <h2>{title}</h2>
+            {description && <p>{description}</p>}
+            {children}
+        </div>
+    </div>;
 };
 
 export default Section;

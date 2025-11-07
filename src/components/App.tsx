@@ -23,26 +23,23 @@ const App: React.FC = () => {
         <ModalProvider>
             <div className="App">
                 <PageHeader />
-                <Section additionalClassName="my-story-section">
-                    <h2>My Story</h2>
-                    {/* Additional content can go here */}
-                    <p>This is a section content.</p>
-                    <Storybox icon="♥️" color="orange" title="Der Anfang" text="In den 2010er fing ich an - wie viele andere - einen Blog zu schreiben. Doch mehr als das Schreiben fand ich gefallen am Gestalten meines Blogs und so fing ich an, darüber zu schreiben und anderen beim Design ihrer Blogs zu helfen. Noch heute findet man meinen Blog 'Copy Paste Love' im Netz, auch wenn er leider nicht mehr aktiv ist." />
-                    <Storybox icon="🚀" color="pink" title="Die Reise" text="Neben meinem Medieninformatik Studium habe ich als Selbstständige unter 'MiraDesigns' vielen Bloggern beim Erstellen und Gestalten ihrer Webseite geholfen. Dadurch konnte ich mein Studium finanzieren und weiterhin meiner Leidenschaft nachgehen." />
-                    <Storybox icon="🌟" color="purple" title="Das Ziel" text="Nach einem Exkurs in der Projektmanagement habe ich meine Leidenschaft für das Designen von Webseiten weiter vertieft und arbeitete nun an spannenden Projekten. Dabei durfte ich mein Wissen in scrollgetriggerten Animationen und modernen Webtechnologien einbringen." />
-                    <Imagebox src={ImageboxImage} alt="Description of image" className="custom-class" />
+                <Section title="My Story" description="A brief overview of my journey.">
+                    <div className='my-story-container'>
+                        <div>
+                            <Storybox icon="♥️" color="orange" title="Der Anfang" text="In den 2010er fing ich an - wie viele andere - einen Blog zu schreiben. Doch mehr als das Schreiben fand ich gefallen am Gestalten meines Blogs und so fing ich an, darüber zu schreiben und anderen beim Design ihrer Blogs zu helfen. Noch heute findet man meinen Blog 'Copy Paste Love' im Netz, auch wenn er leider nicht mehr aktiv ist." />
+                            <Storybox icon="🚀" color="pink" title="Die Reise" text="Neben meinem Medieninformatik Studium habe ich als Selbstständige unter 'MiraDesigns' vielen Bloggern beim Erstellen und Gestalten ihrer Webseite geholfen. Dadurch konnte ich mein Studium finanzieren und weiterhin meiner Leidenschaft nachgehen." />
+                            <Storybox icon="🌟" color="purple" title="Das Ziel" text="Nach einem Exkurs in der Projektmanagement habe ich meine Leidenschaft für das Designen von Webseiten weiter vertieft und arbeitete nun an spannenden Projekten. Dabei durfte ich mein Wissen in scrollgetriggerten Animationen und modernen Webtechnologien einbringen." />
+                        </div>
+                        <Imagebox src={ImageboxImage} alt="Description of image" className="custom-class" />
+                    </div>
                 </Section>
-                <Section backgroundColor='pink'>
-                    <h2>Skills & Expertise</h2>
-                    <p>Here is the stuff I can do.</p>
+                <Section backgroundColor='pink' title='Skills & Expertise' description='Here is the stuff I can do.'>
                     <BadgeCloud />
                     <div style={{ marginTop: '2rem' }}>
                         <Button type="secondary" onClick={() => alert('Button clicked!')} centered>{downloadIcon} Download CV</Button>
                     </div>
                 </Section>
-                <Section>
-                    <h2>Portfolio</h2>
-                    <p>Some of my recent works.</p>
+                <Section title="Portfolio" description="Some of my recent works.">
                     <TeaserContainer />
                     <Modal />
                 </Section>
