@@ -19,6 +19,7 @@
 
     background: $background-light-beige;
     height: 100dvh;
+    overflow-x: hidden;
 
     .pageheader__container {
         width: $component-max-width;
@@ -33,7 +34,11 @@
         flex: 4;
         display: flex;
         justify-content: center;
-        transform: translate(3rem, 0);
+        transform: translate(2.5rem, 1.5rem) scale(.8);
+
+        @media (min-width: 600px) {
+        transform: translate(1.5rem, 0);
+        }
 
         &::before {
             content: '';
