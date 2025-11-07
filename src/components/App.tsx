@@ -54,7 +54,7 @@ const App: React.FC = () => {
                     <h2>Portfolio</h2>
                     <p>Some of my recent works.</p>
                     <TeaserContainer />
-                    <Modal id="portfolio-modal" />
+                    <Modal />
                 </Section>
             </div>
         </ModalProvider>
