@@ -23,7 +23,7 @@ const App: React.FC = () => {
         <ModalProvider>
             <div className="App">
                 <PageHeader />
-                <Section>
+                <Section additionalClassName="my-story-section">
                     <h2>My Story</h2>
                     {/* Additional content can go here */}
                     <p>This is a section content.</p>
