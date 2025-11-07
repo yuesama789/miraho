@@ -20,22 +20,28 @@ const PageHeader: React.FC = () => {
     return (
         <>
             <header className={styles.pageheader}>
-                <div className={styles.pageheader__content}>
+                <div className={styles.pageheader__container}>
                     <div className={styles.pageheader__profilepic}>
-                        <img src={MiraHo} alt="Mira Ho" />
+                        <div className={styles.pageheader__blobOrnament}></div>
+                        <div className={styles.pageheader__blob}>
+                            <img src={MiraHo} alt="Mira Ho" />
+                        </div>
                     </div>
-                    <h1>Hi, ich bin Mira <span className={styles.wave}>👋</span></h1>
-                    <h3>Creative Frontend Developer</h3>
-                    <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
-                    <div className={styles.pageheader__buttons}>
-                        <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
-                        <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
+                    <div className={styles.pageheader__content}>
+                        <h1>Hi, ich bin Mira <span className={styles.wave}>👋</span></h1>
+                        <h3>Creative Frontend Developer</h3>
+                        <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
+                        <div className={styles.pageheader__buttons}>
+                            <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
+                            <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
+                        </div>
+                        <div className={styles.pageheader__scrollindicator}>
+                            <span className='invisible'>Scroll down</span>
+                            {scrollIndicator}
+                        </div>
                     </div>
-                    <div className={styles.pageheader__scrollindicator}>
-                        <span className='invisible'>Scroll down</span>
-                        {scrollIndicator}
-                    </div>
-                </div>
+                </div> 
+
             </header>
         </>
     );
