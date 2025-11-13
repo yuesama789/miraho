@@ -18,8 +18,9 @@
     align-items: center;
 
     background: $background-light-beige;
-    height: 100dvh;
+    min-height: 100dvh;
     overflow-x: hidden;
+    padding-bottom: 3rem;
 
     .pageheader__container {
         width: $component-max-width;
@@ -31,13 +32,14 @@
 
     .pageheader__profilepic {
         position: relative;
-        flex: 4;
         display: flex;
         justify-content: center;
         transform: translate(2.5rem, 1.5rem) scale(.8);
+        flex: 1;
 
         @media (min-width: 600px) {
         transform: translate(1.5rem, 0);
+        flex: 4;
         }
 
         &::before {
@@ -90,7 +92,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex: 6;
+        flex: 1;
+
+        @media (min-width: 600px) {
+            flex: 6;
+        }
 
         .wave {
             display: inline-block;
