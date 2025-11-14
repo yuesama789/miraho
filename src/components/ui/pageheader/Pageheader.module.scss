@@ -118,11 +118,15 @@
         }
 
         .pageheader__scrollindicator{
-            position: absolute;
-            bottom: 0;
+            position: fixed;
+            width: 100%;
+            background-color: $background-light-beige;
+            bottom: -1rem;
             margin-top: 2rem;
+            padding-bottom: 1rem;
             color: $primary-gradient-c2;
             animation: bounce 2s 3;
+
             svg {
                 width: 32px;
                 height: 32px;

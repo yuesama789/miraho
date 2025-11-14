@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Pageheader.module.scss';
 import Button from '../button/Button';
 import MiraHo from '../../../assets/images/MiraHo.jpg';
+import { motion } from 'framer-motion';
 
 const PageHeader: React.FC = () => {
 
@@ -29,15 +30,17 @@ const PageHeader: React.FC = () => {
                     </div>
                     <div className={styles.pageheader__content}>
                         <h1>Hi, ich bin Mira <span className={styles.wave}>👋</span></h1>
-                        <h3>Creative Frontend Developer</h3>
-                        <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
+                            <h3>Creative Frontend Developer</h3>
+                            <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
+                        </motion.div>
                         <div className={styles.pageheader__buttons}>
                             <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
                             <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
-                        </div>
-                        <div className={styles.pageheader__scrollindicator}>
-                            <span className='invisible'>Scroll down</span>
-                            {scrollIndicator}
                         </div>
                     </div>
                 </div> 
