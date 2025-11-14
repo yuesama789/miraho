@@ -155,3 +155,7 @@ h3 {
         }
     }
 }
+
+#scroll-indicator {
+    @include primary-gradient();
+}

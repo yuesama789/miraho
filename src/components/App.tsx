@@ -4,6 +4,7 @@ import Section from './ui/section/Section';
 import Storybox from './ui/storybox/Storybox';
 //import Imagebox from './ui/imagebox/Imagebox';
 import Button from './ui/button/Button';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 
 //import ImageboxImage from '../assets/images/MiraHo.jpg';
@@ -18,6 +19,13 @@ const App: React.FC = () => {
     const downloadIcon = (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-component-line="235"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
     );
+
+    const { scrollYProgress } = useScroll()
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001,
+    })
 
     return (
         <ModalProvider>
@@ -44,6 +52,18 @@ const App: React.FC = () => {
                     <Modal />
                 </Section>
             </div>
+            <motion.div
+                id="scroll-indicator"
+                style={{
+                    scaleY,
+                    position: "fixed",
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    width: 5,
+                    originY: 0,
+                }}
+            />
         </ModalProvider>
     );
 };
