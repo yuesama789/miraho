@@ -31,7 +31,7 @@ const App: React.FC = () => {
         <ModalProvider>
             <div className="App">
                 <PageHeader />
-                <Section title="My Story" description="A brief overview of my journey.">
+                <Section scrollTelling={true} title="My Story" description="A brief overview of my journey.">
                     <div className='my-story-container'>
                         <div>
                             <Storybox title="Der Anfang" text="In den 2010er fing ich an - wie viele andere - einen Blog zu schreiben. Doch mehr als das Schreiben fand ich gefallen am Gestalten meines Blogs und so fing ich an, darüber zu schreiben und anderen beim Design ihrer Blogs zu helfen. Noch heute findet man meinen Blog 'Copy Paste Love' im Netz, auch wenn er leider nicht mehr aktiv ist." />
