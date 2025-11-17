@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './Pageheader.module.scss';
 import Button from '../button/Button';
 import MiraHo from '../../../assets/images/MiraHo.jpg';
-import { motion } from 'framer-motion';
+import {gsap} from 'gsap';
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const PageHeader: React.FC = () => {
+
+    const main = useRef<HTMLElement | null>(null);
 
     const sparkleSvg = (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-component-line="230"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
@@ -18,9 +24,45 @@ const PageHeader: React.FC = () => {
     //    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-component-line="254"><path d="m6 9 6 6 6-6"></path></svg>
     //);
 
+useGSAP(() => {
+    const tl = gsap.timeline({defaults: {duration: 1, ease: "power2.out"}});
+
+    tl.from(`.${styles.pageheader__blob}`, { opacity: 0.5, y: -50})
+        .from(`.${styles.pageheader__blobOrnament}`, {opacity: 0}, "-=0.5")
+        .from(`.${styles.pageheader__content} h1`, {opacity: 0, y: 20}, "-=0.5")
+        .from(`.${styles.pageheader__content} h3`, {opacity: 0, y: 20}, "-=0.4")
+        .from(`.${styles.pageheader__content} p`, {opacity: 0, y: 20}, "-=0.4")
+        .from(`.${styles.pageheader__buttons} button`, {opacity: 0, y: 20, stagger: 0.2}, "-=0.4");
+
+    return () => {
+        tl.kill();
+    };
+}, []);
+
+useGSAP(() => {
+    const buttons = gsap.utils.toArray<HTMLButtonElement>(`.${styles.pageheader__buttons} button`);
+
+    buttons.forEach((button) => {
+        gsap.from(button, {
+            scale: 0.5,
+            opacity: 0,
+            duration: 1,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: button,
+                start: "top 80%",
+                end: "bottom 60%",
+                scrub: true,
+                markers: true
+            },
+        });
+    });
+}, {scope: main});
+
+
     return (
         <>
-            <header className={styles.pageheader}>
+            <header ref={main} className={styles.pageheader}>
                 <div className={styles.pageheader__container}>
                     <div className={styles.pageheader__profilepic}>
                         <div className={styles.pageheader__blobOrnament}></div>
@@ -30,14 +72,8 @@ const PageHeader: React.FC = () => {
                     </div>
                     <div className={styles.pageheader__content}>
                         <h1>Hi, ich bin Mira <span className={styles.wave}>👋</span></h1>
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            <h3>Creative Frontend Developer</h3>
-                            <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
-                        </motion.div>
+                        <h3>Creative Frontend Developer</h3>
+                        <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
                         <div className={styles.pageheader__buttons}>
                             <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
                             <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
