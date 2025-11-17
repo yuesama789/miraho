@@ -40,6 +40,15 @@
         @media (min-width: 600px) {
         transform: translate(1.5rem, 0);
         flex: 4;
+
+            &:hover {
+                .pageheader__blobOrnament {
+                    transform: rotate(327deg);
+                }
+                .pageheader__blob {
+                    transform: rotate(2deg);
+                }
+            }
         }
 
         &::before {
@@ -64,6 +73,8 @@
             mask-size: 550%;
             -webkit-mask-position: 36% 7%;
             mask-position: 36% 7%;
+
+            transition: transform 100ms linear;
         }
 
 
@@ -85,6 +96,9 @@
             top: 5rem;
             left: -3rem;
             transform: rotate(332deg);
+
+
+            transition: transform 100ms linear;
         }
     }
 
