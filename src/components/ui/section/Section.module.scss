@@ -1,7 +1,8 @@
 @import '../../../styles/globals.scss';
 
 .section-container {
-    min-height: 100dvh;
+    height: 100dvh;
+    overflow: hidden;
 
     .section-content {
         @include desktopTablet();
@@ -27,7 +28,7 @@
 }
 
 .orange {
-    background: radial-gradient(circle, $orange-gradient-c1 0%, $orange-gradient-c3 100%);
+    background: $background-light-beige;
 }
 
 .purple {

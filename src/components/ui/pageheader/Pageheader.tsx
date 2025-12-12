@@ -20,24 +20,35 @@ const PageHeader: React.FC = () => {
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-component-line="235"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
     );
 
-    //const scrollIndicator = (
-    //    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-component-line="254"><path d="m6 9 6 6 6-6"></path></svg>
-    //);
 
 useGSAP(() => {
     const tl = gsap.timeline({defaults: {duration: 1, ease: "power2.out"}});
 
-    tl.from(`.${styles.pageheader__blob}`, { opacity: 0.5, y: -50})
+    tl.from(`.${styles.pageheader__blob}`, { opacity: 0, y: -50})
         .fromTo(`.${styles.pageheader__blobOrnament}`, {opacity: 0, y: -50, rotate: 320}, {opacity: 1, y: 0, rotate: 332}, "-=0.5")
         .from(`.${styles.pageheader__content} h1`, {opacity: 0, y: -20}, "-=0.5")
         .fromTo(`.${styles.wave}`, {rotation: 0}, {rotation: 20, yoyo: true, repeat: 6, ease: "sine.inOut", duration: 0.5}, "-=0.5")
         .from(`.${styles.pageheader__content} h3`, {opacity: 0, y: -20}, "-=3")
         .from(`.${styles.pageheader__buttons} button`, {opacity: 0, y: -20, stagger: 0.2}, "-=2.4");
 
+        
+        gsap.to(`.${styles.pageheader__blobOrnament}`, {
+            yPercent: -10,
+            scrollTrigger: {
+                trigger: main.current,
+                start: "top top",
+                end: "bottom top",
+                // markers: true,
+                id: "blob-ornament-scroll",
+                scrub: true,
+            },
+        });
+
     return () => {
         tl.kill();
     };
 }, []);
+
 
 
 
