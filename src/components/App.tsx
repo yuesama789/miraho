@@ -13,16 +13,26 @@ import { ModalProvider } from '../context/modalContext';
 import BadgeCloud from './ui/badgeCloud/BadgeCloud';
 
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 
 
 const App: React.FC = () => {
 
     
-    gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollSmoother);
 
-    useEffect(() => {
+useEffect(() => {
+    ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 1,
+        effects: true,
+        normalizeScroll: true,
+    });
+}, []);
+
+/*     useEffect(() => {
         // Wait for DOM to be ready
         const initScrollTrigger = () => {
             ScrollTrigger.create({
@@ -48,7 +58,8 @@ const App: React.FC = () => {
             clearTimeout(timeoutId);
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
-    }, []);
+    }, []); */
+
 
 
     const downloadIcon = (
@@ -58,30 +69,34 @@ const App: React.FC = () => {
 
     return (
         <ModalProvider>
-            <div className="App">
-                <Section className="section-container" backgroundColor='orange'>
-                    <PageHeader />
-                </Section>
-                <Section className="section-container" title="My Story" description="A brief overview of my journey.">
-                    <div className='my-story-container'>
-                        <div>
-                            <Storybox title="Interactions & Motion" bulletPoints={["Microinteractions", "Scroll-Animationen", "Motion Prototyping"]}/>
-                            <Storybox title="UI Engineering" bulletPoints={["Component-driven development", "Design Systems", "React & TypeScript"]} />
-                            <Storybox title="Creative Problem Solving" bulletPoints={["I love sparring with design", "Turning concept into experiences", "Visual logic & ideation"]}  />
-                        </div>
-                        {/*<Imagebox src={ImageboxImage} alt="Description of image" className="custom-class" />*/}
+            <div id="smooth-wrapper">
+                <div id="smooth-content">
+                    <div className="App">
+                        <Section className="section-container" backgroundColor='orange'>
+                            <PageHeader />
+                        </Section>
+                        <Section className="section-container" title="My Story" description="A brief overview of my journey.">
+                            <div className='my-story-container'>
+                                <div>
+                                    <Storybox title="Interactions & Motion" bulletPoints={["Microinteractions", "Scroll-Animationen", "Motion Prototyping"]}/>
+                                    <Storybox title="UI Engineering" bulletPoints={["Component-driven development", "Design Systems", "React & TypeScript"]} />
+                                    <Storybox title="Creative Problem Solving" bulletPoints={["I love sparring with design", "Turning concept into experiences", "Visual logic & ideation"]}  />
+                                </div>
+                                {/*<Imagebox src={ImageboxImage} alt="Description of image" className="custom-class" />*/}
+                            </div>
+                        </Section>
+                        <Section className="section-container" backgroundColor='pink' title='Skills & Expertise' description='Here is the stuff I can do.'>
+                            <BadgeCloud />
+                            <div style={{ marginTop: '2rem' }}>
+                                <Button type="secondary" onClick={() => alert('Button clicked!')} centered>{downloadIcon} Download CV</Button>
+                            </div>
+                        </Section>
+                        <Section className="section-container" title="Portfolio" description="Some of my recent works.">
+                            <TeaserContainer />
+                            <Modal />
+                        </Section>
                     </div>
-                </Section>
-                <Section className="section-container" backgroundColor='pink' title='Skills & Expertise' description='Here is the stuff I can do.'>
-                    <BadgeCloud />
-                    <div style={{ marginTop: '2rem' }}>
-                        <Button type="secondary" onClick={() => alert('Button clicked!')} centered>{downloadIcon} Download CV</Button>
-                    </div>
-                </Section>
-                <Section className="section-container" title="Portfolio" description="Some of my recent works.">
-                    <TeaserContainer />
-                    <Modal />
-                </Section>
+                </div>
             </div>
         </ModalProvider>
     );
