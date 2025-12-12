@@ -4,6 +4,14 @@
     height: 100dvh;
     overflow: hidden;
 
+    .section-underline {
+        display: block;
+        width: 20rem;
+        height: 1px;
+        background-color: #000;
+        margin: 1rem auto 0;
+    }
+
     .section-content {
         @include desktopTablet();
         margin: 0 auto;
@@ -13,7 +21,12 @@
             padding: 4rem 2rem;
         }
 
+        h2 {
+            opacity: 0;
+        }
+
         p {
+            opacity: 0;
             @media (min-width: 1200px) {
                 font-size: $font-size-lg;
                 margin: 1rem 0 0;

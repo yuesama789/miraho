@@ -20,46 +20,17 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 const App: React.FC = () => {
 
     
-gsap.registerPlugin(ScrollSmoother);
+    gsap.registerPlugin(ScrollSmoother);
 
-useEffect(() => {
-    ScrollSmoother.create({
-        wrapper: '#smooth-wrapper',
-        content: '#smooth-content',
-        smooth: 1,
-        effects: true,
-        normalizeScroll: true,
-    });
-}, []);
-
-/*     useEffect(() => {
-        // Wait for DOM to be ready
-        const initScrollTrigger = () => {
-            ScrollTrigger.create({
-                start: 0,
-                end: "max",
-                markers: true,
-                snap: {
-                    snapTo: [0, 1/3, 2/3, 1],
-                    duration: 0.5,
-                    ease: "power1.inOut",
-                    delay: 0.5,
-                    directional: true
-                }
-            });
-
-            ScrollTrigger.normalizeScroll(true);
-        };
-
-        // Small delay to ensure DOM is ready
-        const timeoutId = setTimeout(initScrollTrigger, 0);
-
-        return () => {
-            clearTimeout(timeoutId);
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
-    }, []); */
-
+    useEffect(() => {
+        ScrollSmoother.create({
+            wrapper: '#smooth-wrapper',
+            content: '#smooth-content',
+            smooth: 1,
+            effects: true,
+            normalizeScroll: true,
+        });
+    }, []);
 
 
     const downloadIcon = (
