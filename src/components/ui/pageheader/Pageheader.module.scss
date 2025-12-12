@@ -1,16 +1,5 @@
 @import '../../../styles/Globals.scss';
 
-@keyframes wave-animation {
-    0% { transform: rotate(0deg); }
-    15% { transform: rotate(14deg); }
-    30% { transform: rotate(-8deg); }
-    40% { transform: rotate(14deg); }
-    50% { transform: rotate(-4deg); }
-    60% { transform: rotate(10deg); }
-    70% { transform: rotate(0deg); }
-    100% { transform: rotate(0deg); }
-}
-
 .pageheader {
     display: flex;
     flex-direction: column;
@@ -40,15 +29,6 @@
         @media (min-width: 600px) {
         transform: translate(1.5rem, 0);
         flex: 4;
-
-            &:hover {
-                .pageheader__blobOrnament {
-                    transform: rotate(327deg);
-                }
-                .pageheader__blob {
-                    transform: rotate(2deg);
-                }
-            }
         }
 
         &::before {
@@ -95,7 +75,6 @@
             position: absolute;
             top: 5rem;
             left: -3rem;
-            transform: rotate(332deg);
 
 
             transition: transform 100ms linear;
@@ -114,7 +93,6 @@
 
         .wave {
             display: inline-block;
-            animation: wave-animation 3s;
             @include gradient-font();
         }
 

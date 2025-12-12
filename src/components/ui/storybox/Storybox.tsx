@@ -6,7 +6,8 @@ type Color = "orange" | "pink" | "purple";
 interface StoryboxProps {
     color?: Color;
     title: string;
-    text: string;
+    text?: string;
+    bulletPoints?: string[];
     className?: string;
 }
 
@@ -16,7 +17,7 @@ const colorMap: Record<Color, { bg: string; fg: string }> = {
     purple: { bg: "#f2e8ff", fg: "#e4cfff" },
 };
 
-const Storybox: React.FC<StoryboxProps> = ({ color = "purple", title, text, className = "" }) => {
+const Storybox: React.FC<StoryboxProps> = ({ color = "purple", title, text, bulletPoints, className = "", }) => {
     const { bg, fg } = colorMap[color];
 
     return (
@@ -31,7 +32,14 @@ const Storybox: React.FC<StoryboxProps> = ({ color = "purple", title, text, clas
             <h3>
                 {title}
             </h3>
-            <p className={styles.storyboxText}>{text}</p>
+            {text && !bulletPoints && <p className={styles.storyboxText}>{text}</p>}
+            {bulletPoints && (
+                <ul className={styles.storyboxList}>
+                    {bulletPoints.map((point, index) => (
+                        <li key={index}>{point}</li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };

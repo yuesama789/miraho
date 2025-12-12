@@ -28,36 +28,17 @@ useGSAP(() => {
     const tl = gsap.timeline({defaults: {duration: 1, ease: "power2.out"}});
 
     tl.from(`.${styles.pageheader__blob}`, { opacity: 0.5, y: -50})
-        .from(`.${styles.pageheader__blobOrnament}`, {opacity: 0}, "-=0.5")
-        .from(`.${styles.pageheader__content} h1`, {opacity: 0, y: 20}, "-=0.5")
-        .from(`.${styles.pageheader__content} h3`, {opacity: 0, y: 20}, "-=0.4")
-        .from(`.${styles.pageheader__content} p`, {opacity: 0, y: 20}, "-=0.4")
-        .from(`.${styles.pageheader__buttons} button`, {opacity: 0, y: 20, stagger: 0.2}, "-=0.4");
+        .fromTo(`.${styles.pageheader__blobOrnament}`, {opacity: 0, y: -50, rotate: 320}, {opacity: 1, y: 0, rotate: 332}, "-=0.5")
+        .from(`.${styles.pageheader__content} h1`, {opacity: 0, y: -20}, "-=0.5")
+        .fromTo(`.${styles.wave}`, {rotation: 0}, {rotation: 20, yoyo: true, repeat: 6, ease: "sine.inOut", duration: 0.5}, "-=0.5")
+        .from(`.${styles.pageheader__content} h3`, {opacity: 0, y: -20}, "-=3")
+        .from(`.${styles.pageheader__buttons} button`, {opacity: 0, y: -20, stagger: 0.2}, "-=2.4");
 
     return () => {
         tl.kill();
     };
 }, []);
 
-useGSAP(() => {
-    const buttons = gsap.utils.toArray<HTMLButtonElement>(`.${styles.pageheader__buttons} button`);
-
-    buttons.forEach((button) => {
-        gsap.from(button, {
-            scale: 0.5,
-            opacity: 0,
-            duration: 1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-                trigger: button,
-                start: "top 80%",
-                end: "bottom 60%",
-                scrub: true,
-                markers: true
-            },
-        });
-    });
-}, {scope: main});
 
 
     return (
@@ -72,8 +53,7 @@ useGSAP(() => {
                     </div>
                     <div className={styles.pageheader__content}>
                         <h1>Hi, ich bin Mira <span className={styles.wave}>👋</span></h1>
-                        <h3>Creative Frontend Developer</h3>
-                        <p className={styles.pageheader__description}>I'm a passionate frontend developer who believes in the power of storytelling through code. I transform ideas into beautiful, interactive digital experiences that not only look stunning but also create meaningful connections with users.</p>
+                        <h3>Interaction-Focused UI Developer & Design Engineer</h3>
                         <div className={styles.pageheader__buttons}>
                             <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
                             <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
