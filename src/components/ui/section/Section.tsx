@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Section.module.scss';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -18,38 +18,6 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
 
     const sectionContent = React.useRef<HTMLDivElement | null>(null);
 
-    /* console.log('sectionTitle.current:', sectionTitle.current);
-
-    useEffect(() => {
-        if (!sectionTitle.current) return;
-
-        gsap.fromTo(sectionTitle.current, {
-            y: '-100%',
-            opacity: 0,
-        },
-        {
-            scrollTrigger: {
-                trigger: sectionTitle.current,
-                start: "top 80%",
-                end: "bottom 80%",
-                scrub: 1,
-                markers: true,
-            },
-            y: '0%',
-            opacity: 1,
-            duration: 1,
-            ease: 'power2.out',
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => {
-                if (trigger.vars.trigger === sectionTitle.current) {
-                    trigger.kill();
-                }
-            });
-        };
-    }, []); */
-
     useGSAP(() => {
         if (!sectionContent.current) return;
         
@@ -59,7 +27,6 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
                 trigger: sectionContent.current,
                 start: "top 80%",
                 end: "bottom 80%",
-                markers: true,
                 scrub: 1,
             },
         });
