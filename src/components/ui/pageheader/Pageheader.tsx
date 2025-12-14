@@ -25,14 +25,13 @@ const PageHeader: React.FC = () => {
 
 
 useGSAP(() => {
-    const tl = gsap.timeline({defaults: {duration: 1, ease: "power2.out"}});
+    const tl = gsap.timeline({defaults: {duration: 1, ease: "power1.out"}});
 
     tl.from(`.${styles.pageheader__blob}`, { opacity: 0, y: -50})
-        .fromTo(`.${styles.pageheader__blobOrnament}`, {opacity: 0, y: -50, rotate: 320}, {opacity: 1, y: 0, rotate: 332}, "-=0.5")
+        .fromTo(`.${styles.pageheader__blobOrnament}`, {opacity: 0, y: -50, rotate: 320}, {opacity: 1, y: 0, rotate: 332}, "0")
         .from(`.${styles.pageheader__content} h1`, {opacity: 0, y: -20}, "-=0.5")
-        // .fromTo(`.${styles.wave}`, {rotation: 0}, {rotation: 20, yoyo: true, repeat: 6, ease: "sine.inOut", duration: 0.5}, "-=0.5")
-        .from(`.${styles.pageheader__content} h3`, {opacity: 0, y: -20}, "-=3")
-        .from(`.${styles.pageheader__buttons} button`, {opacity: 0, y: -20, stagger: 0.2}, "-=2.4");
+        .from(`.${styles.pageheader__content} h3`, {opacity: 0, y: -20}, "-=0.5")
+        .from(`.${styles.pageheader__buttons} button`, {opacity: 0, y: -20, stagger: 0.5}, "-=0.5");
 
         
         gsap.to(`.${styles.pageheader__blobOrnament}`, {

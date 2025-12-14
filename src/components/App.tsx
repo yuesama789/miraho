@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -42,7 +42,7 @@ const App: React.FC = () => {
             if (lottieElement && lottieElement.getLottie) {
                 const instance = lottieElement.getLottie();
                 if (instance && instance.totalFrames > 0) {
-                    console.log("Lottie ready with frames:", instance.totalFrames);
+                    // console.log("Lottie ready with frames:", instance.totalFrames);
                     setLottieInstance(instance);
                     return true;
                 }
@@ -65,66 +65,79 @@ const App: React.FC = () => {
 
     // Initialize scroll trigger when lottie instance is ready
     useEffect(() => {
-        const whatIDoItem1 = document.querySelector(".storyboxItem.item-1");
-        const whatIDoItem3 = document.querySelector(".storyboxItem.item-3");
-        const whatIDoItem4 = document.querySelector(".storyboxItem.item-4");
-
-        gsap.fromTo(whatIDoItem1,
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1,
-              scrollTrigger: {
-                  trigger: whatIDoItem1,
-                    start: "top 90%",
-                    end: "bottom 70%",
-                    scrub: true,
-                    markers: true,
-                }
-            }
-        )
-        gsap.fromTo(whatIDoItem3,
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1,
-                scrollTrigger: {
-                    trigger: whatIDoItem3,
-                    start: "top 90%",
-                    end: "bottom 70%",
-                    scrub: true,
-                }
-            }
-        )
-        gsap.fromTo(whatIDoItem4,
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1,
-                scrollTrigger: {
-                    trigger: whatIDoItem4,
-                    start: "top 90%",
-                    end: "bottom 70%",
-                    scrub: true,
-                }
-            }
-        );
 
         if (lottieInstance) {
             const lottieElement: any = document.querySelector("#uiuxLottie");
-            const containerElement = document.querySelector(".storyboxItem.item-2");
+            const lottieContainer = document.querySelector(".lottie-container");
+            const storyboxItemContainer = document.querySelector(".storyboxItem-container");
+            const parralaxSection = document.querySelector(".storybox-parralax-section");
+            const storyboxItem1 = document.querySelector(".storyboxItem.item-1");
+            const storyboxItem2 = document.querySelector(".storyboxItem.item-2");
+            const storyboxItem3 = document.querySelector(".storyboxItem.item-3");
+            const storyboxItems = [storyboxItem1, storyboxItem2, storyboxItem3];
+
+            // Hide storybox items initially
+            storyboxItems.forEach(item => {
+                (item as HTMLElement).style.opacity = '0';
+            });
+
             
-            if (lottieElement && containerElement) {
+            if (lottieElement) {
                 // const totalFrames = lottieInstance.totalFrames;
-                
-                gsap.to(lottieElement, {
+
+                const tl = gsap.timeline({
                     scrollTrigger: {
-                        trigger: containerElement,
+                        trigger: parralaxSection,
                         start: "top top",
-                        end: "+=500",
+                        end: "bottom top",
+                        pin: true,
+                        // markers: true,
+                        scrub: true,
+                        id: "parralax-scroll",
+                    },
+                    defaults: {duration: 1, ease: "power2.out"}
+                });
+
+                tl
+                .to(lottieElement, {
+                    onUpdate: function() {
+                            const progress = this.progress();
+                            const frame = Math.floor(progress * (220));
+                            lottieInstance.goToAndStop(frame, true);
+                    }
+                })
+                .to(storyboxItemContainer, 
+                    {y: -300}
+                , "-=.1")
+                .to(lottieContainer, 
+                    {scale: 0.5, y: -150}, "-=1")
+                .to(storyboxItem1, 
+                    {opacity: 1, delay: 0.5}, "-=1")
+                .to(storyboxItemContainer,
+                    {y: -400}, "-=0.5")
+                .to(storyboxItem2, 
+                    {opacity: 1, delay: 0.5}, "-=1")
+                .to(storyboxItemContainer,
+                    {y: -500}, "-=0.5")
+                .to(storyboxItem3, 
+                    {opacity: 1, delay: 0.5}, "-=1"
+                )
+                .to(storyboxItemContainer,
+                    {scrollTrigger: {
+                        trigger: parralaxSection,
+                        start: "80% bottom",
+                        end: "bottom top",
                         pin: true,
                         markers: true,
-                        scrub: true,
-                        onUpdate: (self) => {
-                            const frame = Math.floor(self.progress * 220);
-                            lottieInstance.goToAndStop(frame, true);
-                        }
-                    }
-                });
+                        id: "storyboxItem-fadeout-scroll",
+                    },
+                    opacity: 0}
+                );
+
+
+                return () => {                    
+                    tl.kill();
+                };
             }
         }
     }, [lottieInstance]);
@@ -143,13 +156,10 @@ const App: React.FC = () => {
                         <Section className="section-container" backgroundColor='orange'>
                             <PageHeader />
                         </Section>
-                        <Section className="section-container" title="What I do" description="Things I'm passionate about.">
+                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
                             <div className='whatIDoSection'>
                                 <div className='storybox-parralax-section'>
-                                    <div className="storyboxItem item-1">
-                                    <Storybox title="Interactions & Motion" bulletPoints={["Microinteractions", "Scroll-Animationen", "Motion Prototyping"]}/>
-                                    </div>
-                                    <div className='storyboxItem item-2'>
+                                    <div className='lottie-container'>
                                         <lottie-player
                                             id="uiuxLottie"
                                             src={`data:application/json;base64,${btoa(JSON.stringify(uiuxCard))}`}
@@ -158,11 +168,16 @@ const App: React.FC = () => {
                                             style={{ width: '100%', height: '100%' }}
                                         />
                                     </div>
-                                    <div className="storyboxItem item-3">
-                                        <Storybox title="UI Engineering" bulletPoints={["Component-driven development", "Design Systems", "React & TypeScript"]} />
-                                    </div>
-                                    <div className="storyboxItem item-4">
-                                        <Storybox title="Creative Problem Solving" bulletPoints={["I love sparring with design", "Turning concept into experiences", "Visual logic & ideation"]}  />
+                                    <div className='storyboxItem-container'>
+                                        <div className="storyboxItem item-1">
+                                        <Storybox title="Interactions & Motion" bulletPoints={["Microinteractions", "Scroll-Animationen", "Motion Prototyping"]}/>
+                                        </div>
+                                        <div className="storyboxItem item-2">
+                                            <Storybox title="UI Engineering" bulletPoints={["Component-driven development", "Design Systems", "React & TypeScript"]} />
+                                        </div>
+                                        <div className="storyboxItem item-3">
+                                            <Storybox title="Creative Problem Solving" bulletPoints={["I love sparring with design", "Turning concept into experiences", "Visual logic & ideation"]}  />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
