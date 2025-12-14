@@ -12,6 +12,10 @@
         margin: 1rem auto 0;
     }
 
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
     .section-content {
         @include desktopTablet();
         margin: 0 auto;

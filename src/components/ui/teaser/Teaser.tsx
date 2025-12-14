@@ -5,12 +5,11 @@ import { useModal } from "../../../context/modalContext";
 
 interface TeaserProps {
     title: string;
-    text: string;
     imgPath?: string;
     id: string;
 }
 
-const Teaser: React.FC<TeaserProps> = ({ title, text = "", imgPath, id }) => {
+const Teaser: React.FC<TeaserProps> = ({ title, imgPath, id }) => {
 
     const { openModal, setModalId } = useModal();
 
@@ -21,10 +20,11 @@ const Teaser: React.FC<TeaserProps> = ({ title, text = "", imgPath, id }) => {
 
     return (
         <div className={styles.teaser}>
-            <img src={imgPath ? imgPath : "https://placehold.co/600x400"} alt={title} className={styles.image} />
+            <img src={imgPath ? imgPath : "https://placehold.co/1600x1100"} alt={title} className={styles.image} />
             <h3>{title}</h3>
-            <p>{text}</p>
-            <Button type="tertiary" onClick={handleReadMore}>Read more</Button>
+            <div className={styles.teaser__button}>
+                <Button type="tertiary" onClick={handleReadMore}>Read more</Button>
+            </div>
         </div>
     );
 };

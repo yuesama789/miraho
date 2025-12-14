@@ -93,7 +93,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
 
     return <div className={`${styles['section-container']} ${styles[bg]} ${className || ''} ${fullWidth ? styles['full-width'] : ''}`} style={{ position: 'relative' }}>
         {title || description ? <div className={styles['section-content']} >
-            <div ref={sectionContent}>
+            <div className={styles['section-header']} ref={sectionContent}>
                 {title && (<><h2>{title}</h2><span className={styles['section-underline']}></span></>)}
                 {description && <p>{description}</p>}
             </div>
