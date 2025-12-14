@@ -195,7 +195,7 @@ const App: React.FC = () => {
                                 </div>
                             </div>
                         </Section> */}
-                        <Section className="section-container" pinnedTitle={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
+                        <Section className="section-container" pinnedTitle={true} fullWidth={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
                             <TeaserContainer />
                             <Modal />
                         </Section>

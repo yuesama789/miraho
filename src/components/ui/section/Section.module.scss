@@ -50,3 +50,20 @@
 .none {
     background: none;
 }
+
+.section-container.full-width {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+
+    .section-content {
+        @include desktopTablet();
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem 0;
+
+        @media (min-width: 1200px) {
+        width: 100%;
+            padding: 4rem 0;
+        }
+    }
+}

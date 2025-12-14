@@ -11,9 +11,10 @@ interface SectionProps {
     description?: string;
     className?: string;
     pinnedTitle?: boolean;
+    fullWidth?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinnedTitle }) => {
+const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinnedTitle, fullWidth }) => {
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -70,7 +71,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
             ScrollTrigger.create({
                 trigger: sectionContent.current,
                 start: "top top",
-                end: "bottom top",
+                end: "+=100",
                 pin: sectionContent.current,
                 pinSpacing: false,
                 // markers: true,
@@ -90,7 +91,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
     const bg = backgroundColor ?? 'none';
 
 
-    return <div className={`${styles['section-container']} ${styles[bg]} ${className || ''}`} style={{ position: 'relative' }}>
+    return <div className={`${styles['section-container']} ${styles[bg]} ${className || ''} ${fullWidth ? styles['full-width'] : ''}`} style={{ position: 'relative' }}>
         {title || description ? <div className={styles['section-content']} >
             <div ref={sectionContent}>
                 {title && (<><h2>{title}</h2><span className={styles['section-underline']}></span></>)}
