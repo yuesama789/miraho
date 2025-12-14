@@ -130,9 +130,10 @@ const App: React.FC = () => {
                         pin: true,
                         markers: true,
                         id: "storyboxItem-fadeout-scroll",
-                    },
-                    opacity: 0}
-                );
+                    }
+                }
+                )
+                ;
 
 
                 return () => {                    
@@ -182,15 +183,33 @@ const App: React.FC = () => {
                                 </div>
                             </div>
                         </Section>
-                        <Section className="section-container" backgroundColor='pink' title='Skills & Expertise' description='Here is the stuff I can do.'>
+                        <Section className="section-container" backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
+                            <TeaserContainer />
+                            <Modal />
+                        </Section>
+                        <Section className="section-container" backgroundColor='orange' title='How I Work' description='This is how my brain is wired.'>
+                            <div><ul>
+                                <li>User-Centered Design: I prioritize user needs and behaviors in every project.</li>
+                                <li>Agile Methodology: I embrace iterative development and continuous feedback.</li>
+                                <li>Collaboration: I work closely with cross-functional teams to achieve the best results.</li>
+                            </ul></div>
+                        </Section>
+                        <Section className="section-container" backgroundColor='pink' title='Skills & Expertise' description='Some of the tools and technologies I excel in.'>
                             <BadgeCloud />
                             <div style={{ marginTop: '2rem' }}>
                                 <Button type="secondary" onClick={() => alert('Button clicked!')} centered>{downloadIcon} Download CV</Button>
                             </div>
                         </Section>
-                        <Section className="section-container" title="Portfolio" description="Some of my recent works.">
-                            <TeaserContainer />
-                            <Modal />
+                        <Section className="section-container" backgroundColor='purple' title='About Me' description='A brief introduction.'>
+                            <div>Hello! I'm Mira Ho, an Interaction-Focused UI Developer & Design Engineer. I specialize in creating engaging digital experiences through thoughtful design and seamless interactions. With a passion for both aesthetics and functionality, I strive to bring ideas to life in ways that resonate with users.</div>
+                        </Section>
+                        <Section className="section-container" backgroundColor='orange' title='Let’s Connect!' description='I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!'>
+                            <Button type="primary" onClick={() => alert('Button clicked!')} centered>Contact Me</Button>
+                        </Section>
+                        <Section className="section-container" backgroundColor='purple'>
+                            <footer style={{ textAlign: 'center', padding: '1rem', fontSize: '0.9rem', color: '#666' }}>
+                                &copy; {new Date().getFullYear()} Mira Ho. All rights reserved.
+                            </footer>
                         </Section>
                     </div>
                 </div>
