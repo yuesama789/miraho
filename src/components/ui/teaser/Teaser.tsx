@@ -54,13 +54,14 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
 
         gsap.to(mediaRef.current, {
             scale: 0.5,
+            y: 100,
             ease: "none",
             scrollTrigger: {
                 trigger: teaserRef.current,
-                start: () => teaserRef.current!.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-                end: "bottom 60%",
+                start: "top 80%",
+                end: "bottom bottom",
                 scrub: true,
-                // markers: true
+                markers: true
             },
         }
         );
