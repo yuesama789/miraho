@@ -39,7 +39,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
         gsap.fromTo(headerRef.current, 
             { y: 0, opacity: 0 }, 
             {
-                y: 300,
+                x: 75,
                 opacity: 1,
                 duration: 0.8,
                 ease: "power2.out",
@@ -62,16 +62,16 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 start: "top 80%",
                 end: "bottom bottom",
                 scrub: true,
-                markers: true
+                // markers: true
             },
         }
         );
 
         // Animate button entrance (slightly delayed)
         gsap.fromTo(buttonRef.current, 
-            { y: 20, opacity: 0 }, 
+            { x: 20, opacity: 0 }, 
             {
-                y: 0,
+                x: 0,
                 opacity: 1,
                 duration: 0.8,
                 delay: 0.2,

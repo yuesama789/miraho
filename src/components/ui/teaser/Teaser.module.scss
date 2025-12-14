@@ -15,19 +15,26 @@
 }
 
 .teaser h3 {
-    font-size: 1.5rem;
+    font-size: 3rem;
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 18rem;
+    left: 0rem;
     margin: 0;
     opacity: 0;
 }
 
 .teaser__button {
     position: absolute;
-    bottom: 20dvh;
+    bottom: 5dvh;
     right: 1rem;
     opacity: 0;
+
+    * {
+        font-size: 200%;
+        @media screen and (min-width: 600px) {
+            font-size: 300%;
+        }
+    }
 }
 
 .background-purple {
