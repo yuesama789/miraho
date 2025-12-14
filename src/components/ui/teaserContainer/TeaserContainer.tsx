@@ -1,13 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Teaser from "../teaser/Teaser";
 import styles from "./TeaserContainer.module.scss";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
 const TeaserContainer: React.FC = () => {
+    
+    gsap.registerPlugin(ScrollTrigger);
+
+    useEffect(() => {
+        const teaserContainer = document.querySelector(`[data-teaser]`);
+        const teaserContainerHeight = teaserContainer?.clientHeight || 0;
+        console.log("Teaser Container Height:", teaserContainerHeight);
+
+        if (!teaserContainer) return;
+        let panels = Array.from(teaserContainer.querySelectorAll<HTMLDivElement>('div'));
+        console.log(panels);
+
+
+        panels.forEach((panel, i) => {
+            ScrollTrigger.create({
+                trigger: panel,
+                start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", 
+                // if it's shorter than the viewport, we prefer to pin it at the top
+                end: "bottom top",
+                id: `teaser-panel-${i}`,
+                // markers: true,
+                pin: true,
+                scrub: 1,
+                pinSpacing: false 
+            })
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, []);
+
     return (
-        <div className={styles.teaserContainer}>
-            <Teaser id="project-1" title="Project 1" text="Description of project 1" />
-            <Teaser id="project-2" title="Project 2" text="Description of project 2" />
-            <Teaser id="project-3" title="Project 3" text="Description of project 3" />
+        <div className={styles.teaserContainer} data-teaser>
+            <Teaser id="project-1" title="Project 1" />
+            <Teaser id="project-2" title="Project 2" />
+            <Teaser id="project-3" title="Project 3" />
         </div>
     );
 };
