@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Teaser from "../teaser/Teaser";
 import styles from "./TeaserContainer.module.scss";
 import endOfYearVideo from "../../../assets/videos/endofyear2024.mp4";
+import hymerVideo from "../../../assets/videos/hymer.mp4";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -46,7 +47,7 @@ const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
     return (
         <div className={styles.teaserContainer} data-teaser>
             <Teaser id="project-1" title="Jahresrückblick" mediaType="video" mediaPath={endOfYearVideo} backgroundColor={backgroundColor} />
-            <Teaser id="project-2" title="Project 2" backgroundColor={backgroundColor} />
+            <Teaser id="project-2" title="Produktseite" mediaType="video" mediaPath={hymerVideo} backgroundColor={backgroundColor} />
             <Teaser id="project-3" title="Project 3" backgroundColor={backgroundColor} />
         </div>
     );
