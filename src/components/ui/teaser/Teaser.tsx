@@ -19,7 +19,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, imgPath, id }) => {
     };
 
     return (
-        <div className={styles.teaser}>
+        <div className={styles.teaser} data-teaser>
             <img src={imgPath ? imgPath : "https://placehold.co/1600x1100"} alt={title} className={styles.image} />
             <h3>{title}</h3>
             <div className={styles.teaser__button}>

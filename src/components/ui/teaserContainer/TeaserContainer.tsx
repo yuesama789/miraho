@@ -16,7 +16,7 @@ const TeaserContainer: React.FC = () => {
         console.log("Teaser Container Height:", teaserContainerHeight);
 
         if (!teaserContainer) return;
-        let panels = Array.from(teaserContainer.querySelectorAll<HTMLDivElement>('div'));
+        let panels = Array.from(teaserContainer.querySelectorAll<HTMLDivElement>(`div[data-teaser]`));
         console.log(panels);
 
 
