@@ -157,7 +157,7 @@ const App: React.FC = () => {
                         <Section className="section-container" backgroundColor='orange'>
                             <PageHeader />
                         </Section>
-{/*                         <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
+                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
                             <div className='whatIDoSection'>
                                 <div className='storybox-parralax-section'>
                                     <div className='lottie-container'>
@@ -182,7 +182,7 @@ const App: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </Section> */}
+                        </Section>
                         <Section className="section-container" pinnedTitle={true} fullWidth={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
                             <TeaserContainer backgroundColor='purple' />
                             <Modal />
