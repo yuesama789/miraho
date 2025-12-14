@@ -11,9 +11,10 @@ interface TeaserProps {
     mediaType?: "image" | "video";
     mediaPath?: string;
     id: string;
+    backgroundColor?: string;
 }
 
-const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", id }) => {
+const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", id, backgroundColor }) => {
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -87,7 +88,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
     }, []);
 
     return (
-        <div className={styles.teaser} ref={teaserRef} data-teaser>
+        <div className={`${styles.teaser} ${backgroundColor ? styles[`background-${backgroundColor}`] : ''}`} ref={teaserRef} data-teaser>
             <div ref={mediaRef}>
                 {mediaType === "image" &&
                 <img src={mediaPath ? mediaPath : "https://placehold.co/1600x1100"} alt={title} className={styles.image} />
