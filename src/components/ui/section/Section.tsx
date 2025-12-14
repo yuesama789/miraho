@@ -10,9 +10,10 @@ interface SectionProps {
     title?: string;
     description?: string;
     className?: string;
+    pinnedTitle?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className }) => {
+const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinnedTitle }) => {
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -63,6 +64,18 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
             duration: 3,
             ease: 'power2.out',
         });
+
+        if (pinnedTitle) {
+            console.log("Pinning section title: ", title);
+            ScrollTrigger.create({
+                trigger: sectionContent.current,
+                start: "top top",
+                end: "bottom top",
+                pin: sectionContent.current,
+                pinSpacing: false,
+                // markers: true,
+            });
+        }
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => {

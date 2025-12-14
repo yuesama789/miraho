@@ -65,7 +65,6 @@ const App: React.FC = () => {
 
     // Initialize scroll trigger when lottie instance is ready
     useEffect(() => {
-
         if (lottieInstance) {
             const lottieElement: any = document.querySelector("#uiuxLottie");
             const lottieContainer = document.querySelector(".lottie-container");
@@ -128,7 +127,7 @@ const App: React.FC = () => {
                         start: "80% bottom",
                         end: "bottom top",
                         pin: true,
-                        markers: true,
+                        // markers: true,
                         id: "storyboxItem-fadeout-scroll",
                     }
                 }
@@ -142,6 +141,19 @@ const App: React.FC = () => {
             }
         }
     }, [lottieInstance]);
+
+    // useEffect(() => {
+    //     const teaserContainer = document.querySelector(`.section-container.pinned`);
+    //     if (!teaserContainer) return;
+    //     ScrollTrigger.create({
+    //         trigger: teaserContainer,
+    //         start: "top top",
+    //         end: "bottom top",
+    //         pin: true,
+    //         markers: true,
+    //         id: "teaser-container-pin",
+    //     });
+    // }, []);
 
     const downloadIcon = (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-component-line="235"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
@@ -157,7 +169,7 @@ const App: React.FC = () => {
                         <Section className="section-container" backgroundColor='orange'>
                             <PageHeader />
                         </Section>
-                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
+{/*                         <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
                             <div className='whatIDoSection'>
                                 <div className='storybox-parralax-section'>
                                     <div className='lottie-container'>
@@ -182,8 +194,8 @@ const App: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </Section>
-                        <Section className="section-container" backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
+                        </Section> */}
+                        <Section className="section-container" pinnedTitle={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
                             <TeaserContainer />
                             <Modal />
                         </Section>
