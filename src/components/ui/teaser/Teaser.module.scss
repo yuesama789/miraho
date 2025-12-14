@@ -18,11 +18,13 @@
     top: 1rem;
     left: 1rem;
     margin: 0;
+    opacity: 0;
 }
 
 .teaser__button {
     position: absolute;
-    bottom: 1rem;
+    bottom: 20dvh;
     right: 1rem;
+    opacity: 0;
 
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Teaser from "../teaser/Teaser";
 import styles from "./TeaserContainer.module.scss";
+import endOfYearVideo from "../../../assets/videos/endofyear2024.mp4";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,6 +22,7 @@ const TeaserContainer: React.FC = () => {
 
 
         panels.forEach((panel, i) => {
+        // console.log(panel.offsetHeight, window.innerHeight);
             ScrollTrigger.create({
                 trigger: panel,
                 start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", 
@@ -30,7 +32,7 @@ const TeaserContainer: React.FC = () => {
                 // markers: true,
                 pin: true,
                 scrub: 1,
-                pinSpacing: false 
+                pinSpacing: false
             })
         });
 
@@ -41,7 +43,7 @@ const TeaserContainer: React.FC = () => {
 
     return (
         <div className={styles.teaserContainer} data-teaser>
-            <Teaser id="project-1" title="Project 1" />
+            <Teaser id="project-1" title="Jahresrückblick" mediaType="video" mediaPath={endOfYearVideo} />
             <Teaser id="project-2" title="Project 2" />
             <Teaser id="project-3" title="Project 3" />
         </div>
