@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Modal.module.scss";
 import { useModal } from "../../../context/modalContext";
 
@@ -15,6 +15,24 @@ const modalMap: Record<string, ModalContent> = {
 const Modal: React.FC = () => {
 
     const { isOpen, closeModal, retrieveModalId } = useModal();
+
+    // Disable body scroll when modal is open
+    useEffect(() => {
+        const wrapper = document.querySelector('#smooth-wrapper') as HTMLElement;
+        
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+            if (wrapper) {
+                wrapper.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                wrapper.style.transform = 'translateX(-100dvh)';
+            }
+        } else {
+                document.body.style.overflow = '';
+                if (wrapper) {
+                    wrapper.style.transform = '';
+                }
+        }
+    }, [isOpen]);
 
     const closeButtonClick = () => {
         isOpen && closeModal();
