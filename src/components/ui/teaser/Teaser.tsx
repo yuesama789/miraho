@@ -22,6 +22,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
     const buttonRef = React.useRef<HTMLDivElement | null>(null);
     const teaserRef = React.useRef<HTMLDivElement | null>(null);
     const mediaRef = React.useRef<HTMLDivElement | null>(null);
+    const videoRef = React.useRef<HTMLVideoElement | null>(null);
 
     const isDeviceVertical = () => {
         return window.innerHeight > window.innerWidth;
@@ -71,6 +72,19 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
         }
         );
 
+        // Auto-play video when in view
+        if (mediaType === "video" && videoRef.current) {
+            ScrollTrigger.create({
+                trigger: teaserRef.current,
+                start: "top 80%",
+                end: "bottom 20%",
+                onEnter: () => videoRef.current?.play(),
+                onLeave: () => videoRef.current?.pause(),
+                onEnterBack: () => videoRef.current?.play(),
+                onLeaveBack: () => videoRef.current?.pause(),
+            });
+        }
+
         // Animate button entrance (slightly delayed)
         gsap.fromTo(buttonRef.current, 
             { x: 0, opacity: 0 }, 
@@ -85,7 +99,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                     start: () => isDeviceVertical() ? "40% top" : "60% top",                    end: "bottom 60%",
                     toggleActions: "play none none reverse",
                     // markers: true
-                }
+                },
             }
         );
     }, []);
