@@ -25,7 +25,9 @@ const App: React.FC = () => {
     
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
-    const deviceIsVertical = window.innerHeight > window.innerWidth;
+    const isDeviceVertical = () => {
+        return window.innerHeight > window.innerWidth;
+    }
 
     useEffect(() => {
         ScrollSmoother.create({
@@ -78,7 +80,7 @@ const App: React.FC = () => {
             const storyboxItems = [storyboxItem1, storyboxItem2, storyboxItem3];
 
             // Hide storybox items initially
-            if (!deviceIsVertical){
+            if (!isDeviceVertical()){
                 storyboxItems.forEach(item => {
                     (item as HTMLElement).style.opacity = '0';
                 });
@@ -90,7 +92,7 @@ const App: React.FC = () => {
 
                 let storyItemSteps: string[];
                 let lottieItemY: string;
-                if (deviceIsVertical) { 
+                if (isDeviceVertical()) { 
                     storyItemSteps = ['-30dvh', '-30dvh', '-30dvh'];
                     lottieItemY = '-15dvh';
                 } else {
@@ -102,11 +104,11 @@ const App: React.FC = () => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: parralaxSection,
-                        start: () => deviceIsVertical ? "top 10%" : "top top",
+                        start: () => isDeviceVertical() ? "top 10%" : "top top",
                         end: "bottom top",
                         pin: true,
                         pinSpacing: false,
-                        markers: true,
+                        // markers: true,
                         scrub: true,
                         id: "parralax-scroll",
                     },
@@ -125,7 +127,7 @@ const App: React.FC = () => {
                     {y: storyItemSteps[0]}
                 , "-=.1")
                 .to(lottieContainer, 
-                    {scale: () => deviceIsVertical ? 1 : .5, y: lottieItemY}, "-=1")
+                    {scale: () => isDeviceVertical() ? 1 : .5, y: lottieItemY}, "-=1")
                 .to(storyboxItem1, 
                     {opacity: 1}, "-=1")
                 .to(storyboxItemContainer,
@@ -162,7 +164,7 @@ const App: React.FC = () => {
                         <Section className="section-container" backgroundColor='orange'>
                             <PageHeader />
                         </Section>
-                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
+                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about." pinnedTitle={true} needExtraSpaceAfterPinnedTitle={true}>
                             <div className='whatIDoSection'>
                                 <div className='storybox-parralax-section' style={{marginBottom:'100dvh'}}>
                                     <div className='lottie-container' 

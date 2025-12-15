@@ -12,13 +12,18 @@ interface SectionProps {
     className?: string;
     pinnedTitle?: boolean;
     fullWidth?: boolean;
+    needExtraSpaceAfterPinnedTitle?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinnedTitle, fullWidth }) => {
+const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinnedTitle, fullWidth, needExtraSpaceAfterPinnedTitle = false }) => {
 
     gsap.registerPlugin(ScrollTrigger);
 
     const sectionContent = React.useRef<HTMLDivElement | null>(null);
+
+    const isDeviceVertical = () => {
+        return window.innerHeight > window.innerWidth;
+    }
 
     useGSAP(() => {
         if (!sectionContent.current) return;
@@ -70,11 +75,12 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
             console.log("Pinning section title: ", title);
             ScrollTrigger.create({
                 trigger: sectionContent.current,
-                start: "top top",
-                end: "+=100",
+                start: "-=20 top",
+                end: () => 
+                    needExtraSpaceAfterPinnedTitle ? isDeviceVertical() ? "+=33%" : "+=20%" : "bottom top",
                 pin: sectionContent.current,
                 pinSpacing: false,
-                // markers: true,
+                markers: true,
             });
         }
 
