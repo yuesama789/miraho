@@ -32,7 +32,7 @@ const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
                 // if it's shorter than the viewport, we prefer to pin it at the top
                 end: "bottom top",
                 id: `teaser-panel-${i}`,
-                markers: true,
+                // markers: true,
                 pin: true,
                 scrub: 1,
                 pinSpacing: true

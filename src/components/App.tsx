@@ -90,6 +90,7 @@ const App: React.FC = () => {
                         start: "top top",
                         end: "bottom top",
                         pin: true,
+                        pinSpacing: true,
                         // markers: true,
                         scrub: true,
                         id: "parralax-scroll",
@@ -106,28 +107,29 @@ const App: React.FC = () => {
                     }
                 })
                 .to(storyboxItemContainer, 
-                    {y: -300}
+                    {y: '-50dvh'}
                 , "-=.1")
                 .to(lottieContainer, 
-                    {scale: 0.5, y: -150}, "-=1")
+                    {scale: '0.5', y: '-30dvh'}, "-=1")
                 .to(storyboxItem1, 
-                    {opacity: 1, delay: 0.5}, "-=1")
+                    {opacity: 1}, "-=1")
                 .to(storyboxItemContainer,
-                    {y: -400}, "-=0.5")
+                    {y: '-70dvh'}, "-=0.5")
                 .to(storyboxItem2, 
-                    {opacity: 1, delay: 0.5}, "-=1")
+                    {opacity: 1}, "-=1")
                 .to(storyboxItemContainer,
-                    {y: -500}, "-=0.5")
+                    {y: '-80dvh'}, "-=0.5")
                 .to(storyboxItem3, 
-                    {opacity: 1, delay: 0.5}, "-=1"
+                    {opacity: 1}, "-=1"
                 )
                 .to(storyboxItemContainer,
                     {scrollTrigger: {
                         trigger: parralaxSection,
-                        start: "80% bottom",
-                        end: "bottom top",
+                        start: "65% bottom",
+                        end: "65% top",
                         pin: true,
-                        // markers: true,
+                        scrub: true,
+                        markers: true,
                         id: "storyboxItem-fadeout-scroll",
                     }
                 }
@@ -160,13 +162,14 @@ const App: React.FC = () => {
                         <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
                             <div className='whatIDoSection'>
                                 <div className='storybox-parralax-section'>
-                                    <div className='lottie-container'>
+                                    <div className='lottie-container' 
+                                            style={{ maxWidth: '100%', maxHeight: '100%' }}>
                                         <lottie-player
                                             id="uiuxLottie"
                                             src={`data:application/json;base64,${btoa(JSON.stringify(uiuxCard))}`}
                                             background="transparent"
                                             speed="1"
-                                            style={{ width: '100%', height: '100%' }}
+                                            style={{ maxWidth: '100dvw', width: '100%', height: '100dvh' }}
                                         />
                                     </div>
                                     <div className='storyboxItem-container'>
