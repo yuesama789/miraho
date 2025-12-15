@@ -51,8 +51,8 @@ const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
 
     return (
         <div className={styles.teaserContainer} data-teaser>
-            <Teaser id="project-1" title="Jahresrückblick" mediaType="video" mediaPath={isDeviceVertical() ? endOfYearVideo_mobile : endOfYearVideo_desktop} backgroundColor={backgroundColor} />
-            <Teaser id="project-2" title="Produktseite" mediaType="video" mediaPath={hymerVideo} backgroundColor={backgroundColor} />
+            <Teaser id="project-1" title="Interactive Year Review" mediaType="video" mediaPath={isDeviceVertical() ? endOfYearVideo_mobile : endOfYearVideo_desktop} backgroundColor={backgroundColor} />
+            <Teaser id="project-2" title="Interactive Product Experience" mediaType="video" mediaPath={hymerVideo} backgroundColor={backgroundColor} />
             <Teaser id="project-3" title="Project 3" backgroundColor={backgroundColor} />
         </div>
     );

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./Modal.module.scss";
 import { useModal } from "../../../context/modalContext";
 
-type ModalContent = { title: React.ReactNode; content: React.ReactNode; image?: string; altText?: string; };
+type ModalContent = { title: React.ReactNode; content: React.ReactNode; contentMobile?: React.ReactNode; image?: string; altText?: string; };
 
 const modalMap: Record<string, ModalContent> = {
 "project-1": {
@@ -33,15 +33,49 @@ const modalMap: Record<string, ModalContent> = {
             </p>
             <h3>Tech Stack</h3>
             <p>React · TypeScript · SCSS</p>
-
+            <p style={{fontStyle: "italic"}}>The content shown here is based on anonymized screen recordings and a prototype to respect confidentiality.</p>
+        </>
+    ),
+    contentMobile: (
+        <>
+            <p>This project was part of a large-scale, consumer-facing web experience designed to visualize a personalized year in review. My focus was on interaction, motion, and translating visual concepts into smooth, intuitive UI behavior.</p>
+            <p><strong>Tech Stack:</strong> React · TypeScript · SCSS</p>
         </>
     ),
     image: require("../../../assets/images/endofyear-screenshot.png"),
     altText: "Screenshot of the Interactive Year Review web experience"
 },
 "project-2": {
-    title: "Portfolio 2",
-    content: "This is the second portfolio modal content.",
+    title: <>Interactive Product Experience<br />— Automotive Web Platform</>,
+    content: (
+        <>
+            <h3>Overview</h3>
+            <p>This project focused on building interactive, motion-driven product experiences for a high-end consumer website. My work centered on frontend prototyping, component development, and integrating interactive content into a CMS-driven environment.</p>
+            
+            <h3>My Role</h3>
+            <ul>
+                <li>Development of interactive frontend prototypes for reusable UI components</li>
+                <li>Implementation of scroll-driven storytelling, including video-controlled scrolling</li>
+                <li>Building interactive components to visualize different product lines and configurations</li>
+                <li>Integration of components and logic into a CMS-based system</li>
+                <li>Close collaboration with design to translate concepts into functional UI behavior</li>
+            </ul>
+            
+            <h3>Interaction & Motion</h3>
+            <p>Motion and scrolling were used as core interaction patterns to guide users through complex product information. Scroll-based video control and animated components helped create a fluid, immersive experience while maintaining clarity and performance.</p>
+            
+            <h3>Tech Stack</h3>
+            <p>Twig.js · Vanilla JavaScript · GSAP · SCSS · Storybook · Pimcore CMS</p>
+            
+            <p style={{fontStyle: "italic"}}>The live website is publicly accessible. The work shown reflects my contribution to frontend prototyping, interaction logic, and CMS integration.</p>
+        </>
+    ),
+    contentMobile: (
+        <>
+            <p>This project focused on building interactive, motion-driven product experiences for a high-end consumer website. My work centered on frontend prototyping, component development, and integrating interactive content into a CMS-driven environment.</p>
+            <p><strong>Tech Stack:</strong> Twig.js · Vanilla JavaScript · GSAP · SCSS · Storybook · Pimcore CMS</p>
+        </>
+    ),
     image: require("../../../assets/images/endofyear-screenshot.png"),
 },
 // add more modal entries here
@@ -73,8 +107,10 @@ const Modal: React.FC = () => {
         isOpen && closeModal();
     }
 
-    const { title: modalTitle, content: modalContent, image: modalImage, altText } =
-    modalMap[retrieveModalId() || 'default'] ?? { title: "Default Title", content: "This is the default modal content." };
+    const isMobile = window.innerWidth < 768;
+    const modalData = modalMap[retrieveModalId() || 'default'] ?? { title: "Default Title", content: "This is the default modal content." };
+    const { title: modalTitle, content: modalContent, contentMobile, image: modalImage, altText } = modalData;
+    const displayContent = isMobile && contentMobile ? contentMobile : modalContent;
     
     return (
         <div className={`${styles.modal} ${isOpen ? styles['modal--open'] : styles['modal--closed']}`}>
@@ -83,7 +119,7 @@ const Modal: React.FC = () => {
                 <div className={styles.image}><img src={modalImage} alt={altText} /></div>
                 <div className={styles.textContent}>
                     <h2 className={styles.title}>{modalTitle}</h2>
-                    <p className={styles.content}>{modalContent}</p>
+                    <p className={styles.content}>{displayContent}</p>
                 </div>
             </div>
         </div>

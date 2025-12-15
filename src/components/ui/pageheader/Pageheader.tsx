@@ -65,7 +65,7 @@ useGSAP(() => {
                         </div>
                     </div>
                     <div className={styles.pageheader__content}>
-                        <h1>Hi, ich bin Mira 
+                        <h1>Hi, I am Mira 
                             <span className={styles.wave}>
                                 <DotLottieReact
                                     data={handWave}
