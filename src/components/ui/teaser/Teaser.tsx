@@ -108,16 +108,17 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
         <div className={`${styles.teaser} ${backgroundColor ? styles[`background-${backgroundColor}`] : ''}`} ref={teaserRef} data-teaser>
             <div ref={mediaRef}>
                 {mediaType === "image" &&
-                <img src={mediaPath ? mediaPath : "https://placehold.co/1600x1100"} alt={title} className={styles.image} />
+                <img src={mediaPath ? mediaPath : "https://placehold.co/1920x1090"} alt={title} className={styles.image} />
                 }
                 {mediaType === "video" &&
                     <video 
-                    src={mediaPath} controls={false} autoPlay muted loop className={styles.video} />
+                    ref={videoRef}
+                    src={mediaPath} controls={false} muted loop className={styles.video} />
                 }
             </div>
             <h3 ref={headerRef}>{title}</h3>
             <div className={styles.teaser__button} ref={buttonRef}>
-                <Button type="tertiary" onClick={() => alert("Read more clicked")}>Read more</Button>
+                <Button type="tertiary" onClick={handleReadMore}>Read more</Button>
             </div>
         </div>
     );

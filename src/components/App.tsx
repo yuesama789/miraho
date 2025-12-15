@@ -195,7 +195,6 @@ const App: React.FC = () => {
                         </Section>
                         <Section className="section-container" pinnedTitle={true} fullWidth={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
                             <TeaserContainer backgroundColor='purple' />
-                            <Modal />
                         </Section>
                         <Section className="section-container" backgroundColor='orange' title='How I Work' description='This is how my brain is wired.'>
                             <div><ul>
@@ -224,6 +223,7 @@ const App: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <Modal />
         </ModalProvider>
     );
 };

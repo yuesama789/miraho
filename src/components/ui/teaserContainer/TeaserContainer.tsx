@@ -26,7 +26,7 @@ const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
 
         if (!teaserContainer) return;
         let panels = Array.from(teaserContainer.querySelectorAll<HTMLDivElement>(`div[data-teaser]`));
-        console.log(panels);
+        // console.log(panels);
 
 
         panels.forEach((panel, i) => {
