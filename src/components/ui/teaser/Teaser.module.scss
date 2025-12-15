@@ -14,20 +14,35 @@
     object-fit: cover;
 }
 
+.teaser video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 .teaser h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     position: absolute;
-    top: 18rem;
+    top: 3rem;
     left: 0rem;
     margin: 0;
     opacity: 0;
+    @media screen and (min-width: 600px) {
+        font-size: 3rem;
+        top: 14rem;
+    }
+
 }
 
 .teaser__button {
     position: absolute;
-    bottom: 5dvh;
-    right: 1rem;
+    bottom: -2dvh;
+    right: 0;
     opacity: 0;
+
+    @media screen and (min-width: 600px) {
+        bottom: 15dvh;
+    }
 
     * {
         font-size: 200%;

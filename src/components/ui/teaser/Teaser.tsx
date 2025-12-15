@@ -23,6 +23,10 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
     const teaserRef = React.useRef<HTMLDivElement | null>(null);
     const mediaRef = React.useRef<HTMLDivElement | null>(null);
 
+    const isDeviceVertical = () => {
+        return window.innerHeight > window.innerWidth;
+    }
+
     const { openModal, setModalId } = useModal();
 
     const handleReadMore = () => {
@@ -39,14 +43,14 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
         gsap.fromTo(headerRef.current, 
             { y: 0, opacity: 0 }, 
             {
-                x: 75,
+                x: () => isDeviceVertical() ? '10dvw' : '25dvw',
                 opacity: 1,
                 duration: 0.8,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: teaserRef.current,
-                    start: () => teaserRef.current!.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-                    end: "bottom 60%",
+                    start: () => isDeviceVertical() ? "40% top" : "60% top",
+                    // end: "bottom 60%",
                     toggleActions: "play none none reverse",
                     // markers: true
                 }
@@ -54,13 +58,13 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
         );
 
         gsap.to(mediaRef.current, {
-            scale: 0.5,
-            y: 100,
+            scale: () => isDeviceVertical() ? .8 : .5,
+            y: () => isDeviceVertical() ? '7dvh' : '5dvh',
             ease: "none",
             scrollTrigger: {
                 trigger: teaserRef.current,
-                start: "top 80%",
-                end: "bottom bottom",
+                start: "10% top",
+                end: "bottom center",
                 scrub: true,
                 // markers: true
             },
@@ -69,17 +73,16 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
 
         // Animate button entrance (slightly delayed)
         gsap.fromTo(buttonRef.current, 
-            { x: 20, opacity: 0 }, 
+            { x: 0, opacity: 0 }, 
             {
-                x: 0,
+                x: () => isDeviceVertical() ? '-5dvw' : '-24dvw',
                 opacity: 1,
                 duration: 0.8,
                 delay: 0.2,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: teaserRef.current,
-                    start: () => teaserRef.current!.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-                    end: "bottom 60%",
+                    start: () => isDeviceVertical() ? "40% top" : "60% top",                    end: "bottom 60%",
                     toggleActions: "play none none reverse",
                     // markers: true
                 }
@@ -94,7 +97,8 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 <img src={mediaPath ? mediaPath : "https://placehold.co/1600x1100"} alt={title} className={styles.image} />
                 }
                 {mediaType === "video" &&
-                    <video src={mediaPath} no-controls autoPlay muted loop className={styles.video} />
+                    <video 
+                    src={mediaPath} controls={false} autoPlay muted loop className={styles.video} />
                 }
             </div>
             <h3 ref={headerRef}>{title}</h3>

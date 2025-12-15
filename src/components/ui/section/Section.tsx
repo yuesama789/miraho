@@ -80,7 +80,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
                     needExtraSpaceAfterPinnedTitle ? isDeviceVertical() ? "+=33%" : "+=20%" : "bottom top",
                 pin: sectionContent.current,
                 pinSpacing: false,
-                markers: true,
+                // markers: true,
             });
         }
 
