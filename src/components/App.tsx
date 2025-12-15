@@ -25,6 +25,8 @@ const App: React.FC = () => {
     
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
+    const deviceIsVertical = window.innerHeight > window.innerWidth;
+
     useEffect(() => {
         ScrollSmoother.create({
             wrapper: '#smooth-wrapper',
@@ -87,11 +89,11 @@ const App: React.FC = () => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: parralaxSection,
-                        start: "top top",
+                        start: () => deviceIsVertical ? "top 30%" : "top top",
                         end: "bottom top",
                         pin: true,
                         pinSpacing: false,
-                        // markers: true,
+                        markers: true,
                         scrub: true,
                         id: "parralax-scroll",
                     },
