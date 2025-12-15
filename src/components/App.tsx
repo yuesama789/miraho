@@ -128,6 +128,7 @@ const App: React.FC = () => {
                         start: "65% bottom",
                         end: "65% top",
                         pin: true,
+                        pinSpacing: false,
                         scrub: true,
                         markers: true,
                         id: "storyboxItem-fadeout-scroll",
@@ -161,7 +162,7 @@ const App: React.FC = () => {
                         </Section>
                         <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about.">
                             <div className='whatIDoSection'>
-                                <div className='storybox-parralax-section'>
+                                <div className='storybox-parralax-section' style={{marginBottom:'100dvh'}}>
                                     <div className='lottie-container' 
                                             style={{ maxWidth: '100%', maxHeight: '100%' }}>
                                         <lottie-player
