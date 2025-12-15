@@ -48,6 +48,12 @@ npm run build
 
 This will create an optimized build of the application in the `build` directory.
 
+### Deploy to GitHub
+To deploy the application for GitHub, use:
+```
+npm run deploy
+```
+
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
