@@ -1,0 +1,38 @@
+.cursorDot,
+.cursorOrb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+.cursorDot {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cursorOrb {
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+}
+
+// Hide default cursor on the body
+:global(body) {
+    cursor: none;
+}
+
+// Optional: Make orb larger on hover over clickable elements
+:global(a:hover ~ .cursorOrb),
+:global(button:hover ~ .cursorOrb) {
+    width: 60px;
+    height: 60px;
+}

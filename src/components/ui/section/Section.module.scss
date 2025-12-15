@@ -57,6 +57,7 @@
 
 .section-container.full-width {
     width: 100vw;
+    max-width: 1920px;
     margin-left: calc(-50vw + 50%);
 
     .section-content {

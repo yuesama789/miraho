@@ -103,7 +103,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
             </div>
             <h3 ref={headerRef}>{title}</h3>
             <div className={styles.teaser__button} ref={buttonRef}>
-                <Button type="tertiary" onClick={handleReadMore}>Read more</Button>
+                <Button type="tertiary" onClick={() => alert("Read more clicked")}>Read more</Button>
             </div>
         </div>
     );

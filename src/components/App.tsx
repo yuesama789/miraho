@@ -13,6 +13,7 @@ import Button from './ui/button/Button';
 import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 import Modal from './ui/modal/Modal';
 import BadgeCloud from './ui/badgeCloud/BadgeCloud';
+import CustomCursor from './ui/customCursor/CustomCursor';
 
 import uiuxCard from '../assets/lottie/uiux-card.json';
 
@@ -158,6 +159,7 @@ const App: React.FC = () => {
 
     return (
         <ModalProvider>
+            <CustomCursor />
             <div id="smooth-wrapper">
                 <div id="smooth-content">
                     <div className="App">
