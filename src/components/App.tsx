@@ -90,7 +90,7 @@ const App: React.FC = () => {
                         start: "top top",
                         end: "bottom top",
                         pin: true,
-                        pinSpacing: true,
+                        pinSpacing: false,
                         // markers: true,
                         scrub: true,
                         id: "parralax-scroll",
@@ -121,19 +121,6 @@ const App: React.FC = () => {
                     {y: '-80dvh'}, "-=0.5")
                 .to(storyboxItem3, 
                     {opacity: 1}, "-=1"
-                )
-                .to(storyboxItemContainer,
-                    {scrollTrigger: {
-                        trigger: parralaxSection,
-                        start: "65% bottom",
-                        end: "65% top",
-                        pin: true,
-                        pinSpacing: false,
-                        scrub: true,
-                        markers: true,
-                        id: "storyboxItem-fadeout-scroll",
-                    }
-                }
                 )
                 ;
 
@@ -170,7 +157,7 @@ const App: React.FC = () => {
                                             src={`data:application/json;base64,${btoa(JSON.stringify(uiuxCard))}`}
                                             background="transparent"
                                             speed="1"
-                                            style={{ maxWidth: '100dvw', width: '100%', height: '100dvh' }}
+                                            style={{  maxWidth: '100dvw', maxHeight: '100dvh', width: '100%', height:'100%', aspectRatio: '107 / 91' }}
                                         />
                                     </div>
                                     <div className='storyboxItem-container'>
