@@ -78,18 +78,31 @@ const App: React.FC = () => {
             const storyboxItems = [storyboxItem1, storyboxItem2, storyboxItem3];
 
             // Hide storybox items initially
-            storyboxItems.forEach(item => {
-                (item as HTMLElement).style.opacity = '0';
-            });
+            if (!deviceIsVertical){
+                storyboxItems.forEach(item => {
+                    (item as HTMLElement).style.opacity = '0';
+                });
+            }
 
             
             if (lottieElement) {
                 // const totalFrames = lottieInstance.totalFrames;
 
+                let storyItemSteps: string[];
+                let lottieItemY: string;
+                if (deviceIsVertical) { 
+                    storyItemSteps = ['-30dvh', '-30dvh', '-30dvh'];
+                    lottieItemY = '-15dvh';
+                } else {
+                    storyItemSteps = ['-50dvh', '-70dvh', '-80dvh'];
+                    lottieItemY = '-30dvh';
+                }
+
+
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: parralaxSection,
-                        start: () => deviceIsVertical ? "top 30%" : "top top",
+                        start: () => deviceIsVertical ? "top 10%" : "top top",
                         end: "bottom top",
                         pin: true,
                         pinSpacing: false,
@@ -109,18 +122,18 @@ const App: React.FC = () => {
                     }
                 })
                 .to(storyboxItemContainer, 
-                    {y: '-50dvh'}
+                    {y: storyItemSteps[0]}
                 , "-=.1")
                 .to(lottieContainer, 
-                    {scale: '0.5', y: '-30dvh'}, "-=1")
+                    {scale: () => deviceIsVertical ? 1 : .5, y: lottieItemY}, "-=1")
                 .to(storyboxItem1, 
                     {opacity: 1}, "-=1")
                 .to(storyboxItemContainer,
-                    {y: '-70dvh'}, "-=0.5")
+                    {y: storyItemSteps[1]}, "-=0.5")
                 .to(storyboxItem2, 
                     {opacity: 1}, "-=1")
                 .to(storyboxItemContainer,
-                    {y: '-80dvh'}, "-=0.5")
+                    {y: storyItemSteps[2]}, "-=0.5")
                 .to(storyboxItem3, 
                     {opacity: 1}, "-=1"
                 )
