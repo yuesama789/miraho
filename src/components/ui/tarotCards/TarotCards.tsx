@@ -22,15 +22,15 @@ const TarotCards: React.FC = () => {
         {
             name: 'Agile Methodology',
             svg: <Tarot2 />,
-            colour: '#9370DB',
-            colour2: '#663399',
+            colour: '#9066ea',
+            colour2: '#a24ba2',
             description: 'I embrace iterative development and continuous feedback.'
         },
         {
             name: 'Collaboration',
             svg: <Tarot3 />,
-            colour: '#4169E1',
-            colour2: '#1E90FF',
+            colour: '#66c0ea',
+            colour2: '#4b4ba2',
             description: 'I work closely with cross-functional teams to achieve the best results.'
         }
     ];
