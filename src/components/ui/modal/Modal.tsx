@@ -85,6 +85,10 @@ const Modal: React.FC = () => {
 
     const { isOpen, closeModal, retrieveModalId } = useModal();
 
+    const isDisplayVertical = () => {
+        return window.innerHeight > window.innerWidth;
+    }
+
     // Disable body scroll when modal is open
     useEffect(() => {
         const wrapper = document.querySelector('#smooth-wrapper') as HTMLElement;
@@ -116,7 +120,9 @@ const Modal: React.FC = () => {
         <div className={`${styles.modal} ${isOpen ? styles['modal--open'] : styles['modal--closed']}`}>
             <div className={styles.container}>
                 <button className={styles.close} onClick={closeButtonClick}>❌</button>
-                <div className={styles.image}><img src={modalImage} alt={altText} /></div>
+                {!isDisplayVertical() && 
+                    <div className={styles.image}><img src={modalImage} alt={altText} /></div>
+                }
                 <div className={styles.textContent}>
                     <h2 className={styles.title}>{modalTitle}</h2>
                     <p className={styles.content}>{displayContent}</p>

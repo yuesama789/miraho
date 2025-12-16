@@ -26,12 +26,16 @@
         }
 
         .textContent {
-            width: 45%;
-            padding: 2rem;
+            padding: 3rem 2rem 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
+
+            @media screen and (min-width: 600px) {
+                width: 45%;
+                padding: 2rem;
+            }
         }
 
         .image {
@@ -52,13 +56,17 @@
 
         .close {
             position: absolute;
-            top: 1rem;
-            right: 2rem;
             background: none;
             border: none;
+            top: 0;
+            right: 0;
             font-size: 2.5rem;
             cursor: pointer;
             @include gradient-font;
+            @media screen and (min-width: 600px) {
+                top: 1rem;
+                right: 2rem;
+            }
         }
 }
 

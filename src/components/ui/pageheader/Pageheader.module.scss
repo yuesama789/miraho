@@ -65,17 +65,14 @@
         }
 
         .pageheader__blobOrnament {
-            background: url('../../../assets/images/organic_blob_stroke_sprite.png');
-            background-size: 200%;
-            background-position: 0% 100%;
-            width: 23rem;
-            height: 23rem;
+            background: url('../../../assets/images/purple_organic_blob.png') no-repeat;
+            background-size: contain;
+            width: 25rem;
+            height: 25rem;
             display: block;
             position: absolute;
-            top: 5rem;
+            top: 0;
             left: -3rem;
-
-
             transition: transform 100ms linear;
         }
     }
