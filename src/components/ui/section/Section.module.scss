@@ -51,6 +51,11 @@
 .purple {
     background: radial-gradient(circle, $purple-gradient-c1 0%, $purple-gradient-c3 100%);
 }
+
+.dark {
+    background: radial-gradient(circle, $dark-gradient-c1 0%, $dark-gradient-c3 100%);
+}
+
 .none {
     background: none;
 }

@@ -14,6 +14,7 @@ import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 import Modal from './ui/modal/Modal';
 import BadgeCloud from './ui/badgeCloud/BadgeCloud';
 import CustomCursor from './ui/customCursor/CustomCursor';
+import TarotCards from './ui/tarotCards/TarotCards';
 
 import uiuxCard from '../assets/lottie/uiux-card.json';
 
@@ -196,12 +197,8 @@ const App: React.FC = () => {
                         <Section className="section-container" pinnedTitle={true} fullWidth={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
                             <TeaserContainer backgroundColor='purple' />
                         </Section>
-                        <Section className="section-container" backgroundColor='orange' title='How I Work' description='This is how my brain is wired.'>
-                            <div><ul>
-                                <li>User-Centered Design: I prioritize user needs and behaviors in every project.</li>
-                                <li>Agile Methodology: I embrace iterative development and continuous feedback.</li>
-                                <li>Collaboration: I work closely with cross-functional teams to achieve the best results.</li>
-                            </ul></div>
+                        <Section className="section-container" pinnedSection={true} backgroundColor='dark' title='How I Work' description='This is how my brain is wired.'>
+                            <TarotCards />
                         </Section>
                         <Section className="section-container" backgroundColor='pink' title='Skills & Expertise' description='Some of the tools and technologies I excel in.'>
                             <BadgeCloud />
