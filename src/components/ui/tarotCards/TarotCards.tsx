@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './TarotCards.module.scss';
@@ -7,7 +7,6 @@ import {ReactComponent as Tarot1} from '../../../assets/svgs/tarot1.svg';
 import {ReactComponent as Tarot2} from '../../../assets/svgs/tarot2.svg';
 import {ReactComponent as Tarot3} from '../../../assets/svgs/tarot3.svg';
 import { useGSAP } from '@gsap/react';
-import { activeAnimations } from 'motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
