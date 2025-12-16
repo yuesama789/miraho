@@ -35,14 +35,13 @@
         width: 20rem;
         height: auto;
         aspect-ratio: 7 / 12;
+        perspective: 1000px;
     }
 
     .tarotCardWrapper {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 0;
         left: 0;
-        visibility: hidden;
-        opacity: 0;
+        visibility: visible;
     }
 }

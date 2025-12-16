@@ -6,6 +6,7 @@ import TarotCard from './TarotCard/TarotCard';
 import {ReactComponent as Tarot1} from '../../../assets/svgs/tarot1.svg';
 import {ReactComponent as Tarot2} from '../../../assets/svgs/tarot2.svg';
 import {ReactComponent as Tarot3} from '../../../assets/svgs/tarot3.svg';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,23 +37,31 @@ const TarotCards: React.FC = () => {
 
     const ref = React.createRef<HTMLDivElement>();
 
-    useEffect(() => {
+    useGSAP(() => {
         const nameList = document.querySelector(`.${styles.tarotCardNameList}`);
         const fill = document.querySelector(`.${styles.fill}`);
         const listItems = gsap.utils.toArray("li", nameList) as HTMLElement[];
         const cards = gsap.utils.toArray(`.${styles.tarotCardWrapper}`) as HTMLElement[];
 
-        console.log('cards:', cards);
-        const nameListArray = gsap.utils.toArray(`.${styles.tarotCardNameList}`);
+        cards.forEach((card, i) => {
+            gsap.set(card, {
+                x: `${i * 3}dvw`,
+                y: `${i * 2}dvh`,
+                rotateZ: 10 + i * 5,
+                zIndex: cards.length - i,
+                transformStyle: "preserve-3d",
+            });
+
+        });
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ref.current,
                 start: "top top",
-                end: "+=" + (listItems.length * 50) + "%",
+                end: "+=" + (listItems.length * 100) + "%",
                 scrub: true,
-                markers: true
-            },
+                markers: true,
+            }
         });
 
         // First element visible, set the marker
@@ -65,30 +74,28 @@ const TarotCards: React.FC = () => {
 
         listItems.forEach((item, i) => {
             gsap.set(item, { color: "rgba(255, 255, 255, 0.5)" });
-            gsap.set(cards[i], { rotateY: 0, transformStyle: "preserve-3d" });
+            
             const previousItem = listItems[i - 1];
             if (previousItem) {
-                tl.set(item, { color: "#C716A6" }, 0.5 * i)
-                .to(
-                    cards[i],
-                    {
-                    rotateY: 180,
-                    duration: 0.2
-                    },
-                    "<"
-                )
-                .set(previousItem, { color: "rgba(255, 255, 255, 0.5)" }, "<")
-                .to(
-                    cards[i - 1],
-                    {
-                    rotateY: 0,
-                    duration: 0.2
-                    },
-                    "<"
-                );
+                tl
+                .to(cards[i - 1], { 
+                    x: `${(i) * -3}dvw`,
+                    opacity: 0,
+                    ease: "power2.out",
+                }, "<")
+                .to(item, { color: "#C716A6",  }, 0.25 * i)
+                .to(cards[i], {
+                    rotateZ: 0,
+                    ease: "power2.out",
+                }, "<")
+                .to(previousItem, { color: "rgba(255, 255, 255, 0.5)",  }, "<")
+
             } else {
                 gsap.set(item, { color: "#C716A6" });
-                gsap.set(cards[i], { autoAlpha: 1 });
+                gsap.to(cards[i], { 
+                    rotateZ: 0,
+                    ease: "power2.out",
+                });
             }
         });
         tl.to(
