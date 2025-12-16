@@ -4,8 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './TarotCards.module.scss';
 import TarotCard from './TarotCard/TarotCard';
 import {ReactComponent as Tarot1} from '../../../assets/svgs/tarot1.svg';
-import tarot2 from '../../../assets/svgs/tarot2.svg';
-import tarot3 from '../../../assets/svgs/tarot3.svg';
+import {ReactComponent as Tarot2} from '../../../assets/svgs/tarot2.svg';
+import {ReactComponent as Tarot3} from '../../../assets/svgs/tarot3.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,14 +20,14 @@ const TarotCards: React.FC = () => {
         },
         {
             name: 'Agile Methodology',
-            svg: '/path/to/magician.svg',
+            svg: <Tarot2 />,
             colour: '#9370DB',
             colour2: '#663399',
             description: 'I embrace iterative development and continuous feedback.'
         },
         {
             name: 'Collaboration',
-            svg: '/path/to/high-priestess.svg',
+            svg: <Tarot3 />,
             colour: '#4169E1',
             colour2: '#1E90FF',
             description: 'I work closely with cross-functional teams to achieve the best results.'

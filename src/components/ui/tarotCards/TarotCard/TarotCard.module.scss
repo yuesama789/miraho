@@ -18,7 +18,7 @@
     }
 
     &__front {
-        --borderWidth: 2px;
+        --borderWidth: 1px;
         --marginSize: 1rem;
         position: absolute;
         width: calc(100% - (var(--marginSize)*2 + var(--borderWidth) * 2));
@@ -29,13 +29,27 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: var(--borderWidth) solid rgba(255,255,255,0.6);
+        border: var(--borderWidth) solid #fff;
         margin: var(--marginSize);
 
         .tarotCard__icon {
             width: 80%;
             height: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+
+            svg {
+                stroke: #fff;
+                fill: #fff;
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        .tarotCard__name {
+            width: 80%;
+            font-size: 1.5rem;
+            color: white;
         }
     }
 

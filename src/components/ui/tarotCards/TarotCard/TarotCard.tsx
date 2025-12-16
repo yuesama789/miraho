@@ -18,7 +18,7 @@ const TarotCard: React.FC<TarotCardProps> = ({ name, svg, colour, colour2 }) => 
                     <div className={styles.tarotCard__icon}>
                         {svg}
                     </div>
-                    {name}
+                    <div className={styles.tarotCard__name}>{name}</div>
                 </div>
             </div>
         </div>
