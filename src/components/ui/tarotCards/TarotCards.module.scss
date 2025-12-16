@@ -14,7 +14,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            width: 50%;
+            width: 25%;
 
             li {
                 margin-bottom: 1rem;
@@ -22,12 +22,6 @@
                 font-size: 2rem;
             }
         }
-    }
-
-    .fill {
-        width: 2px;
-        background-color: $primary-gradient-c2;
-        height: 100%;
     }
 
     .tarotCardSide {

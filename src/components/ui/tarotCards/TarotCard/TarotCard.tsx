@@ -6,9 +6,10 @@ interface TarotCardProps {
     svg: React.ReactNode;
     colour: string;
     colour2: string;
+    description?: string;
 }
 
-const TarotCard: React.FC<TarotCardProps> = ({ name, svg, colour, colour2 }) => {
+const TarotCard: React.FC<TarotCardProps> = ({ name, svg, colour, colour2, description }) => {
     return (
         <div className={styles.tarotCard}>
             <div className={styles.tarotCard__inner}
@@ -19,6 +20,7 @@ const TarotCard: React.FC<TarotCardProps> = ({ name, svg, colour, colour2 }) => 
                         {svg}
                     </div>
                     <div className={styles.tarotCard__name}>{name}</div>
+                    <div className={styles.tarotCard__description}>{description}</div>
                 </div>
             </div>
         </div>

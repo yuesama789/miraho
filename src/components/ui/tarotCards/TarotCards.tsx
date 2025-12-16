@@ -40,7 +40,6 @@ const TarotCards: React.FC = () => {
 
     useGSAP(() => {
         const nameList = document.querySelector(`.${styles.tarotCardNameList}`);
-        const fill = document.querySelector(`.${styles.fill}`);
         const listItems = gsap.utils.toArray("li", nameList) as HTMLElement[];
         const cards = gsap.utils.toArray(`.${styles.tarotCardWrapper}`) as HTMLElement[];
 
@@ -61,15 +60,8 @@ const TarotCards: React.FC = () => {
                 start: "top top",
                 end: "bottom top",
                 scrub: true,
-                markers: true,
+                // markers: true,
             }
-        });
-
-        // First element visible, set the marker
-        fill &&
-        gsap.set(fill, {
-            scaleY: 1 / listItems.length,
-            transformOrigin: "top left"
         });
 
 
@@ -110,22 +102,11 @@ const TarotCards: React.FC = () => {
                 // Card is now active and holds until next iteration
             }
         });
-        tl.to(
-        fill,
-        {
-            scaleY: 1,
-            transformOrigin: "top left",
-            ease: "none",
-            duration: tl.duration()
-        },
-        0
-        ).to({}, {}); // add a small pause at the end of the timeline before it un-pins
     }, []);
 
     return (
         <div className={styles.tarotCards} ref={ref}>
             <div className={styles.tarotCardsContainer}>
-                <div className={styles.fill}></div>
                 <ul className={styles.tarotCardNameList}>
                     {tarotCards.map((card, index) => (
                         <li key={index}>{card.name}</li>
@@ -134,7 +115,7 @@ const TarotCards: React.FC = () => {
                 <div className={styles.tarotCardSide}>
                     {tarotCards.map((card, index) => (
                         <div key={index} className={styles.tarotCardWrapper}>
-                            <TarotCard name={card.name} svg={card.svg} colour={card.colour} colour2={card.colour2} />
+                            <TarotCard name={card.name} svg={card.svg} colour={card.colour} colour2={card.colour2} description={card.description} />
                         </div>
                     ))}
                 </div>
