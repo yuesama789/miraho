@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/miraho/static/css/main.adb559af.css",
-    "main.js": "/miraho/static/js/main.50a35546.js",
+    "main.css": "/miraho/static/css/main.77970283.css",
+    "main.js": "/miraho/static/js/main.ab51e78c.js",
     "static/media/endofyear2024--desktop.mp4": "/miraho/static/media/endofyear2024--desktop.60af60de3f60e28b9ccc.mp4",
     "static/media/endofyear2024--mobile.mp4": "/miraho/static/media/endofyear2024--mobile.c99fc369fd4535ecca3d.mp4",
     "static/media/hymer.mp4": "/miraho/static/media/hymer.277144e43d58f5153205.mp4",
     "static/media/MiraHo.jpg": "/miraho/static/media/MiraHo.52c7ab00a852247c508e.jpg",
+    "static/media/endofyear-screenshot.png": "/miraho/static/media/endofyear-screenshot.1700e89baefd82599bde.png",
     "static/media/organic_blob_stroke_sprite.png": "/miraho/static/media/organic_blob_stroke_sprite.80a0f8cecd0e4949de3a.png",
     "static/media/organic_blob_sprite.png": "/miraho/static/media/organic_blob_sprite.c44d0b3cd801d93b6db0.png",
     "index.html": "/miraho/index.html",
-    "main.adb559af.css.map": "/miraho/static/css/main.adb559af.css.map",
-    "main.50a35546.js.map": "/miraho/static/js/main.50a35546.js.map"
+    "main.77970283.css.map": "/miraho/static/css/main.77970283.css.map",
+    "main.ab51e78c.js.map": "/miraho/static/js/main.ab51e78c.js.map"
   },
   "entrypoints": [
-    "static/css/main.adb559af.css",
-    "static/js/main.50a35546.js"
+    "static/css/main.77970283.css",
+    "static/js/main.ab51e78c.js"
   ]
 }
