@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/miraho/static/css/main.af781657.css",
-    "main.js": "/miraho/static/js/main.118ee44e.js",
+    "main.css": "/miraho/static/css/main.9332ac45.css",
+    "main.js": "/miraho/static/js/main.ab9fa2f9.js",
     "static/media/endofyear2024--desktop.mp4": "/miraho/static/media/endofyear2024--desktop.60af60de3f60e28b9ccc.mp4",
     "static/media/endofyear2024--mobile.mp4": "/miraho/static/media/endofyear2024--mobile.c99fc369fd4535ecca3d.mp4",
     "static/media/hymer--mobile.mp4": "/miraho/static/media/hymer--mobile.a9f8bad5dc19020e3d81.mp4",
@@ -14,11 +14,11 @@
     "static/media/tarot2.svg": "/miraho/static/media/tarot2.784db866307c60c176afe8dc1d876297.svg",
     "static/media/tarot3.svg": "/miraho/static/media/tarot3.14a177399e5d48afcfb3fd2762c52652.svg",
     "index.html": "/miraho/index.html",
-    "main.af781657.css.map": "/miraho/static/css/main.af781657.css.map",
-    "main.118ee44e.js.map": "/miraho/static/js/main.118ee44e.js.map"
+    "main.9332ac45.css.map": "/miraho/static/css/main.9332ac45.css.map",
+    "main.ab9fa2f9.js.map": "/miraho/static/js/main.ab9fa2f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.af781657.css",
-    "static/js/main.118ee44e.js"
+    "static/css/main.9332ac45.css",
+    "static/js/main.ab9fa2f9.js"
   ]
 }
