@@ -7,6 +7,7 @@ import {ReactComponent as Tarot1} from '../../../assets/svgs/tarot1.svg';
 import {ReactComponent as Tarot2} from '../../../assets/svgs/tarot2.svg';
 import {ReactComponent as Tarot3} from '../../../assets/svgs/tarot3.svg';
 import { useGSAP } from '@gsap/react';
+import { activeAnimations } from 'motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,7 +59,7 @@ const TarotCards: React.FC = () => {
             scrollTrigger: {
                 trigger: ref.current,
                 start: "top top",
-                end: "+=" + (listItems.length * 100) + "%",
+                end: "bottom top",
                 scrub: true,
                 markers: true,
             }
@@ -76,26 +77,37 @@ const TarotCards: React.FC = () => {
             gsap.set(item, { color: "rgba(255, 255, 255, 0.5)" });
             
             const previousItem = listItems[i - 1];
-            if (previousItem) {
+            
+            if (i === 0) {
+                // Card 1: initial state - name 1 active & card 1 active
+                gsap.set(item, { color: "#C716A6" });
+                gsap.set(cards[i], { rotateZ: 0 });
+            } else {
+                // Calculate timeline positions for this card
+                const sectionDuration = 1 / listItems.length; // 0.333 for 3 cards
+                const previousCardSection = (i - 1) * sectionDuration; // When previous card section starts
+                const fadeOutStart = previousCardSection + sectionDuration * 0.7; // 70% through previous card's section
+                const activateStart = fadeOutStart + 0.05; // Small gap after fade out completes
+                
                 tl
+                // Step: Previous card fades out
+                .to(previousItem, { color: "rgba(255, 255, 255, 0.5)", duration: 0.1 }, fadeOutStart)
                 .to(cards[i - 1], { 
-                    x: `${(i) * -3}dvw`,
+                    x: `${i * -3}dvw`,
                     opacity: 0,
                     ease: "power2.out",
-                }, "<")
-                .to(item, { color: "#C716A6",  }, 0.25 * i)
+                    duration: 0.1
+                }, fadeOutStart)
+                
+                // Step: Current name activated & card rotates in
+                .to(item, { color: "#C716A6", duration: 0.1 }, activateStart)
                 .to(cards[i], {
                     rotateZ: 0,
                     ease: "power2.out",
-                }, "<")
-                .to(previousItem, { color: "rgba(255, 255, 255, 0.5)",  }, "<")
-
-            } else {
-                gsap.set(item, { color: "#C716A6" });
-                gsap.to(cards[i], { 
-                    rotateZ: 0,
-                    ease: "power2.out",
-                });
+                    duration: 0.1
+                }, activateStart);
+                
+                // Card is now active and holds until next iteration
             }
         });
         tl.to(
