@@ -34,82 +34,87 @@ const TarotCards: React.FC = () => {
         }
     ];
 
+    const ref = React.createRef<HTMLDivElement>();
+
     useEffect(() => {
-        const list = document.querySelector(`.${styles.tarotCardList}`);
+        const nameList = document.querySelector(`.${styles.tarotCardNameList}`);
         const fill = document.querySelector(`.${styles.fill}`);
-        const listItems = gsap.utils.toArray("li", list) as HTMLElement[];
-        const slides = gsap.utils.toArray(`.${styles.tarotCardWrapper}`) as HTMLElement[];
+        const listItems = gsap.utils.toArray("li", nameList) as HTMLElement[];
+        const cards = gsap.utils.toArray(`.${styles.tarotCardWrapper}`) as HTMLElement[];
+
+        console.log('cards:', cards);
+        const nameListArray = gsap.utils.toArray(`.${styles.tarotCardNameList}`);
 
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: ".pin-section",
+                trigger: ref.current,
                 start: "top top",
-                end: "bottom top",
+                end: "+=" + (listItems.length * 50) + "%",
                 scrub: true,
                 markers: true
-            }
+            },
         });
 
         // First element visible, set the marker
         fill &&
-            gsap.set(fill, {
-                scaleY: 1 / listItems.length,
-                transformOrigin: "top left"
-            });
+        gsap.set(fill, {
+            scaleY: 1 / listItems.length,
+            transformOrigin: "top left"
+        });
+
 
         listItems.forEach((item, i) => {
+            gsap.set(item, { color: "rgba(255, 255, 255, 0.5)" });
+            gsap.set(cards[i], { rotateY: 0, transformStyle: "preserve-3d" });
             const previousItem = listItems[i - 1];
             if (previousItem) {
                 tl.set(item, { color: "#C716A6" }, 0.5 * i)
-                    .to(
-                        slides[i],
-                        {
-                            autoAlpha: 1,
-                        },
-                        "<"
-                    )
-                    .set(previousItem, { color: "#fffce1" }, "<")
-                    .to(
-                        slides[i - 1],
-                        {
-                            autoAlpha: 0,
-                        },
-                        "<"
-                    );
+                .to(
+                    cards[i],
+                    {
+                    rotateY: 180,
+                    duration: 0.2
+                    },
+                    "<"
+                )
+                .set(previousItem, { color: "rgba(255, 255, 255, 0.5)" }, "<")
+                .to(
+                    cards[i - 1],
+                    {
+                    rotateY: 0,
+                    duration: 0.2
+                    },
+                    "<"
+                );
             } else {
                 gsap.set(item, { color: "#C716A6" });
-                gsap.set(slides[i], { autoAlpha: 1 });
+                gsap.set(cards[i], { autoAlpha: 1 });
             }
         });
-
         tl.to(
-            fill,
-            {
-                scaleY: 1,
-                transformOrigin: "top left",
-                ease: "none",
-                duration: tl.duration()
-            },
-            0
+        fill,
+        {
+            scaleY: 1,
+            transformOrigin: "top left",
+            ease: "none",
+            duration: tl.duration()
+        },
+        0
         ).to({}, {}); // add a small pause at the end of the timeline before it un-pins
-
-        return () => {
-            tl.kill();
-        };
     }, []);
 
     return (
-        <div className={`${styles.tarotCardsContainer} pin-section`}>
-            <div className={styles.tarotCards}>
+        <div className={styles.tarotCards} ref={ref}>
+            <div className={styles.tarotCardsContainer}>
                 <div className={styles.fill}></div>
-                <ul className={styles.tarotCardList}>
+                <ul className={styles.tarotCardNameList}>
                     {tarotCards.map((card, index) => (
-                        <li key={index}>{card.name}: {card.description}</li>
+                        <li key={index}>{card.name}</li>
                     ))}
                 </ul>
                 <div className={styles.tarotCardSide}>
                     {tarotCards.map((card, index) => (
-                        <div key={index} className={`${styles.tarotCardWrapper} slide`}>
+                        <div key={index} className={styles.tarotCardWrapper}>
                             <TarotCard name={card.name} svg={card.svg} colour={card.colour} colour2={card.colour2} />
                         </div>
                     ))}

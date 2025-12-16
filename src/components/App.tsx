@@ -167,7 +167,7 @@ const App: React.FC = () => {
                         <Section className="section-container" backgroundColor='orange'>
                             <PageHeader />
                         </Section>
-                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about." pinnedTitle={true} needExtraSpaceAfterPinnedTitle={true}>
+                        {/* <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about." pinnedTitle={true} needExtraSpaceAfterPinnedTitle={true}>
                             <div className='whatIDoSection'>
                                 <div className='storybox-parralax-section' style={{marginBottom:'100dvh'}}>
                                     <div className='lottie-container' 
@@ -196,7 +196,7 @@ const App: React.FC = () => {
                         </Section>
                         <Section className="section-container" pinnedTitle={true} fullWidth={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
                             <TeaserContainer backgroundColor='purple' />
-                        </Section>
+                        </Section> */}
                         <Section className="section-container" pinnedSection={true} backgroundColor='dark' title='How I Work' description='This is how my brain is wired.'>
                             <TarotCards />
                         </Section>

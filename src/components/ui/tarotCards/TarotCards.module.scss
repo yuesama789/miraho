@@ -1,14 +1,16 @@
-.tarotCardsContainer {
+@import '../../../styles/Globals.scss';
+
+.tarotCards {
     height: 100dvh;
 
-    .tarotCards {
+    .tarotCardsContainer {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
 
-        .tarotCardList {
+        .tarotCardNameList {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -24,8 +26,8 @@
 
     .fill {
         width: 2px;
+        background-color: $primary-gradient-c2;
         height: 100%;
-        background-color: var(--color-shockingly-green);
     }
 
     .tarotCardSide {
