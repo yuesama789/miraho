@@ -92,7 +92,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
                 end: "bottom top",
                 pin: true,
                 pinSpacing: true,
-                markers: true,
+                // markers: true,
             });
         }
 
@@ -109,15 +109,21 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
     const bg = backgroundColor ?? 'none';
 
 
-    return <div className={`${styles['section-container']} ${styles[bg]} ${className || ''} ${fullWidth ? styles['full-width'] : ''}`} style={{ position: 'relative' }}>
-        {title || description ? <div className={styles['section-content']} >
-            <div className={styles['section-header']} ref={sectionContent}>
-                {title && (<><h2>{title}</h2><span className={styles['section-underline']}></span></>)}
-                {description && <p>{description}</p>}
+    return (
+    <>
+        <div className={`${styles.sectionContainer} ${styles[bg]} ${className || ''} ${fullWidth ? styles.fullWidth : ''}`} style={{ position: 'relative' }}>
+            <div className={styles.sectionInnerWrapper}>
+                {title || description ? <div className={styles.sectionContent} >
+                    <div className={styles.sectionHeader} ref={sectionContent}>
+                        {title && (<><h2>{title}</h2><span className={styles.sectionUnderline}></span></>)}
+                        {description && <p>{description}</p>}
+                    </div>
+                    {children}
+                </div> : children}
             </div>
-            {children}
-        </div> : children}
-    </div>;
+        </div>
+    </>
+    );
 };
 
 export default Section;
