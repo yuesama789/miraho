@@ -18,9 +18,11 @@
 }
 
 
-// hide default cursor
-body *:hover {
-    cursor: none;
+// hide default cursor on non-mobile devices
+@media (min-width: 600px) {
+    body *:hover {
+        cursor: none;
+    }
 }
 
 .cursorOrb {

@@ -65,10 +65,15 @@ const CustomCursor: React.FC = () => {
         };
     }, []);
 
+    // Don't render custom cursor on mobile devices
+    if (isMobile) {
+        return null;
+    }
+
     return (
         <>
-            <div ref={cursorDotRef} className={`${styles.cursorDot} ${isHovering ? styles.hovering : ''} ${!isVisible || isMobile ? styles.hidden : ''}`} />
-            <div ref={cursorOrbRef} className={`${styles.cursorOrb} ${isHovering ? styles.hovering : ''} ${!isVisible || isMobile ? styles.hidden : ''}`} />
+            <div ref={cursorDotRef} className={`${styles.cursorDot} ${isHovering ? styles.hovering : ''} ${!isVisible ? styles.hidden : ''}`} />
+            <div ref={cursorOrbRef} className={`${styles.cursorOrb} ${isHovering ? styles.hovering : ''} ${!isVisible ? styles.hidden : ''}`} />
         </>
     );
 };

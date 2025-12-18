@@ -95,7 +95,7 @@ const App: React.FC = () => {
                 let storyItemSteps: string[];
                 let lottieItemY: string;
                 if (isDeviceVertical()) { 
-                    storyItemSteps = ['-30dvh', '-30dvh', '-30dvh'];
+                    storyItemSteps = ['-15dvh', '-15dvh', '-15dvh'];
                     lottieItemY = '-15dvh';
                 } else {
                     storyItemSteps = ['-50dvh', '-70dvh', '-80dvh'];
@@ -109,27 +109,26 @@ const App: React.FC = () => {
                         start: () => isDeviceVertical() ? "top 10%" : "top top",
                         end: "bottom top",
                         pin: true,
-                        pinSpacing: false,
-                        // markers: true,
+                        pinSpacing: isDeviceVertical() ? true : false,
+                        markers: true,
                         scrub: true,
                         id: "parralax-scroll",
+                        onUpdate: (self) => {
+                            const progress = self.progress;
+                            console.log("ScrollTrigger progress:", progress);
+                            const frame = Math.floor(progress * 220);
+                            lottieInstance.goToAndStop(frame, true);
+                        }
                     },
                     defaults: {duration: 1, ease: "power2.out"}
                 });
 
                 tl
-                .to(lottieElement, {
-                    onUpdate: function() {
-                            const progress = this.progress();
-                            const frame = Math.floor(progress * (220));
-                            lottieInstance.goToAndStop(frame, true);
-                    }
-                })
+                .to(lottieContainer, 
+                    {scale: () => isDeviceVertical() ? 1 : .5, y: lottieItemY}, "-=.1")
                 .to(storyboxItemContainer, 
                     {y: storyItemSteps[0]}
-                , "-=.1")
-                .to(lottieContainer, 
-                    {scale: () => isDeviceVertical() ? 1 : .5, y: lottieItemY}, "-=1")
+                , "<")
                 .to(storyboxItem1, 
                     {opacity: 1}, "-=1")
                 .to(storyboxItemContainer,
@@ -169,7 +168,7 @@ const App: React.FC = () => {
                         </Section>
                         <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about." pinnedTitle={true} needExtraSpaceAfterPinnedTitle={true}>
                             <div className='whatIDoSection'>
-                                <div className='storybox-parralax-section' style={{marginBottom:'100dvh'}}>
+                                <div className='storybox-parralax-section' style={{marginBottom: isDeviceVertical() ? '0' : '100dvh'}}>
                                     <div className='lottie-container' 
                                             style={{ maxWidth: '100%', maxHeight: '100%' }}>
                                         <lottie-player
