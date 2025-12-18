@@ -10,13 +10,12 @@ interface SectionProps {
     title?: string;
     description?: string;
     className?: string;
-    pinnedTitle?: boolean;
+    pinned?: 'title' | 'section' | 'none';
     fullWidth?: boolean;
-    needExtraSpaceAfterPinnedTitle?: boolean;
-    pinnedSection?: boolean;
+    addPinSpacer?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinnedTitle, fullWidth, needExtraSpaceAfterPinnedTitle = false, pinnedSection = false }) => {
+const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinned, fullWidth, addPinSpacer = false }) => {
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -72,20 +71,20 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
             ease: 'power2.out',
         });
 
-        if (pinnedTitle) {
+        if (pinned === 'title') {
             console.log("Pinning section title: ", title);
             ScrollTrigger.create({
                 trigger: sectionContent.current,
                 start: "-=20 top",
                 end: () => 
-                    needExtraSpaceAfterPinnedTitle ? isDeviceVertical() ? "+=33%" : "+=20%" : "bottom top",
+                    addPinSpacer ? isDeviceVertical() ? "+=33%" : "+=20%" : "bottom top",
                 pin: sectionContent.current,
                 pinSpacing: false,
                 // markers: true,
             });
         }
 
-        if (pinnedSection) {
+        if (pinned === 'section') {
             console.log("Pinning entire section: ", title);
             ScrollTrigger.create({
                 trigger: sectionContent.current?.parentElement,
@@ -93,7 +92,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
                 end: "bottom top",
                 pin: true,
                 pinSpacing: true,
-                // markers: true,
+                markers: true,
             });
         }
 

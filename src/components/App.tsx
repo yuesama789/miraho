@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,28 +8,20 @@ import { ModalProvider } from '../context/modalContext';
 
 import PageHeader from './ui/pageheader/Pageheader';
 import Section from './ui/section/Section';
-import Storybox from './ui/storybox/Storybox';
 import Button from './ui/button/Button';
 import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 import Modal from './ui/modal/Modal';
 import BadgeCloud from './ui/badgeCloud/BadgeCloud';
 import CustomCursor from './ui/customCursor/CustomCursor';
 import TarotCards from './ui/tarotCards/TarotCards';
-
-import uiuxCard from '../assets/lottie/uiux-card.json';
+import StoryboxParralax from './ui/storyboxParralax/StoryboxParralax';
 
 
 
 
 const App: React.FC = () => {
-
-    const [lottieInstance, setLottieInstance] = useState<any>(null);
     
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-
-    const isDeviceVertical = () => {
-        return window.innerHeight > window.innerWidth;
-    }
 
     useEffect(() => {
         ScrollSmoother.create({
@@ -40,115 +32,6 @@ const App: React.FC = () => {
             normalizeScroll: true,
         });
     }, []);
-
-    // Check for lottie instance periodically
-    useEffect(() => {
-        const checkLottieReady = () => {
-            const lottieElement: any = document.querySelector("#uiuxLottie");
-            if (lottieElement && lottieElement.getLottie) {
-                const instance = lottieElement.getLottie();
-                if (instance && instance.totalFrames > 0) {
-                    // console.log("Lottie ready with frames:", instance.totalFrames);
-                    setLottieInstance(instance);
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        // Try immediately
-        if (!checkLottieReady()) {
-            // If not ready, poll every 100ms
-            const interval = setInterval(() => {
-                if (checkLottieReady()) {
-                    clearInterval(interval);
-                }
-            }, 100);
-
-            return () => clearInterval(interval);
-        }
-    }, []);
-
-    // Initialize scroll trigger when lottie instance is ready
-    useEffect(() => {
-        if (lottieInstance) {
-            const lottieElement: any = document.querySelector("#uiuxLottie");
-            const lottieContainer = document.querySelector(".lottie-container");
-            const storyboxItemContainer = document.querySelector(".storyboxItem-container");
-            const parralaxSection = document.querySelector(".storybox-parralax-section");
-            const storyboxItem1 = document.querySelector(".storyboxItem.item-1");
-            const storyboxItem2 = document.querySelector(".storyboxItem.item-2");
-            const storyboxItem3 = document.querySelector(".storyboxItem.item-3");
-            const storyboxItems = [storyboxItem1, storyboxItem2, storyboxItem3];
-
-            // Hide storybox items initially
-            if (!isDeviceVertical()){
-                storyboxItems.forEach(item => {
-                    (item as HTMLElement).style.opacity = '0';
-                });
-            }
-
-            
-            if (lottieElement) {
-                // const totalFrames = lottieInstance.totalFrames;
-
-                let storyItemSteps: string[];
-                let lottieItemY: string;
-                if (isDeviceVertical()) { 
-                    storyItemSteps = ['-15dvh', '-15dvh', '-15dvh'];
-                    lottieItemY = '-15dvh';
-                } else {
-                    storyItemSteps = ['-50dvh', '-70dvh', '-80dvh'];
-                    lottieItemY = '-30dvh';
-                }
-
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: parralaxSection,
-                        start: () => isDeviceVertical() ? "top 10%" : "top top",
-                        end: "bottom top",
-                        pin: true,
-                        pinSpacing: isDeviceVertical() ? true : false,
-                        markers: true,
-                        scrub: true,
-                        id: "parralax-scroll",
-                        onUpdate: (self) => {
-                            const progress = self.progress;
-                            console.log("ScrollTrigger progress:", progress);
-                            const frame = Math.floor(progress * 220);
-                            lottieInstance.goToAndStop(frame, true);
-                        }
-                    },
-                    defaults: {duration: 1, ease: "power2.out"}
-                });
-
-                tl
-                .to(lottieContainer, 
-                    {scale: () => isDeviceVertical() ? 1 : .5, y: lottieItemY}, "-=.1")
-                .to(storyboxItemContainer, 
-                    {y: storyItemSteps[0]}
-                , "<")
-                .to(storyboxItem1, 
-                    {opacity: 1}, "-=1")
-                .to(storyboxItemContainer,
-                    {y: storyItemSteps[1]}, "-=0.5")
-                .to(storyboxItem2, 
-                    {opacity: 1}, "-=1")
-                .to(storyboxItemContainer,
-                    {y: storyItemSteps[2]}, "-=0.5")
-                .to(storyboxItem3, 
-                    {opacity: 1}, "-=1"
-                )
-                ;
-
-
-                return () => {                    
-                    tl.kill();
-                };
-            }
-        }
-    }, [lottieInstance]);
 
 
     const downloadIcon = (
@@ -166,37 +49,13 @@ const App: React.FC = () => {
                         <Section className="section-container" backgroundColor='orange'>
                             <PageHeader />
                         </Section>
-                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about." pinnedTitle={true} needExtraSpaceAfterPinnedTitle={true}>
-                            <div className='whatIDoSection'>
-                                <div className='storybox-parralax-section' style={{marginBottom: isDeviceVertical() ? '0' : '100dvh'}}>
-                                    <div className='lottie-container' 
-                                            style={{ maxWidth: '100%', maxHeight: '100%' }}>
-                                        <lottie-player
-                                            id="uiuxLottie"
-                                            src={`data:application/json;base64,${btoa(JSON.stringify(uiuxCard))}`}
-                                            background="transparent"
-                                            speed="1"
-                                            style={{  maxWidth: '100dvw', maxHeight: '100dvh', width: '100%', height:'100%', aspectRatio: '107 / 91' }}
-                                        />
-                                    </div>
-                                    <div className='storyboxItem-container'>
-                                        <div className="storyboxItem item-1">
-                                        <Storybox title="Interactions & Motion" bulletPoints={["Microinteractions", "Scroll-Animationen", "Motion Prototyping"]}/>
-                                        </div>
-                                        <div className="storyboxItem item-2">
-                                            <Storybox title="UI Engineering" bulletPoints={["Component-driven development", "Design Systems", "React & TypeScript"]} />
-                                        </div>
-                                        <div className="storyboxItem item-3">
-                                            <Storybox title="Creative Problem Solving" bulletPoints={["I love sparring with design", "Turning concept into experiences", "Visual logic & ideation"]}  />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <Section className="section-container" backgroundColor='pink' title="What I do" description="Things I'm passionate about." pinned="section">
+                            <StoryboxParralax />
                         </Section>
-                        <Section className="section-container" pinnedTitle={true} fullWidth={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
+                        <Section className="section-container" pinned="title" fullWidth={true} backgroundColor='purple' title="Mini-Showcase" description="A selection of my work.">
                             <TeaserContainer backgroundColor='purple' />
                         </Section>
-                        <Section className="section-container" pinnedSection={true} backgroundColor='dark' title='How I Work' description='My design and development philosophies.'>
+                        <Section className="section-container" pinned="section" backgroundColor='dark' title='How I Work' description='My design and development philosophies.'>
                             <TarotCards />
                         </Section>
                         <Section className="section-container" backgroundColor='pink' title='Skills & Expertise' description='Some of the tools and technologies I excel in.'>
