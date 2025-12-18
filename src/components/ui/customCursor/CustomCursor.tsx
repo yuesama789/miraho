@@ -6,6 +6,20 @@ const CustomCursor: React.FC = () => {
     const cursorDotRef = useRef<HTMLDivElement>(null);
     const cursorOrbRef = useRef<HTMLDivElement>(null);
     const [isHovering, setIsHovering] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 600);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -32,17 +46,29 @@ const CustomCursor: React.FC = () => {
             setIsHovering(!!isInteractive);
         };
 
+        const handleMouseEnter = () => {
+            setIsVisible(true);
+        };
+
+        const handleMouseLeave = () => {
+            setIsVisible(false);
+        };
+
         window.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseenter', handleMouseEnter);
+        document.addEventListener('mouseleave', handleMouseLeave);
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseenter', handleMouseEnter);
+            document.removeEventListener('mouseleave', handleMouseLeave);
         };
     }, []);
 
     return (
         <>
-            <div ref={cursorDotRef} className={`${styles.cursorDot} ${isHovering ? styles.hovering : ''}`} />
-            <div ref={cursorOrbRef} className={`${styles.cursorOrb} ${isHovering ? styles.hovering : ''}`} />
+            <div ref={cursorDotRef} className={`${styles.cursorDot} ${isHovering ? styles.hovering : ''} ${!isVisible || isMobile ? styles.hidden : ''}`} />
+            <div ref={cursorOrbRef} className={`${styles.cursorOrb} ${isHovering ? styles.hovering : ''} ${!isVisible || isMobile ? styles.hidden : ''}`} />
         </>
     );
 };

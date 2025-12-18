@@ -43,3 +43,9 @@ body *:hover {
 .cursorDot.hovering {
     display: none;
 }
+
+// Hidden state (when mouse leaves window)
+.cursorDot.hidden,
+.cursorOrb.hidden {
+    opacity: 0;
+}
