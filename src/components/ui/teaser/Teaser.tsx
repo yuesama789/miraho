@@ -18,14 +18,22 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const videoWidthDesktop = 960;
+    const videoWidthMobile = 540; // CHECK THIS VALUE
+
     const headerRef = React.useRef<HTMLHeadingElement | null>(null);
     const buttonRef = React.useRef<HTMLDivElement | null>(null);
     const teaserRef = React.useRef<HTMLDivElement | null>(null);
     const mediaRef = React.useRef<HTMLDivElement | null>(null);
     const videoRef = React.useRef<HTMLVideoElement | null>(null);
 
-    const isDeviceVertical = () => {
-        return window.innerHeight > window.innerWidth;
+    const isMobile = () => {
+        return window.innerHeight > window.innerWidth && window.innerWidth < 600;
+    }
+
+    const textXOffset = () => {
+        const videoWidth = isMobile() ? videoWidthMobile : videoWidthDesktop;
+        return (teaserRef.current?.offsetWidth! - videoWidth) / 2 + 'px';
     }
 
     const { openModal, setModalId } = useModal();
@@ -37,40 +45,6 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
 
     useGSAP(() => {
         if (!teaserRef.current) return;
-
-        console.log(teaserRef.current.offsetHeight)
-
-        // Animate h3 entrance
-        gsap.fromTo(headerRef.current, 
-            { y: 0, opacity: 0 }, 
-            {
-                x: () => isDeviceVertical() ? '10dvw' : '25dvw',
-                opacity: 1,
-                duration: 0.8,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: teaserRef.current,
-                    start: () => isDeviceVertical() ? "40% top" : "60% top",
-                    // end: "bottom 60%",
-                    toggleActions: "play none none reverse",
-                    // markers: true
-                }
-            }
-        );
-
-        gsap.to(mediaRef.current, {
-            scale: () => isDeviceVertical() ? .8 : .5,
-            y: () => isDeviceVertical() ? '7dvh' : '5dvh',
-            ease: "none",
-            scrollTrigger: {
-                trigger: teaserRef.current,
-                start: "10% top",
-                end: "bottom center",
-                scrub: true,
-                // markers: true
-            },
-        }
-        );
 
         // Auto-play video when in view
         if (mediaType === "video" && videoRef.current) {
@@ -86,23 +60,41 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
             });
         }
 
-        // Animate button entrance (slightly delayed)
-        gsap.fromTo(buttonRef.current, 
-            { x: 0, opacity: 0 }, 
-            {
-                x: () => isDeviceVertical() ? '-5dvw' : '-24dvw',
-                opacity: 1,
-                duration: 0.8,
-                delay: 0.2,
-                ease: "power2.out",
+        gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
+
+        const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: teaserRef.current,
-                    start: () => isDeviceVertical() ? "40% top" : "60% top",                    end: "bottom 60%",
-                    toggleActions: "play none none reverse",
+                    start: "5% top",
+                    end: "bottom center",
+                    scrub: true,
                     // markers: true
+                }
+        });
+        
+        tl
+            // Animate media scaling on scroll
+            .to(mediaRef.current, {
+                scale: () => isMobile() ? .8 : .5,
+                y: () => isMobile() ? '7dvh' : '5dvh',
+                ease: "none",
+            })
+
+            // Animate h3 entrance
+            .to(headerRef.current, 
+            {
+                x: textXOffset(),
+                opacity: 1,
+            })
+
+            // Animate button entrance (slightly delayed)
+                .to(buttonRef.current, 
+                {
+                    x: textXOffset() ? `-${textXOffset()}` : 0,
+                    opacity: 1,
                 },
-            }
-        );
+                "<"
+            );
     }, []);
 
     return (
