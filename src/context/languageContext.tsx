@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useMemo, ReactNode } from 'react';
 import { Locale, getTranslation } from '../locales';
 
 interface LanguageContextType {
@@ -11,7 +11,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [locale, setLocale] = useState<Locale>('en');
-    const t = getTranslation(locale);
+    const t = useMemo(() => getTranslation(locale), [locale]);
 
     return (
         <LanguageContext.Provider value={{ locale, setLocale, t }}>

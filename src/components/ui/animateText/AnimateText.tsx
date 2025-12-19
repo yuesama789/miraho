@@ -5,21 +5,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 interface AnimateTextProps {
-    children: React.ReactNode;
+    text: string;
 }
 
 const AnimateText: React.FC<AnimateTextProps> = ({ 
-    children
+    text
 }) => {
 
     gsap.registerPlugin(SplitText, ScrollTrigger) 
 
     const textRef = React.useRef<HTMLDivElement | null>(null);
-
-    gsap.set(textRef.current, { autoAlpha: 0 });
+    const splitInstanceRef = React.useRef<any>(null);
 
     useGSAP(() => {
         if (!textRef.current) return;
+
+        // Clean up previous SplitText instance
+        if (splitInstanceRef.current) {
+            splitInstanceRef.current.revert();
+        }
+
+        gsap.set(textRef.current, { autoAlpha: 1 });
 
         ScrollTrigger.create({
             trigger: textRef.current,
@@ -28,11 +34,17 @@ const AnimateText: React.FC<AnimateTextProps> = ({
             onEnter: () => initTextAnimation(),
         });
 
-        initTextAnimation();
-    }, []);
+        return () => {
+            if (splitInstanceRef.current) {
+                splitInstanceRef.current.revert();
+            }
+        };
+    }, [text]);
 
     const initTextAnimation = () => {
-        SplitText.create(textRef.current, {
+        if (!textRef.current) return;
+        
+        splitInstanceRef.current = SplitText.create(textRef.current, {
             type: "lines, words",
             mask: "lines",
             autoSplit: true,
@@ -59,7 +71,7 @@ const AnimateText: React.FC<AnimateTextProps> = ({
                 textAlign: 'center',
                 margin: '3rem 0 6rem',}}
             >
-            {children}
+            {text}
         </div>
     );
 };
