@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import '@lottiefiles/lottie-player';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Storybox from '../storybox/Storybox';
 import uiuxCard from '../../../assets/lottie/uiux-card.json';

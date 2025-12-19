@@ -18,8 +18,10 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const videoWidthDesktop = 960;
-    const videoWidthMobile = 540; // CHECK THIS VALUE
+    const isMobile = () => {
+        return window.innerHeight > window.innerWidth && window.innerWidth < 600;
+    }
+
 
     const headerRef = React.useRef<HTMLHeadingElement | null>(null);
     const buttonRef = React.useRef<HTMLDivElement | null>(null);
@@ -27,14 +29,9 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
     const mediaRef = React.useRef<HTMLDivElement | null>(null);
     const videoRef = React.useRef<HTMLVideoElement | null>(null);
 
-    const isMobile = () => {
-        return window.innerHeight > window.innerWidth && window.innerWidth < 600;
-    }
+    
+    const scaleMedia = isMobile() ? .7 : .5;
 
-    const textXOffset = () => {
-        const videoWidth = isMobile() ? videoWidthMobile : videoWidthDesktop;
-        return (teaserRef.current?.offsetWidth! - videoWidth) / 2 + 'px';
-    }
 
     const { openModal, setModalId } = useModal();
 
@@ -46,8 +43,69 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
     useGSAP(() => {
         if (!teaserRef.current) return;
 
+        const initAnimations = () => {
+            const videoWidth = videoRef.current?.offsetWidth || 0;
+            const videoHeight = videoRef.current?.offsetHeight || 0;
+
+            const textXOffset = () => {
+                return (window.innerWidth - videoWidth * scaleMedia) / 2;
+            };
+
+            const textYOffset = () => {
+                return (window.innerHeight - videoHeight * scaleMedia) / 2;
+            };
+
+            gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
+
+            if (isMobile()) {
+                gsap.set(headerRef.current, { y: textYOffset() * 1.5 });
+                gsap.set(buttonRef.current, { y: textYOffset() * -1 * .3 });
+            } else {
+                gsap.set(headerRef.current, { y: textYOffset() });
+                gsap.set(buttonRef.current, { y: textYOffset() * -1 * .5 });
+            }
+
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: teaserRef.current,
+                    start: "5% top",
+                    end: "bottom center",
+                    scrub: true,
+                    // markers: true
+                }
+            });
+
+            tl
+                // Animate media scaling on scroll
+                .to(mediaRef.current, {
+                    scale: () => scaleMedia,
+                    y: () => isMobile() ? '7dvh' : '5dvh',
+                    ease: "none",
+                })
+
+                // Animate h3 entrance
+                .to(headerRef.current,
+                    {
+                        x: textXOffset(),
+                        opacity: 1,
+                    })
+
+                // Animate button entrance
+                .to(buttonRef.current,
+                    {
+                        x: -textXOffset(),
+                        opacity: 1,
+                    },
+                    "<"
+                );
+        };
+
         // Auto-play video when in view
         if (mediaType === "video" && videoRef.current) {
+            // Wait for video metadata to load before initializing animations
+            videoRef.current.addEventListener('loadedmetadata', initAnimations, { once: true });
+            
             ScrollTrigger.create({
                 trigger: teaserRef.current,
                 start: "top 80%",
@@ -58,43 +116,10 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 onEnterBack: () => videoRef.current?.play(),
                 onLeaveBack: () => videoRef.current?.pause(),
             });
+        } else {
+            // For images, initialize immediately
+            initAnimations();
         }
-
-        gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
-
-        const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: teaserRef.current,
-                    start: "5% top",
-                    end: "bottom center",
-                    scrub: true,
-                    // markers: true
-                }
-        });
-        
-        tl
-            // Animate media scaling on scroll
-            .to(mediaRef.current, {
-                scale: () => isMobile() ? .8 : .5,
-                y: () => isMobile() ? '7dvh' : '5dvh',
-                ease: "none",
-            })
-
-            // Animate h3 entrance
-            .to(headerRef.current, 
-            {
-                x: textXOffset(),
-                opacity: 1,
-            })
-
-            // Animate button entrance (slightly delayed)
-                .to(buttonRef.current, 
-                {
-                    x: textXOffset() ? `-${textXOffset()}` : 0,
-                    opacity: 1,
-                },
-                "<"
-            );
     }, []);
 
     return (

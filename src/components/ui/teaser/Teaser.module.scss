@@ -34,30 +34,31 @@
 .teaser h3 {
     font-size: 2rem;
     position: absolute;
-    top: 1.5rem;
+    // top: 1.5rem;
+    top: 0;
     left: 0;
     width: 80%;
     text-align: left;
     margin: 0;
     opacity: 0;
     @media screen and (min-width: 600px) {
-        top: 3rem;
+        // top: 3rem;
         width: auto;
         text-align: center;
         font-size: 3rem;
-        top: 14rem;
+        // top: 14rem;
     }
 
 }
 
 .teaser__button {
     position: absolute;
-    bottom: -5dvh;
+    bottom: 0;
     right: 0;
     opacity: 0;
 
     @media screen and (min-width: 600px) {
-        bottom: 15dvh;
+        // bottom: 15dvh;
     }
 
     * {
