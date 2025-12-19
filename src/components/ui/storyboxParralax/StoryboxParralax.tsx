@@ -5,6 +5,7 @@ import '@lottiefiles/lottie-player';
 import Storybox from '../storybox/Storybox';
 import uiuxCard from '../../../assets/lottie/uiux-card.json';
 import styles from './StoryboxParralax.module.scss';
+import { useLanguage } from '../../../context/languageContext';
 
 const StoryboxParralax: React.FC = () => {
     const [lottieInstance, setLottieInstance] = useState<any>(null);
@@ -14,6 +15,8 @@ const StoryboxParralax: React.FC = () => {
     const storyboxItem1Ref = useRef<HTMLDivElement>(null);
     const storyboxItem2Ref = useRef<HTMLDivElement>(null);
     const storyboxItem3Ref = useRef<HTMLDivElement>(null);
+
+    const { t } = useLanguage();
 
     const isMobile = () => {
         return window.innerHeight > window.innerWidth && window.innerWidth < 600;
@@ -136,13 +139,13 @@ const StoryboxParralax: React.FC = () => {
                 </div>
                 <div ref={storyboxItemContainerRef} className={styles.storyboxItemContainer}>
                     <div ref={storyboxItem1Ref} className={styles.storyboxItem}>
-                        <Storybox title="Interactions & Motion" bulletPoints={["Microinteractions", "Scroll-Animationen", "Motion Prototyping"]} />
+                        <Storybox title={t.storybox.interactionsMotion.title} bulletPoints={t.storybox.interactionsMotion.points} />
                     </div>
                     <div ref={storyboxItem2Ref} className={styles.storyboxItem}>
-                        <Storybox title="UI Engineering" bulletPoints={["Component-driven development", "Design Systems", "React & TypeScript"]} />
+                        <Storybox title={t.storybox.uiEngineering.title} bulletPoints={t.storybox.uiEngineering.points} />
                     </div>
                     <div ref={storyboxItem3Ref} className={styles.storyboxItem}>
-                        <Storybox title="Creative Problem Solving" bulletPoints={["I love sparring with design", "Turning concept into experiences", "Visual logic & ideation"]} />
+                        <Storybox title={t.storybox.problemSolving.title} bulletPoints={t.storybox.problemSolving.points} />
                     </div>
                 </div>
             </div>

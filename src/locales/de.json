@@ -31,6 +31,7 @@
         }
     },
     "buttons": {
+        "showcase": "Showcase",
         "downloadCV": "Lebenslauf herunterladen",
         "contactMe": "Kontaktiere mich",
         "readMore": "Mehr lesen"
@@ -62,6 +63,14 @@
             "Konzepte in Erlebnisse verwandeln",
             "Visuelle Logik & Ideenfindung"
         ]
+        }
+    },
+    "showcase": {
+        "project1": {
+            "title": "Interaktiver Jahresrückblick"
+        },
+        "project2": {
+            "title": "Interaktive Produktseite"
         }
     }
 }

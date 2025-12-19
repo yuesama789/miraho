@@ -79,8 +79,8 @@ useGSAP(() => {
                         </h1>
                         <h3>{t.pageHeader.subtitle}</h3>
                         <div className={styles.pageheader__buttons}>
-                            <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
-                            <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>
+                            <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} {t.buttons.showcase}</Button>
+                            <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} {t.buttons.downloadCV}</Button>
                         </div>
                     </div>
                 </div> 

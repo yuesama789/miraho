@@ -8,11 +8,13 @@ import hymerVideo_mobile from "../../../assets/videos/hymer--mobile.mp4";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLanguage } from "../../../context/languageContext";
 
 
 const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
     { backgroundColor }
 ) => {
+    const { t } = useLanguage();
     
     gsap.registerPlugin(ScrollTrigger);
 
@@ -52,8 +54,8 @@ const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
 
     return (
         <div className={styles.teaserContainer} data-teaser>
-            <Teaser id="project-1" title="Interactive Year Review" mediaType="video" mediaPath={isDeviceVertical() ? endOfYearVideo_mobile : endOfYearVideo_desktop} backgroundColor={backgroundColor} />
-            <Teaser id="project-2" title="Interactive Product Experience" mediaType="video" mediaPath={isDeviceVertical() ? hymerVideo_mobile : hymerVideo_desktop} backgroundColor={backgroundColor} />
+            <Teaser id="project-1" title={t.showcase.project1.title} mediaType="video" mediaPath={isDeviceVertical() ? endOfYearVideo_mobile : endOfYearVideo_desktop} backgroundColor={backgroundColor} />
+            <Teaser id="project-2" title={t.showcase.project2.title} mediaType="video" mediaPath={isDeviceVertical() ? hymerVideo_mobile : hymerVideo_desktop} backgroundColor={backgroundColor} />
             {/* <Teaser id="project-3" title="Project 3" backgroundColor={backgroundColor} /> */}
         </div>
     );
