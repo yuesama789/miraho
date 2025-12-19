@@ -11,6 +11,11 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger);
 
 const TarotCards: React.FC = () => {
+
+    const isMobile = () => {
+        return window.innerHeight > window.innerWidth && window.innerWidth < 600;
+    }
+
     const tarotCards = [
         {
             name: 'User-Centered Design',
@@ -35,12 +40,14 @@ const TarotCards: React.FC = () => {
         }
     ];
 
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.useRef<HTMLDivElement>(null);
+    const nameList = React.useRef<HTMLUListElement>(null);
+    const listItemRefs = React.useRef<(HTMLLIElement | null)[]>([]);
+    const cardRefs = React.useRef<(HTMLDivElement | null)[]>([]);
 
     useGSAP(() => {
-        const nameList = document.querySelector(`.${styles.tarotCardNameList}`);
-        const listItems = gsap.utils.toArray("li", nameList) as HTMLElement[];
-        const cards = gsap.utils.toArray(`.${styles.tarotCardWrapper}`) as HTMLElement[];
+        const listItems = listItemRefs.current.filter(Boolean) as HTMLElement[];
+        const cards = cardRefs.current.filter(Boolean) as HTMLElement[];
 
         cards.forEach((card, i) => {
             gsap.set(card, {
@@ -94,6 +101,7 @@ const TarotCards: React.FC = () => {
                 .to(item, { color: "#C716A6", duration: 0.1 }, activateStart)
                 .to(cards[i], {
                     rotateZ: 0,
+                    x: 0,
                     ease: "power2.out",
                     duration: 0.1
                 }, activateStart);
@@ -106,14 +114,14 @@ const TarotCards: React.FC = () => {
     return (
         <div className={styles.tarotCards} ref={ref}>
             <div className={styles.tarotCardsContainer}>
-                <ul className={styles.tarotCardNameList}>
+                <ul className={styles.tarotCardNameList} ref={nameList}>
                     {tarotCards.map((card, index) => (
-                        <li key={index}>{card.name}</li>
+                        <li key={index} ref={el => listItemRefs.current[index] = el}>{index + 1}. {card.name}</li>
                     ))}
                 </ul>
                 <div className={styles.tarotCardSide}>
                     {tarotCards.map((card, index) => (
-                        <div key={index} className={styles.tarotCardWrapper}>
+                        <div key={index} className={styles.tarotCardWrapper} ref={el => cardRefs.current[index] = el}>
                             <TarotCard name={card.name} svg={card.svg} colour={card.colour} colour2={card.colour2} description={card.description} />
                         </div>
                     ))}
