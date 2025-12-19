@@ -6,12 +6,15 @@ import {gsap} from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { useLanguage } from '../../../context/languageContext';
 
 import handWave from '../../../assets/lottie/handwave.json';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const PageHeader: React.FC = () => {
+
+    const { t } = useLanguage();
 
     const main = useRef<HTMLElement | null>(null);
 
@@ -65,7 +68,7 @@ useGSAP(() => {
                         </div>
                     </div>
                     <div className={styles.pageheader__content}>
-                        <h1>Hi, I am Mira 
+                        <h1>{t.pageHeader.title}
                             <span className={styles.wave}>
                                 <DotLottieReact
                                     data={handWave}
@@ -74,7 +77,7 @@ useGSAP(() => {
                                 />
                             </span>
                         </h1>
-                        <h3>Interaction-Focused UI Developer & Design Engineer</h3>
+                        <h3>{t.pageHeader.subtitle}</h3>
                         <div className={styles.pageheader__buttons}>
                             <Button type="primary" onClick={() => alert('Button clicked!')}>{sparkleSvg} Show the Magic</Button>
                             <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} Download CV</Button>

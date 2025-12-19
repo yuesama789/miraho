@@ -1,0 +1,39 @@
+@import '../../../styles/Globals.scss';
+
+.languageSwitch {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $purple-gradient-c1;
+    display: flex;
+    align-items: center;
+    z-index: 99999;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    gap: .3rem;
+
+    .languageSwitchInner {
+        border: 1px solid $purple-gradient-c1;
+        width: 2rem;
+        border-radius: 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .toggleCircleLeft {
+        width: 1rem;
+        height: 1rem;
+        background-color: $purple-gradient-c1;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        transform: translateX(0);
+    }
+
+    .toggleCircleRight {
+        width: 1rem;
+        height: 1rem;
+        background-color: $purple-gradient-c1;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        transform: translateX(1rem);
+    }
+}

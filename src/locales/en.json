@@ -1,0 +1,67 @@
+{
+    "pageHeader": {
+        "title": "Hello, I'm Mira Ho",
+        "subtitle": "Interaction-Focused UI Developer & Design Engineer"
+    },
+  "sections": {
+    "whatIDo": {
+      "title": "What I do",
+      "description": "Things I'm passionate about."
+    },
+    "miniShowcase": {
+      "title": "Mini-Showcase",
+      "description": "A selection of my work."
+    },
+    "howIWork": {
+      "title": "How I Work",
+      "description": "My design and development philosophies."
+    },
+    "skills": {
+      "title": "Skills & Expertise",
+      "description": "Some of the tools and technologies I excel in."
+    },
+    "about": {
+      "title": "About Me",
+      "description": "A brief introduction.",
+      "content": "Hello! I'm Mira Ho, an Interaction-Focused UI Developer & Design Engineer. I specialize in creating engaging digital experiences through thoughtful design and seamless interactions. With a passion for both aesthetics and functionality, I strive to bring ideas to life in ways that resonate with users."
+    },
+    "contact": {
+      "title": "Let's Connect!",
+      "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!"
+    }
+  },
+  "buttons": {
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me",
+    "readMore": "Read more"
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "storybox": {
+    "interactionsMotion": {
+      "title": "Interactions & Motion",
+      "points": [
+        "Microinteractions",
+        "Scroll-Animationen",
+        "Motion Prototyping"
+      ]
+    },
+    "uiEngineering": {
+      "title": "UI Engineering",
+      "points": [
+        "Component-driven development",
+        "Design Systems",
+        "React & TypeScript"
+      ]
+    },
+    "problemSolving": {
+      "title": "Creative Problem Solving",
+      "points": [
+        "I love sparring with design",
+        "Turning concept into experiences",
+        "Visual logic & ideation"
+      ]
+    }
+  }
+}

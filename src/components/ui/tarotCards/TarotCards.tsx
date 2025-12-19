@@ -12,10 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TarotCards: React.FC = () => {
 
-    const isMobile = () => {
-        return window.innerHeight > window.innerWidth && window.innerWidth < 600;
-    }
-
     const tarotCards = [
         {
             name: 'User-Centered Design',
