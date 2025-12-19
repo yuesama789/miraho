@@ -48,17 +48,23 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
             const videoHeight = videoRef.current?.offsetHeight || 0;
 
             const textXOffset = () => {
-                return (window.innerWidth - videoWidth * scaleMedia) / 2;
+                // console.log('videoWidth: ' + (window.innerWidth < 1920 ? window.innerWidth : 1920));
+                // console.log('xOffset: ' + window.innerWidth + " - " + videoWidth + ' * ' + scaleMedia + ' / 2');
+                // console.log('= ' + (window.innerHeight - videoHeight * scaleMedia) / 2);
+                return ((window.innerWidth < 1920 ? window.innerWidth : 1920) - videoWidth * scaleMedia) / 2;
             };
 
+
             const textYOffset = () => {
+                // console.log('yOffset: ' + window.innerHeight + " - " + videoHeight + ' * ' + scaleMedia + ' / 2');
+                // console.log('= ' + (window.innerHeight - videoHeight * scaleMedia) / 2);
                 return (window.innerHeight - videoHeight * scaleMedia) / 2;
             };
 
             gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
 
             if (isMobile()) {
-                gsap.set(headerRef.current, { y: textYOffset() * 1.5 });
+                gsap.set(headerRef.current, { y: textYOffset() * 1.7 });
                 gsap.set(buttonRef.current, { y: textYOffset() * -1 * .3 });
             } else {
                 gsap.set(headerRef.current, { y: textYOffset() });
@@ -80,7 +86,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 // Animate media scaling on scroll
                 .to(mediaRef.current, {
                     scale: () => scaleMedia,
-                    y: () => isMobile() ? '7dvh' : '5dvh',
+                    y: isMobile() ? textYOffset() * .5 : textYOffset() * .2,
                     ease: "none",
                 })
 

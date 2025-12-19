@@ -22,8 +22,8 @@ const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
 
     useEffect(() => {
         const teaserContainer = document.querySelector(`[data-teaser]`);
-        const teaserContainerHeight = teaserContainer?.clientHeight || 0;
-        console.log("Teaser Container Height:", teaserContainerHeight);
+        // const teaserContainerHeight = teaserContainer?.clientHeight || 0;
+        // console.log("Teaser Container Height:", teaserContainerHeight);
 
         if (!teaserContainer) return;
         let panels = Array.from(teaserContainer.querySelectorAll<HTMLDivElement>(`div[data-teaser]`));
