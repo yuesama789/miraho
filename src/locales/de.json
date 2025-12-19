@@ -9,21 +9,17 @@
         "description": "Dinge, für die ich mich begeistere."
         },
         "miniShowcase": {
-        "title": "Mini-Showcase",
+        "title": "Showcase",
         "description": "Eine Auswahl meiner Arbeiten."
         },
         "howIWork": {
         "title": "Wie ich arbeite",
         "description": "Meine Design- und Entwicklungsphilosophien."
         },
-        "skills": {
-        "title": "Fähigkeiten & Expertise",
-        "description": "Einige der Tools und Technologien, in denen ich mich auskenne."
-        },
         "about": {
         "title": "Über mich",
         "description": "Eine kurze Einführung.",
-        "content": "Hallo! Ich bin Mira Ho, eine interaktionsorientierte UI-Entwicklerin & Design Engineer. Ich spezialisiere mich auf die Entwicklung ansprechender digitaler Erlebnisse durch durchdachtes Design und nahtlose Interaktionen. Mit Leidenschaft für Ästhetik und Funktionalität bringe ich Ideen zum Leben, die bei den Nutzern Anklang finden."
+        "content": "Ich bin eine interaktionsorientierte UI-Entwicklerin & Design Engineer. Ich spezialisiere mich auf die Entwicklung ansprechender digitaler Erlebnisse durch durchdachtes Design und nahtlose Interaktionen. Mit Leidenschaft für Ästhetik und Funktionalität bringe ich Ideen zum Leben, die bei den Nutzern Anklang finden."
         },
         "contact": {
         "title": "Lass uns verbinden!",

@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 
 interface SectionProps {
     children: React.ReactNode;
-    backgroundColor?: 'pink' | 'orange' | 'purple' | 'dark' |'none';
+    backgroundColor?: 'pink' | 'orange' | 'purple' | 'dark' | 'pinkOrange' |'none';
     title?: string;
     description?: string;
     className?: string;

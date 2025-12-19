@@ -11,7 +11,7 @@
         "description": "Things I'm passionate about."
         },
         "miniShowcase": {
-        "title": "Mini-Showcase",
+        "title": "Showcase",
         "description": "A selection of my work."
         },
         "howIWork": {
@@ -20,12 +20,12 @@
         },
         "skills": {
         "title": "Skills & Expertise",
-        "description": "Some of the tools and technologies I excel in."
+        "description": "Tools and technologies I work with."
         },
         "about": {
         "title": "About Me",
         "description": "A brief introduction.",
-        "content": "Hello! I'm Mira Ho, an Interaction-Focused UI Developer & Design Engineer. I specialize in creating engaging digital experiences through thoughtful design and seamless interactions. With a passion for both aesthetics and functionality, I strive to bring ideas to life in ways that resonate with users."
+        "content": "I'm an Interaction-Focused UI Developer & Design Engineer. I specialize in creating engaging digital experiences through thoughtful design and seamless interactions. With a passion for both aesthetics and functionality, I strive to bring ideas to life in ways that resonate with users."
         },
         "contact": {
         "title": "Let's Connect!",

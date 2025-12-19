@@ -12,11 +12,11 @@ import Section from './ui/section/Section';
 import Button from './ui/button/Button';
 import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 import Modal from './ui/modal/Modal';
-import BadgeCloud from './ui/badgeCloud/BadgeCloud';
 import CustomCursor from './ui/customCursor/CustomCursor';
 import TarotCards from './ui/tarotCards/TarotCards';
 import StoryboxParralax from './ui/storyboxParralax/StoryboxParralax';
 import LanguageSwitch from './ui/languageSwitch/LanguageSwitch';
+import AnimateText from './ui/animateText/AnimateText';
 
 
 const AppContent: React.FC = () => {
@@ -43,14 +43,17 @@ const AppContent: React.FC = () => {
 
     return (
         <ModalProvider>
+            <CustomCursor />
                 <div id="smooth-wrapper">
                     <div id="smooth-content">
-                        <CustomCursor />
                         <LanguageSwitch />
-                        
+
                         <div className="App">
                             <Section className="section-container" backgroundColor='orange'>
                                 <PageHeader />
+                            </Section>
+                            <Section className="section-container" backgroundColor='purple' title={t.sections.about.title} description={t.sections.about.description}>
+                                <AnimateText>{t.sections.about.content}</AnimateText>
                             </Section>
                             <Section className="section-container" backgroundColor='pink' title={t.sections.whatIDo.title} description={t.sections.whatIDo.description} pinned="section">
                                 <StoryboxParralax />
@@ -60,15 +63,6 @@ const AppContent: React.FC = () => {
                             </Section>
                             <Section className="section-container" pinned="section" backgroundColor='dark' title={t.sections.howIWork.title} description={t.sections.howIWork.description}>
                                 <TarotCards />
-                            </Section>
-                            <Section className="section-container" backgroundColor='pink' title={t.sections.skills.title} description={t.sections.skills.description}>
-                                <BadgeCloud />
-                                <div style={{ marginTop: '2rem' }}>
-                                    <Button type="secondary" onClick={() => alert('Button clicked!')} centered>{downloadIcon} Download CV</Button>
-                                </div>
-                            </Section>
-                            <Section className="section-container" backgroundColor='purple' title='About Me' description='A brief introduction.'>
-                                <div>Hello! I'm Mira Ho, an Interaction-Focused UI Developer & Design Engineer. I specialize in creating engaging digital experiences through thoughtful design and seamless interactions. With a passion for both aesthetics and functionality, I strive to bring ideas to life in ways that resonate with users.</div>
                             </Section>
                             <Section className="section-container" backgroundColor='orange' title='Let’s Connect!' description='I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!'>
                                 <Button type="primary" onClick={() => alert('Button clicked!')} centered>Contact Me</Button>
