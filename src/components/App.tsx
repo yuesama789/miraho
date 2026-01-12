@@ -25,6 +25,11 @@ const AppContent: React.FC = () => {
     const { t, locale } = useLanguage();
 
     useEffect(() => {
+        // Set default scroller for all ScrollTriggers
+        ScrollTrigger.defaults({
+            scroller: "#smooth-content"
+        });
+
         ScrollSmoother.create({
             wrapper: '#smooth-wrapper',
             content: '#smooth-content',
@@ -52,7 +57,7 @@ const AppContent: React.FC = () => {
                             <Section className="section-container" backgroundColor='pink' title={t.sections.whatIDo.title} description={t.sections.whatIDo.description} pinned="section">
                                 <StoryboxParralax />
                             </Section>
-                            <Section className="section-container" pinned="title" fullWidth={true} backgroundColor='purple' title={t.sections.miniShowcase.title} description={t.sections.miniShowcase.description}>
+                            <Section className="section-container" fullWidth={true} backgroundColor='purple' title={t.sections.miniShowcase.title} description={t.sections.miniShowcase.description}>
                                 <TeaserContainer backgroundColor='purple' />
                             </Section>
                             <Section className="section-container" pinned="section" backgroundColor='dark' title={t.sections.howIWork.title} description={t.sections.howIWork.description}>

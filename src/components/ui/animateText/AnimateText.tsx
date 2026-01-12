@@ -64,12 +64,13 @@ const AnimateText: React.FC<AnimateTextProps> = ({
         <div 
             ref={textRef}
             style={{ 
-                fontSize: '3rem', 
+                fontSize: '2rem',
+                width: '80%',
                 color: 'rgba(0, 0, 0, 0.8)', 
                 lineHeight: '1.4', 
                 fontWeight: 600, 
                 textAlign: 'center',
-                margin: '3rem 0 6rem',}}
+                margin: '3rem auto 6rem',}}
             >
             {text}
         </div>

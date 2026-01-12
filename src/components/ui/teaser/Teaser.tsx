@@ -22,6 +22,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
         return window.innerHeight > window.innerWidth && window.innerWidth < 600;
     }
 
+    const isMobileView = isMobile();
 
     const headerRef = React.useRef<HTMLHeadingElement | null>(null);
     const buttonRef = React.useRef<HTMLDivElement | null>(null);
@@ -29,8 +30,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
     const mediaRef = React.useRef<HTMLDivElement | null>(null);
     const videoRef = React.useRef<HTMLVideoElement | null>(null);
 
-    
-    const scaleMedia = isMobile() ? .7 : .5;
+    const scaleMedia = isMobileView ? .7 : .5;
 
 
     const { openModal, setModalId } = useModal();
@@ -61,24 +61,35 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 return (window.innerHeight - videoHeight * scaleMedia) / 2;
             };
 
+            console.log('video is smaller than viewport:', videoHeight < window.innerHeight);
+
             gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
 
-            if (isMobile()) {
-                gsap.set(headerRef.current, { y: textYOffset() * 1.7 });
-                gsap.set(buttonRef.current, { y: textYOffset() * -1 * .3 });
+
+            
+            if (isMobileView && videoHeight >= window.innerHeight) {
+                gsap.set(headerRef.current, { y: textYOffset() * .55 });
+                gsap.set(buttonRef.current, { y: -textYOffset() * .5 });
+            } else if (!isMobileView && videoHeight >= window.innerHeight) {
+                gsap.set(headerRef.current, { y: textYOffset() * .85 });
+                gsap.set(buttonRef.current, { y: -textYOffset() * .8 });
+            } else if (isMobileView && videoHeight < window.innerHeight) {
+                gsap.set(headerRef.current, { x: textXOffset() * .1 });
+                gsap.set(buttonRef.current, { x: -textXOffset() * .6});
             } else {
-                gsap.set(headerRef.current, { y: textYOffset() });
-                gsap.set(buttonRef.current, { y: textYOffset() * -1 * .5 });
+                gsap.set(headerRef.current, { x: textXOffset() * .8});
+                gsap.set(buttonRef.current, { x: -textXOffset() * .8});
             }
 
 
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: teaserRef.current,
-                    start: "5% top",
+                    start: "top top",
                     end: "bottom center",
                     scrub: true,
-                    // markers: true
+                    markers: true,
+                    invalidateOnRefresh: true
                 }
             });
 
@@ -86,7 +97,6 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 // Animate media scaling on scroll
                 .to(mediaRef.current, {
                     scale: () => scaleMedia,
-                    y: isMobile() ? textYOffset() * .5 : textYOffset() * .2,
                     ease: "none",
                 })
 
@@ -116,6 +126,8 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 trigger: teaserRef.current,
                 start: "top 80%",
                 end: "bottom top",
+                scroller: "#smooth-content",
+                invalidateOnRefresh: true,
                 // markers:true,
                 onEnter: () => videoRef.current?.play(),
                 onLeave: () => videoRef.current?.pause(),
