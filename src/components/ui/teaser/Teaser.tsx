@@ -65,21 +65,15 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
 
             gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
 
-
+            // Use viewport-based gaps for consistent spacing across all devices
+            const headerGapVh = isMobileView ? 0.05 : 0.12; // 0.1 = 10 vh
+            const buttonGapVh = isMobileView ? 0 : 0.12; // 0.1 = 10 vh
             
-            if (isMobileView && videoHeight >= window.innerHeight) {
-                gsap.set(headerRef.current, { y: textYOffset() * .55 });
-                gsap.set(buttonRef.current, { y: -textYOffset() * .5 });
-            } else if (!isMobileView && videoHeight >= window.innerHeight) {
-                gsap.set(headerRef.current, { y: textYOffset() * .85 });
-                gsap.set(buttonRef.current, { y: -textYOffset() * .8 });
-            } else if (isMobileView && videoHeight < window.innerHeight) {
-                gsap.set(headerRef.current, { x: textXOffset() * .1 });
-                gsap.set(buttonRef.current, { x: -textXOffset() * .6});
-            } else {
-                gsap.set(headerRef.current, { x: textXOffset() * .8});
-                gsap.set(buttonRef.current, { x: -textXOffset() * .8});
-            }
+            const headerY = window.innerHeight * headerGapVh;
+            const buttonY = -(window.innerHeight * buttonGapVh);
+            
+            gsap.set(headerRef.current, { y: headerY });
+            gsap.set(buttonRef.current, { y: buttonY });
 
 
             const tl = gsap.timeline({
@@ -97,6 +91,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 // Animate media scaling on scroll
                 .to(mediaRef.current, {
                     scale: () => scaleMedia,
+                    y: (isMobileView && videoHeight < window.innerHeight) ? textYOffset() * .2 : 0,
                     ease: "none",
                 })
 
