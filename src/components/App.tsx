@@ -72,10 +72,10 @@ const AppContent: React.FC = () => {
                                 </footer>
                             </Section>
                         </div>
-                        
-                        <Modal />
                     </div>
                 </div>
+                
+                <Modal />
             </ModalProvider>
     );
 };

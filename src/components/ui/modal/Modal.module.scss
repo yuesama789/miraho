@@ -4,6 +4,7 @@
         position: fixed;
         width: 100dvw;
         height: 100dvh;
+        max-height: 100dvh;
         left: 0;
         top: 0;
         background: #fff;
@@ -13,6 +14,7 @@
         justify-content: center;
         overflow-y: auto;
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        will-change: transform;
 
 
         .container {
@@ -73,9 +75,11 @@
 .modal--closed {
     transform: translateX(100dvw);
     pointer-events: none;
+    visibility: hidden;
 }
 
 .modal--open {
     transform: translateX(0);
     pointer-events: auto;
+    visibility: visible;
 }
