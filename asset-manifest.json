@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/miraho/static/css/main.9fd03f48.css",
-    "main.js": "/miraho/static/js/main.0a4e3ee2.js",
+    "main.js": "/miraho/static/js/main.1c941f57.js",
     "static/media/endofyear2024--desktop.mp4": "/miraho/static/media/endofyear2024--desktop.60af60de3f60e28b9ccc.mp4",
     "static/media/endofyear2024--mobile.mp4": "/miraho/static/media/endofyear2024--mobile.c99fc369fd4535ecca3d.mp4",
     "static/media/hymer--mobile.mp4": "/miraho/static/media/hymer--mobile.a9f8bad5dc19020e3d81.mp4",
@@ -15,10 +15,10 @@
     "static/media/tarot3.svg": "/miraho/static/media/tarot3.14a177399e5d48afcfb3fd2762c52652.svg",
     "index.html": "/miraho/index.html",
     "main.9fd03f48.css.map": "/miraho/static/css/main.9fd03f48.css.map",
-    "main.0a4e3ee2.js.map": "/miraho/static/js/main.0a4e3ee2.js.map"
+    "main.1c941f57.js.map": "/miraho/static/js/main.1c941f57.js.map"
   },
   "entrypoints": [
     "static/css/main.9fd03f48.css",
-    "static/js/main.0a4e3ee2.js"
+    "static/js/main.1c941f57.js"
   ]
 }
