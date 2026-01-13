@@ -1,24 +1,26 @@
 {
   "files": {
-    "main.css": "/miraho/static/css/main.9fd03f48.css",
-    "main.js": "/miraho/static/js/main.1c941f57.js",
+    "main.css": "/miraho/static/css/main.b0be3c55.css",
+    "main.js": "/miraho/static/js/main.298835a2.js",
     "static/media/endofyear2024--desktop.mp4": "/miraho/static/media/endofyear2024--desktop.60af60de3f60e28b9ccc.mp4",
     "static/media/endofyear2024--mobile.mp4": "/miraho/static/media/endofyear2024--mobile.c99fc369fd4535ecca3d.mp4",
     "static/media/hymer--mobile.mp4": "/miraho/static/media/hymer--mobile.a9f8bad5dc19020e3d81.mp4",
     "static/media/hymer--desktop.mp4": "/miraho/static/media/hymer--desktop.8226aa48b9547633cc64.mp4",
     "static/media/MiraHo.jpg": "/miraho/static/media/MiraHo.52c7ab00a852247c508e.jpg",
     "static/media/endofyear-screenshot.png": "/miraho/static/media/endofyear-screenshot.1700e89baefd82599bde.png",
+    "static/media/organic_blob_stroke_sprite.png": "/miraho/static/media/organic_blob_stroke_sprite.80a0f8cecd0e4949de3a.png",
     "static/media/organic_blob_sprite.png": "/miraho/static/media/organic_blob_sprite.c44d0b3cd801d93b6db0.png",
+    "static/media/Creative-Webdeveloper__Mira-Hong-Ho-CV__GER__01-2026.pdf": "/miraho/static/media/Creative-Webdeveloper__Mira-Hong-Ho-CV__GER__01-2026.1c2e4c175e47b655a465.pdf",
     "static/media/purple_organic_blob.png": "/miraho/static/media/purple_organic_blob.79d2c13e7319eb3d7891.png",
     "static/media/tarot1.svg": "/miraho/static/media/tarot1.5dfb296f1ef6f2dac271b204bfd2bfcd.svg",
     "static/media/tarot2.svg": "/miraho/static/media/tarot2.784db866307c60c176afe8dc1d876297.svg",
     "static/media/tarot3.svg": "/miraho/static/media/tarot3.14a177399e5d48afcfb3fd2762c52652.svg",
     "index.html": "/miraho/index.html",
-    "main.9fd03f48.css.map": "/miraho/static/css/main.9fd03f48.css.map",
-    "main.1c941f57.js.map": "/miraho/static/js/main.1c941f57.js.map"
+    "main.b0be3c55.css.map": "/miraho/static/css/main.b0be3c55.css.map",
+    "main.298835a2.js.map": "/miraho/static/js/main.298835a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fd03f48.css",
-    "static/js/main.1c941f57.js"
+    "static/css/main.b0be3c55.css",
+    "static/js/main.298835a2.js"
   ]
 }
