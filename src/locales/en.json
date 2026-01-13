@@ -74,5 +74,40 @@
         "project2": {
         "title": "Interactive Product Experience"
         }
+    },
+    "modals": {
+        "project-1": {
+            "title": "Interactive Year Review — Web Experience",
+            "overview": "Large-scale, consumer-facing web experience visualizing a personalized year in review, with a focus on interaction, motion, and intuitive UI behavior.",
+            "myRole": [
+                "Scroll-driven animations and transitions",
+                "Reusable, motion-ready UI components",
+                "Close collaboration with design",
+                "Performance-aware animation across devices"
+            ],
+            "interactionMotion": "Subtle motion cues, progressive reveals, and scroll-based storytelling were used to guide users through the experience in a calm and responsive way.",
+            "techStack": "React | TypeScript | SCSS",
+            "note": "The content shown is based on anonymized screen recordings and a prototype to respect confidentiality.",
+            "contentMobile": "This project was part of a large-scale, consumer-facing web experience designed to visualize a personalized year in review. My focus was on interaction, motion, and translating visual concepts into smooth, intuitive UI behavior.",
+            "image": "endofyear-screenshot.png",
+            "altText": "Screenshot of the Interactive Year Review web experience"
+        },
+        "project-2": {
+            "title": "Interactive Product Experience — Automotive Web Platform",
+            "overview": "Interactive, motion-driven product experience for a high-end consumer website, focused on frontend prototyping, component development, and CMS integration.",
+            "myRole": [
+                "Interactive prototypes for reusable UI components",
+                "Scroll-driven storytelling, including video-controlled scrolling",
+                "Interactive components for product lines and configurations",
+                "Component and logic integration into a CMS",
+                "Close collaboration with design"
+            ],
+            "interactionMotion": "Motion and scrolling guided users through complex product content in a fluid, immersive, and performance-aware way.",
+            "techStack": "Twig.js | Vanilla JavaScript | GSAP | SCSS | Storybook | Pimcore CMS",
+            "note": "The live website is publicly accessible. The work shown reflects my contribution to frontend prototyping, interaction logic, and CMS integration.",
+            "contentMobile": "This project focused on building interactive, motion-driven product experiences for a high-end consumer website. My work centered on frontend prototyping, component development, and integrating interactive content into a CMS-driven environment.",
+            "image": "endofyear-screenshot.png",
+            "altText": "Screenshot of the Interactive Product Experience of the Automotive Web Platform"
+        }
     }
 }
