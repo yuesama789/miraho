@@ -7,32 +7,35 @@ import {ReactComponent as Tarot1} from '../../../assets/svgs/tarot1.svg';
 import {ReactComponent as Tarot2} from '../../../assets/svgs/tarot2.svg';
 import {ReactComponent as Tarot3} from '../../../assets/svgs/tarot3.svg';
 import { useGSAP } from '@gsap/react';
+import { useLanguage } from '../../../context/languageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TarotCards: React.FC = () => {
 
+    const { t } = useLanguage();
+
     const tarotCards = [
         {
-            name: 'User-Centered Design',
+            name: t.tarotCards[0].name,
             svg: <Tarot1 />,
             colour: '#667eea',
             colour2: '#764ba2',
-            description: 'I prioritize user needs and behaviors in every project.'
+            description: t.tarotCards[0].description
         },
         {
-            name: 'Agile Methodology',
+            name: t.tarotCards[1].name,
             svg: <Tarot2 />,
             colour: '#9066ea',
             colour2: '#a24ba2',
-            description: 'I embrace iterative development and continuous feedback.'
+            description: t.tarotCards[1].description
         },
         {
-            name: 'Collaboration',
+            name: t.tarotCards[2].name,
             svg: <Tarot3 />,
             colour: '#66c0ea',
             colour2: '#4b4ba2',
-            description: 'I work closely with cross-functional teams to achieve the best results.'
+            description: t.tarotCards[2].description
         }
     ];
 

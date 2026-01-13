@@ -81,6 +81,20 @@
         "title": "Interactive Product Experience"
         }
     },
+    "tarotCards": [
+        {
+            "name": "User-Centered Design",
+            "description": "I prioritize user needs and behaviors in every project."
+        },
+        {
+            "name": "Agile Methodology",
+            "description": "I embrace iterative development and continuous feedback."
+        },
+        {
+            "name": "Collaboration",
+            "description": "I work closely with cross-functional teams to achieve the best results."
+        }
+    ],
     "modals": {
         "project-1": {
             "title": "Interactive Year Review — Web Experience",

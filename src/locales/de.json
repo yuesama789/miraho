@@ -75,6 +75,20 @@
             "title": "Interaktive Produktseite"
         }
     },
+    "tarotCards": [
+        {
+            "name": "Benutzerzentriertes Design",
+            "description": "Ich priorisiere Benutzerbedürfnisse und -verhalten in jedem Projekt."
+        },
+        {
+            "name": "Agile Methodik",
+            "description": "Ich begrüße iterative Entwicklung und kontinuierliches Feedback."
+        },
+        {
+            "name": "Zusammenarbeit",
+            "description": "Ich arbeite eng mit funktionsübergreifenden Teams zusammen, um die besten Ergebnisse zu erzielen."
+        }
+    ],
     "modals": {
         "project-1": {
             "title": "Interaktiver Jahresrückblick — Web-Erlebnis",
