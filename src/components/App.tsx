@@ -42,7 +42,7 @@ const AppContent: React.FC = () => {
 
     return (
         <ModalProvider>
-            <CustomCursor />
+            {/* <CustomCursor /> */}
                 <div id="smooth-wrapper">
                     <div id="smooth-content">
                         <LanguageSwitch />
