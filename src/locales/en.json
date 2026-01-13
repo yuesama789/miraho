@@ -38,6 +38,12 @@
         "contactMe": "Contact Me",
         "readMore": "Read more"
     },
+    "modalSections": {
+        "overview": "Overview",
+        "myRole": "My Role",
+        "interactionMotion": "Interaction & Motion",
+        "techStack": "Tech Stack"
+    },
     "footer": {
         "copyright": "All rights reserved."
     },

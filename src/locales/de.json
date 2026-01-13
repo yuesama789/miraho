@@ -32,6 +32,12 @@
         "contactMe": "Kontaktiere mich",
         "readMore": "Mehr lesen"
     },
+    "modalSections": {
+        "overview": "Übersicht",
+        "myRole": "Meine Rolle",
+        "interactionMotion": "Interaktion & Motion",
+        "techStack": "Tech Stack"
+    },
     "footer": {
         "copyright": "Alle Rechte vorbehalten."
     },

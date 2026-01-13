@@ -47,17 +47,17 @@ const Modal: React.FC = () => {
     // Build desktop content
     const desktopContent = (
         <>
-            <h3>Overview</h3>
+            <h3>{t.modalSections.overview}</h3>
             <p>{overview}</p>
-            <h3>My Role</h3>
+            <h3>{t.modalSections.myRole}</h3>
             <ul>
                 {myRole.map((role: string, index: number) => (
                     <li key={index}>{role}</li>
                 ))}
             </ul>
-            <h3>Interaction & Motion</h3>
+            <h3>{t.modalSections.interactionMotion}</h3>
             <p>{interactionMotion}</p>
-            <h3>Tech Stack</h3>
+            <h3>{t.modalSections.techStack}</h3>
             <p>{techStack}</p>
             {note && <p style={{fontStyle: "italic"}}>{note}</p>}
         </>
