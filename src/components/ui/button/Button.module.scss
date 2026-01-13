@@ -25,8 +25,8 @@
 
 .secondary {
     background-color: transparent;
-    color: #6a00ff;
-    border: 3px solid #6a00ff;
+    color: $primary-gradient-c1;
+    border: 3px solid $primary-gradient-c1;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .secondary:hover {
-    background-color: #6a00ff;
+    background-color: $primary-gradient-c1;
     color: white;
 }
 

@@ -12,7 +12,7 @@ import Section from './ui/section/Section';
 import Button from './ui/button/Button';
 import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 import Modal from './ui/modal/Modal';
-import CustomCursor from './ui/customCursor/CustomCursor';
+// import CustomCursor from './ui/customCursor/CustomCursor';
 import TarotCards from './ui/tarotCards/TarotCards';
 import StoryboxParralax from './ui/storyboxParralax/StoryboxParralax';
 import LanguageSwitch from './ui/languageSwitch/LanguageSwitch';

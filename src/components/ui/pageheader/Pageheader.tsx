@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useLanguage } from '../../../context/languageContext';
+import CVPdf from '../../../assets/docs/Creative-Webdeveloper__Mira-Hong-Ho-CV__GER__01-2026.pdf';
 
 import handWave from '../../../assets/lottie/handwave.json';
 
@@ -92,7 +93,7 @@ useGSAP(() => {
                         <h3>{t.pageHeader.subtitle}</h3>
                         <div className={styles.pageheader__buttons}>
                             <Button type="primary" onClick={scrollToShowcase}>{sparkleSvg} {t.buttons.showcase}</Button>
-                            <Button type="secondary" onClick={() => alert('Button clicked!')}>{downloadIcon} {t.buttons.downloadCV}</Button>
+                            <a href={CVPdf} target='_blank' rel='noopener noreferrer'><Button type="secondary">{downloadIcon} {t.buttons.downloadCV}</Button></a>
                         </div>
                     </div>
                 </div> 
