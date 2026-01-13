@@ -114,7 +114,11 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
         <div className={`${styles.sectionContainer} ${styles[bg]} ${className || ''} ${fullWidth ? styles.fullWidth : ''}`} style={{ position: 'relative' }}>
             <div className={styles.sectionInnerWrapper}>
                 {title || description ? <div className={styles.sectionContent} >
-                    <div className={styles.sectionHeader} ref={sectionContent}>
+                    <div 
+                        className={styles.sectionHeader} 
+                        ref={sectionContent}
+                        style={{ marginTop: pinned === 'title' ? '0' : pinned === 'section' ? '0' : '2rem' }}
+                        >
                         {title && (<><h2>{title}</h2><span className={styles.sectionUnderline}></span></>)}
                         {description && <p>{description}</p>}
                     </div>
