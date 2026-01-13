@@ -48,32 +48,34 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
             const videoHeight = videoRef.current?.offsetHeight || 0;
 
             const textXOffset = () => {
-                // console.log('videoWidth: ' + (window.innerWidth < 1920 ? window.innerWidth : 1920));
-                // console.log('xOffset: ' + window.innerWidth + " - " + videoWidth + ' * ' + scaleMedia + ' / 2');
-                // console.log('= ' + (window.innerHeight - videoHeight * scaleMedia) / 2);
-                return ((window.innerWidth < 1920 ? window.innerWidth : 1920) - videoWidth * scaleMedia) / 2;
+               return ((window.innerWidth < 1920 ? window.innerWidth : 1920) - videoWidth * scaleMedia) / 2;
             };
 
-
             const textYOffset = () => {
-                // console.log('yOffset: ' + window.innerHeight + " - " + videoHeight + ' * ' + scaleMedia + ' / 2');
-                // console.log('= ' + (window.innerHeight - videoHeight * scaleMedia) / 2);
                 return (window.innerHeight - videoHeight * scaleMedia) / 2;
             };
 
-            console.log('video is smaller than viewport:', videoHeight < window.innerHeight);
-
             gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
+            
+            // Account for pinning offset when video is smaller than viewport
+            const pinOffset = videoHeight !== window.innerHeight 
+                ? (window.innerHeight - videoHeight) 
+                : 0;
+                
+            // Use textYOffset which already calculates the "dead space" correctly
+            const deadSpace = textYOffset();
 
-            // Use viewport-based gaps for consistent spacing across all devices
-            const headerGapVh = isMobileView ? 0.05 : 0.12; // 0.1 = 10 vh
-            const buttonGapVh = isMobileView ? 0 : 0.12; // 0.1 = 10 vh
             
-            const headerY = window.innerHeight * headerGapVh;
-            const buttonY = -(window.innerHeight * buttonGapVh);
+            // Fixed gap from video (percentage of dead space or fixed pixels)
+            const gapPercent = 0.5;
             
-            gsap.set(headerRef.current, { y: headerY });
-            gsap.set(buttonRef.current, { y: buttonY });
+            // Position header and button, accounting for pin offset
+            const headerY = deadSpace * gapPercent;
+            const buttonY = -deadSpace * gapPercent;
+            
+            gsap.set(teaserRef.current, { height: '100dvh' });
+            gsap.set(headerRef.current, { y: isMobileView ? 0: headerY });
+            gsap.set(buttonRef.current, { y: isMobileView ? 0: buttonY });
 
 
             const tl = gsap.timeline({
@@ -82,7 +84,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                     start: "top top",
                     end: "bottom center",
                     scrub: true,
-                    markers: true,
+                    // markers: true,
                     invalidateOnRefresh: true
                 }
             });
@@ -91,7 +93,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                 // Animate media scaling on scroll
                 .to(mediaRef.current, {
                     scale: () => scaleMedia,
-                    y: (isMobileView && videoHeight < window.innerHeight) ? textYOffset() * .2 : 0,
+                    y: pinOffset / 2,
                     ease: "none",
                 })
 
@@ -147,7 +149,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
                     src={mediaPath} controls={false} muted loop className={styles.video} />
                 }
             </div>
-            <h3 ref={headerRef}>{title}</h3>
+            <h3 ref={headerRef} style={{marginTop: "1rem"}}>{title}</h3>
             <div className={styles.teaser__button} ref={buttonRef}>
                 <Button type="tertiary" onClick={handleReadMore}>Read more</Button>
             </div>
