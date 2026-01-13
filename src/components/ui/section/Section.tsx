@@ -13,9 +13,10 @@ interface SectionProps {
     pinned?: 'title' | 'section' | 'none';
     fullWidth?: boolean;
     addPinSpacer?: boolean;
+    'data-section'?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinned, fullWidth, addPinSpacer = false }) => {
+const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, description, className, pinned, fullWidth, addPinSpacer = false, 'data-section': dataSection }) => {
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -111,7 +112,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
 
     return (
     <>
-        <div className={`${styles.sectionContainer} ${styles[bg]} ${className || ''} ${fullWidth ? styles.fullWidth : ''}`} style={{ position: 'relative' }}>
+        <div className={`${styles.sectionContainer} ${styles[bg]} ${className || ''} ${fullWidth ? styles.fullWidth : ''}`} style={{ position: 'relative' }} data-section={dataSection}>
             <div className={styles.sectionInnerWrapper}>
                 {title || description ? <div className={styles.sectionContent} >
                     <div 
