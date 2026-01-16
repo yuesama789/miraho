@@ -17,6 +17,7 @@ import TarotCards from './ui/tarotCards/TarotCards';
 import StoryboxParralax from './ui/storyboxParralax/StoryboxParralax';
 import LanguageSwitch from './ui/languageSwitch/LanguageSwitch';
 import AnimateText from './ui/animateText/AnimateText';
+import Contact from './ui/contact/Contact';
 
 
 const AppContent: React.FC = () => {
@@ -63,8 +64,8 @@ const AppContent: React.FC = () => {
                             <Section className="section-container" pinned="section" backgroundColor='dark' title={t.sections.howIWork.title} description={t.sections.howIWork.description}>
                                 <TarotCards />
                             </Section>
-                            <Section className="section-container" backgroundColor='orange' title='Let’s Connect!' description='I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!'>
-                                <Button type="primary" onClick={() => alert('Button clicked!')} centered>Contact Me</Button>
+                            <Section className="section-container" backgroundColor='orange' title={t.sections.contact.title} description={t.sections.contact.description}>
+                                <Contact />
                             </Section>
                             <Section className="section-container" backgroundColor='purple'>
                                 <footer style={{ textAlign: 'center', padding: '1rem', fontSize: '0.9rem', color: '#666' }}>

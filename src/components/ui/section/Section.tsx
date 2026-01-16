@@ -73,7 +73,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
         });
 
         if (pinned === 'title') {
-            console.log("Pinning section title: ", title);
+            // console.log("Pinning section title: ", title);
             ScrollTrigger.create({
                 trigger: sectionContent.current,
                 start: "-=20 top",
@@ -86,7 +86,7 @@ const Section: React.FC<SectionProps> = ({ children, backgroundColor, title, des
         }
 
         if (pinned === 'section') {
-            console.log("Pinning entire section: ", title);
+            // console.log("Pinning entire section: ", title);
             ScrollTrigger.create({
                 trigger: sectionContent.current?.parentElement,
                 start: "top top",
