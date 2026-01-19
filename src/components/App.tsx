@@ -26,6 +26,30 @@ const AppContent: React.FC = () => {
     const { t, locale } = useLanguage();
 
     useEffect(() => {
+        // Handle window resize - reload and scroll to top
+        let resizeTimer: NodeJS.Timeout;
+        const initialWidth = window.innerWidth;
+
+        const handleResize = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Only reload if width changed significantly (more than 50px)
+                if (Math.abs(window.innerWidth - initialWidth) > 50) {
+                    window.scrollTo(0, 0);
+                    window.location.reload();
+                }
+            }, 500); // Wait 500ms after resize stops
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            clearTimeout(resizeTimer);
+        };
+    }, []);
+
+    useEffect(() => {
         // Set default scroller for all ScrollTriggers
         ScrollTrigger.defaults({
             scroller: "#smooth-content"
