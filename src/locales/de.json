@@ -5,7 +5,7 @@
     },
     "sections": {
         "whatIDo": {
-        "title": "Was ich mache",
+        "title": "Meine Schwerpunkte",
         "description": "Dinge, für die ich mich begeistere."
         },
         "miniShowcase": {
@@ -61,8 +61,8 @@
         "problemSolving": {
         "title": "Kreative Problemlösung",
         "points": [
-            "Ich liebe es, mit Design zu arbeiten",
-            "Konzepte in Erlebnisse verwandeln",
+            "Zusammenarbeit mit Design",
+            "Übersetzen von Konzepten in Erlebnisse",
             "Visuelle Logik & Ideenfindung"
         ]
         }

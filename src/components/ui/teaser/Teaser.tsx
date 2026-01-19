@@ -57,10 +57,14 @@ const Teaser: React.FC<TeaserProps> = ({ title, mediaPath, mediaType = "image", 
 
             gsap.set([headerRef.current, buttonRef.current], { opacity: 0 });
             
-            // Account for pinning offset when video is smaller than viewport
+            // Account for pinning offset when video is smaller or bigger than viewport
             const pinOffset = videoHeight !== window.innerHeight 
                 ? (window.innerHeight - videoHeight) 
                 : 0;
+
+            console.log('window.innerHeight:', window.innerHeight);
+            console.log('videoHeight:', videoHeight);
+            console.log('pinOffset:', pinOffset);
                 
             // Use textYOffset which already calculates the "dead space" correctly
             const deadSpace = textYOffset();
