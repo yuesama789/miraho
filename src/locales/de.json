@@ -23,13 +23,13 @@
         },
         "contact": {
         "title": "Lass uns zusammenarbeiten!",
-        "description": "Ich bin immer offen für neue Projekte, kreative Ideen oder Möglichkeiten, Teil Ihrer Visionen zu werden. Kontaktieren Sie mich gerne!"
+        "description": "Ich bin immer offen für neue Projekte, kreative Ideen oder Möglichkeiten, Teil Ihrer Visionen zu werden."
         }
     },
     "buttons": {
         "showcase": "Showcase",
         "downloadCV": "Lebenslauf",
-        "contactMe": "Kontaktiere mich",
+        "contactMe": "E-Mail Kontakt",
         "readMore": "Mehr lesen"
     },
     "modalSections": {
@@ -89,6 +89,11 @@
             "description": "Ich arbeite eng mit funktionsübergreifenden Teams zusammen, um die besten Ergebnisse zu erzielen."
         }
     ],
+    "contact": {
+        "description1": "Kontaktieren Sie mich unter:",
+        "description2": "mirahongho@gmail.com",
+        "description3": "Oder direkt hier:"
+    },
     "modals": {
         "project-1": {
             "title": "Interaktiver Jahresrückblick — Web-Erlebnis",

@@ -1,9 +1,24 @@
 @import '../../../styles/globals.scss';
 
 .contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
+
+    .contact__text p {
+        opacity: 1;
+    }
+
+    h3 a {
+        @include gradient-font();
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 2rem 0;
+        gap: 1rem;
+        
+        button {
+            flex-shrink: 0;
+        }
+    }
 }

@@ -29,7 +29,7 @@
         },
         "contact": {
         "title": "Let's work together!",
-        "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!"
+        "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions."
         }
     },
     "buttons": {
@@ -95,6 +95,11 @@
             "description": "I work closely with cross-functional teams to achieve the best results."
         }
     ],
+    "contact": {
+        "description1": "Kontaktieren Sie mich unter:",
+        "description2": "mirahongho@gmail.com",
+        "description3": "Oder direkt hier:"
+    },
     "modals": {
         "project-1": {
             "title": "Interactive Year Review — Web Experience",
