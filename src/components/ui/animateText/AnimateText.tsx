@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import {SplitText} from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import styles from './AnimateText.module.scss';
 
 interface AnimateTextProps {
     text: string;
@@ -63,14 +64,7 @@ const AnimateText: React.FC<AnimateTextProps> = ({
     return (
         <div 
             ref={textRef}
-            style={{ 
-                fontSize: '2rem',
-                width: '80%',
-                color: 'rgba(0, 0, 0, 0.8)', 
-                lineHeight: '1.4', 
-                fontWeight: 600, 
-                textAlign: 'center',
-                margin: '3rem auto 6rem',}}
+            className={styles.animateText}
             >
             {text}
         </div>

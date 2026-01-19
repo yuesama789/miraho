@@ -9,7 +9,7 @@ import { LanguageProvider, useLanguage } from '../context/languageContext';
 
 import PageHeader from './ui/pageheader/Pageheader';
 import Section from './ui/section/Section';
-import Button from './ui/button/Button';
+// import Button from './ui/button/Button';
 import TeaserContainer from './ui/teaserContainer/TeaserContainer';
 import Modal from './ui/modal/Modal';
 // import CustomCursor from './ui/customCursor/CustomCursor';
@@ -24,6 +24,25 @@ const AppContent: React.FC = () => {
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
     const { t, locale } = useLanguage();
+
+    useEffect(() => {
+        // Suppress ResizeObserver error overlay in development
+        window.addEventListener('error', (e) => {
+            if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
+                const resizeObserverErrDiv = document.getElementById('webpack-dev-server-client-overlay');
+                const resizeObserverErrRoot = document.getElementById('webpack-dev-server-client-overlay-div');
+                if (resizeObserverErrDiv) {
+                    resizeObserverErrDiv.style.display = 'none';
+                }
+                if (resizeObserverErrRoot) {
+                    resizeObserverErrRoot.style.display = 'none';
+                }
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
+        });
+    }, []);
 
     useEffect(() => {
         // Handle window resize - reload and scroll to top
