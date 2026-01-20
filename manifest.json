@@ -1,0 +1,27 @@
+{
+  "short_name": "Mira Ho",
+  "name": "Hire me: Mira Ho - Interaction-Focused UI Developer",
+  "description": "Portfolio showcasing interaction-focused UI development and design engineering work",
+  "icons": [
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary"
+}
