@@ -42,7 +42,7 @@ const Modal: React.FC = () => {
         return null;
     }
 
-    const { title, overview, myRole, interactionMotion, techStack, note, contentMobile, image, altText } = modalData;
+    const { title, overview, myRole, interactionMotion, techStack, note, contentMobile, media } = modalData;
     
     // Build desktop content
     const desktopContent = (
@@ -72,14 +72,17 @@ const Modal: React.FC = () => {
     );
     
     const displayContent = isMobile ? mobileContent : desktopContent;
-    const modalImage = image ? require(`../../../assets/images/${image}`) : null;
+    const mediaPath = media ? require(`../../../assets/videos/${media}--mobile.mp4`) : null;
     
     return (
         <div className={`${styles.modal} ${isOpen ? styles['modal--open'] : styles['modal--closed']}`}>
             <div className={styles.container}>
                 <button className={styles.close} onClick={closeButtonClick}>❌</button>
-                {!isDisplayVertical() && modalImage && 
-                    <div className={styles.image}><img src={modalImage} alt={altText || title} /></div>
+                {!isDisplayVertical() && mediaPath && 
+                    <div className={styles.video}>
+                        <video
+                        src={mediaPath} muted loop controls={true}  />
+                    </div>
                 }
                 <div className={styles.textContent}>
                     <h2 className={styles.title}>{title}</h2>

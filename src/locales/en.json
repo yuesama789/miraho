@@ -114,7 +114,7 @@
             "techStack": "React | TypeScript | SCSS",
             "note": "The content shown is based on anonymized screen recordings and a prototype to respect confidentiality.",
             "contentMobile": "This project was part of a large-scale, consumer-facing web experience designed to visualize a personalized year in review. My focus was on interaction, motion, and translating visual concepts into smooth, intuitive UI behavior.",
-            "image": "endofyear-screenshot.png",
+            "media": "endofyear2024",
             "altText": "Screenshot of the Interactive Year Review web experience"
         },
         "project-2": {
@@ -131,7 +131,7 @@
             "techStack": "Twig.js | Vanilla JavaScript | GSAP | SCSS | Storybook | Pimcore CMS",
             "note": "The live website is publicly accessible. The work shown reflects my contribution to frontend prototyping, interaction logic, and CMS integration.",
             "contentMobile": "This project focused on building interactive, motion-driven product experiences for a high-end consumer website. My work centered on frontend prototyping, component development, and integrating interactive content into a CMS-driven environment.",
-            "image": "endofyear-screenshot.png",
+            "media": "hymer",
             "altText": "Screenshot of the Interactive Product Experience of the Automotive Web Platform"
         }
     }
