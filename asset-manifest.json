@@ -1,14 +1,12 @@
 {
   "files": {
-    "main.css": "./static/css/main.1aed6aec.css",
-    "main.js": "./static/js/main.a7e73aca.js",
+    "main.css": "./static/css/main.7fd83b90.css",
+    "main.js": "./static/js/main.bc5f3005.js",
     "static/media/endofyear2024--desktop.mp4": "./static/media/endofyear2024--desktop.60af60de3f60e28b9ccc.mp4",
     "static/media/endofyear2024--mobile.mp4": "./static/media/endofyear2024--mobile.c99fc369fd4535ecca3d.mp4",
     "static/media/hymer--mobile.mp4": "./static/media/hymer--mobile.a9f8bad5dc19020e3d81.mp4",
     "static/media/hymer--desktop.mp4": "./static/media/hymer--desktop.8226aa48b9547633cc64.mp4",
     "static/media/MiraHo.jpg": "./static/media/MiraHo.52c7ab00a852247c508e.jpg",
-    "static/media/endofyear-screenshot.png": "./static/media/endofyear-screenshot.1700e89baefd82599bde.png",
-    "static/media/organic_blob_stroke_sprite.png": "./static/media/organic_blob_stroke_sprite.80a0f8cecd0e4949de3a.png",
     "static/media/organic_blob_sprite.png": "./static/media/organic_blob_sprite.c44d0b3cd801d93b6db0.png",
     "static/media/Creative-Webdeveloper__Mira-Hong-Ho-CV__GER__01-2026.pdf": "./static/media/Creative-Webdeveloper__Mira-Hong-Ho-CV__GER__01-2026.1c2e4c175e47b655a465.pdf",
     "static/media/purple_organic_blob.png": "./static/media/purple_organic_blob.79d2c13e7319eb3d7891.png",
@@ -16,11 +14,11 @@
     "static/media/tarot2.svg": "./static/media/tarot2.784db866307c60c176afe8dc1d876297.svg",
     "static/media/tarot3.svg": "./static/media/tarot3.14a177399e5d48afcfb3fd2762c52652.svg",
     "index.html": "./index.html",
-    "main.1aed6aec.css.map": "./static/css/main.1aed6aec.css.map",
-    "main.a7e73aca.js.map": "./static/js/main.a7e73aca.js.map"
+    "main.7fd83b90.css.map": "./static/css/main.7fd83b90.css.map",
+    "main.bc5f3005.js.map": "./static/js/main.bc5f3005.js.map"
   },
   "entrypoints": [
-    "static/css/main.1aed6aec.css",
-    "static/js/main.a7e73aca.js"
+    "static/css/main.7fd83b90.css",
+    "static/js/main.bc5f3005.js"
   ]
 }
