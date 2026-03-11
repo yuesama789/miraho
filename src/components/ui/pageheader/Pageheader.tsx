@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useLanguage } from '../../../context/languageContext';
-import CVPdf from '../../../assets/docs/Creative-Webdeveloper__Mira-Hong-Ho-CV__GER__01-2026.pdf';
+import CVPdf from '../../../assets/docs/Mira_Ho_Görlich_CV_Resume_2026-03.pdf';
 
 import handWave from '../../../assets/lottie/handwave.json';
 
