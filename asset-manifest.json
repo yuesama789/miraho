@@ -1,24 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.7fd83b90.css",
-    "main.js": "./static/js/main.4427b32e.js",
+    "main.css": "./static/css/main.42c210ae.css",
+    "main.js": "./static/js/main.02139842.js",
     "static/media/endofyear2024--desktop.mp4": "./static/media/endofyear2024--desktop.60af60de3f60e28b9ccc.mp4",
     "static/media/endofyear2024--mobile.mp4": "./static/media/endofyear2024--mobile.c99fc369fd4535ecca3d.mp4",
     "static/media/hymer--mobile.mp4": "./static/media/hymer--mobile.a9f8bad5dc19020e3d81.mp4",
     "static/media/hymer--desktop.mp4": "./static/media/hymer--desktop.8226aa48b9547633cc64.mp4",
+    "static/media/fortuneSlip--desktop.mp4": "./static/media/fortuneSlip--desktop.de71fa351efa84c41674.mp4",
+    "static/media/fortuneSlip--mobile.mp4": "./static/media/fortuneSlip--mobile.3cfa9a0a94fada0ef9ff.mp4",
     "static/media/MiraHo.jpg": "./static/media/MiraHo.52c7ab00a852247c508e.jpg",
     "static/media/organic_blob_sprite.png": "./static/media/organic_blob_sprite.c44d0b3cd801d93b6db0.png",
     "static/media/purple_organic_blob.png": "./static/media/purple_organic_blob.79d2c13e7319eb3d7891.png",
     "static/media/Mira_Ho_Görlich_CV_Resume_2026-03.pdf": "./static/media/Mira_Ho_Görlich_CV_Resume_2026-03.02541f5fac07bdb8687c.pdf",
-    "static/media/tarot1.svg": "./static/media/tarot1.5dfb296f1ef6f2dac271b204bfd2bfcd.svg",
-    "static/media/tarot2.svg": "./static/media/tarot2.784db866307c60c176afe8dc1d876297.svg",
-    "static/media/tarot3.svg": "./static/media/tarot3.14a177399e5d48afcfb3fd2762c52652.svg",
     "index.html": "./index.html",
-    "main.7fd83b90.css.map": "./static/css/main.7fd83b90.css.map",
-    "main.4427b32e.js.map": "./static/js/main.4427b32e.js.map"
+    "main.42c210ae.css.map": "./static/css/main.42c210ae.css.map",
+    "main.02139842.js.map": "./static/js/main.02139842.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fd83b90.css",
-    "static/js/main.4427b32e.js"
+    "static/css/main.42c210ae.css",
+    "static/js/main.02139842.js"
   ]
 }
