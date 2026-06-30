@@ -5,6 +5,8 @@ import endOfYearVideo_desktop from "../../../assets/videos/endofyear2024--deskto
 import endOfYearVideo_mobile from "../../../assets/videos/endofyear2024--mobile.mp4";
 import hymerVideo_desktop from "../../../assets/videos/hymer--desktop.mp4";
 import hymerVideo_mobile from "../../../assets/videos/hymer--mobile.mp4";
+import fortuneSlip_desktop from "../../../assets/videos/fortuneSlip--desktop.mp4";
+import fortuneSlip_mobile from "../../../assets/videos/fortuneSlip--mobile.mp4";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -56,6 +58,7 @@ const TeaserContainer: React.FC<{ backgroundColor?: string }> = (
         <div className={styles.teaserContainer} data-teaser>
             <Teaser id="project-1" title={t.showcase.project1.title} mediaType="video" mediaPath={isDeviceVertical() ? endOfYearVideo_mobile : endOfYearVideo_desktop} backgroundColor={backgroundColor} />
             <Teaser id="project-2" title={t.showcase.project2.title} mediaType="video" mediaPath={isDeviceVertical() ? hymerVideo_mobile : hymerVideo_desktop} backgroundColor={backgroundColor} />
+            <Teaser id="project-3" title={t.showcase.project3.title} mediaType="video" mediaPath={isDeviceVertical() ? fortuneSlip_mobile : fortuneSlip_desktop} backgroundColor={backgroundColor} />
             {/* <Teaser id="project-3" title="Project 3" backgroundColor={backgroundColor} /> */}
         </div>
     );

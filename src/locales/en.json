@@ -1,7 +1,7 @@
 {
     "pageHeader": {
         "title": "Hello, I'm Mira Ho",
-        "subtitle": "Interaction-Focused UI Developer & Design Engineer",
+        "subtitle": "I create digital products — from concept to interaction.",
         "showcaseButton": "Showcase",
         "downloadCVButton": "Download CV"
     },
@@ -25,11 +25,15 @@
         "about": {
         "title": "About Me",
         "description": "A brief introduction.",
-        "content": "I'm an Interaction-Focused UI Developer & Design Engineer. I specialize in creating engaging digital experiences through thoughtful design and seamless interactions. With a passion for both aesthetics and functionality, I strive to bring ideas to life in ways that resonate with users."
+        "content": "I build digital products—from idea to interaction. As a frontend developer, I combine product thinking, user experience, and modern web technologies to create intuitive and performant user experiences. I enjoy working at the intersection of product, design, and engineering, using AI as an integral part of my development workflow—from research and prototyping to debugging and refactoring. Product decisions, UX, and technical implementation remain my responsibility."
+        },
+        "epilogue": {
+        "title": "Every product starts with an idea.",
+        "content": "The best ones come to life where concept, design, and engineering meet. I'm excited to bring the next ideas to life together."
         },
         "contact": {
-        "title": "Let's work together!",
-        "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions."
+        "title": "Let's build something together!",
+        "description": "Whether you have an idea or are looking for support with your next digital product, I'd love to hear from you."
         }
     },
     "buttons": {
@@ -49,27 +53,27 @@
     },
     "storybox": {
         "interactionsMotion": {
-        "title": "Interactions & Motion",
+        "title": "💜 Interaction & Motion",
         "points": [
+            "Motion Design",
             "Microinteractions",
-            "Scroll-Animationen",
-            "Motion Prototyping"
+            "Scroll-driven Experiences"
         ]
         },
         "uiEngineering": {
-        "title": "UI Engineering",
+        "title": "💡 Product Thinking",
         "points": [
-            "Component-driven development",
-            "Design Systems",
-            "React & TypeScript"
+            "User-centered Design",
+            "Concept Development",
+            "From Idea to Prototype"
         ]
         },
         "problemSolving": {
-        "title": "Creative Problem Solving",
+        "title": "💻 Frontend Engineering",
         "points": [
-            "I love sparring with design",
-            "Turning concept into experiences",
-            "Visual logic & ideation"
+            "Design Systems",
+            "Modern Web Technologies",
+            "React & TypeScript"
         ]
         }
     },
@@ -79,6 +83,9 @@
         },
         "project2": {
         "title": "Interactive Product Experience"
+        },
+        "project3": {
+            "title": "Interactive Web Experience"
         }
     },
     "tarotCards": [
@@ -96,9 +103,9 @@
         }
     ],
     "contact": {
-        "description1": "Kontaktieren Sie mich unter:",
+        "description1": "Get in touch:",
         "description2": "mirahongho@gmail.com",
-        "description3": "Oder direkt hier:"
+        "description3": "or just click here:"
     },
     "modals": {
         "project-1": {
@@ -133,6 +140,23 @@
             "contentMobile": "This project focused on building interactive, motion-driven product experiences for a high-end consumer website. My work centered on frontend prototyping, component development, and integrating interactive content into a CMS-driven environment.",
             "media": "hymer",
             "altText": "Screenshot of the Interactive Product Experience of the Automotive Web Platform"
+        },
+        "project-3": {
+            "title": "Fortune Slip — Interactive Web Experience",
+            "overview": "Designed and developed an interactive web application that combines daily fortune slips with animated dialogue and playful user interactions. The goal was to create an engaging, performant experience that encourages users to return every day.",
+            "myRole": [
+                "Designed the overall user experience and interaction flow",
+                "Built the user interface using React and TypeScript",
+                "Developed a reusable dialogue and fortune system",
+                "Implemented animated transitions and microinteractions",
+                "Created a fully responsive experience for desktop and mobile devices"
+            ],
+            "interactionMotion": "Animations enhance the emotional experience and guide users through the daily fortune journey—from drawing a fortune to revealing the result.",
+            "techStack": "React | TypeScript | SCSS | Cloudinary",
+            "note": "Independent passion project focused on UX, interaction design, and frontend architecture. Entirely designed and developed by me, from the initial concept to the final implementation.",
+            "contentMobile": "This web application combines playful interactions with intuitive user flows. The focus was on creating a smooth user experience through reusable components, responsive design, and performant animations.",
+            "media": "fortuneSlip",
+            "altText": "Screenshot of the Fortune Slip web application"
         }
     }
 }

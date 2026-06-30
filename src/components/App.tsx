@@ -104,8 +104,11 @@ const AppContent: React.FC = () => {
                             <Section className="section-container" fullWidth={true} backgroundColor='purple' title={t.sections.miniShowcase.title} description={t.sections.miniShowcase.description} data-section="showcase">
                                 <TeaserContainer backgroundColor='purple' />
                             </Section>
-                            <Section className="section-container" pinned="section" backgroundColor='dark' title={t.sections.howIWork.title} description={t.sections.howIWork.description}>
+                            {/* <Section className="section-container" pinned="section" backgroundColor='dark' title={t.sections.howIWork.title} description={t.sections.howIWork.description}>
                                 <TarotCards />
+                            </Section> */}
+                            <Section className="section-container" backgroundColor='purple' title={t.sections.epilogue.title}>
+                                <AnimateText key={locale} text={t.sections.epilogue.content} />
                             </Section>
                             <Section className="section-container" backgroundColor='orange' title={t.sections.contact.title} description={t.sections.contact.description}>
                                 <Contact />

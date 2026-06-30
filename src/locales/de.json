@@ -1,7 +1,7 @@
 {
     "pageHeader": {
         "title": "Hallo, ich bin Mira Ho",
-        "subtitle": "Interaktionsorientierte UI-Entwicklerin & Design Engineer"
+        "subtitle": "Ich entwickle digitale Produkte - von der Idee bis zur Interaktion."
     },
     "sections": {
         "whatIDo": {
@@ -19,11 +19,15 @@
         "about": {
         "title": "Über mich",
         "description": "Eine kurze Einführung.",
-        "content": "Ich bin eine interaktions-orientierte UI-Entwicklerin & Design Engineer. Ich spezialisiere mich auf die Entwicklung ansprechender digitaler Erlebnisse durch durchdachtes Design und nahtlose Interaktionen. Mit Leidenschaft für Ästhetik und Funktionalität bringe ich Ideen zum Leben, die bei den Nutzern Anklang finden."
+        "content": "Ich entwickle digitale Produkte - von der Idee bis zur Interaktion. Als Frontend-Entwicklerin verbinde ich Produktdenken, User Experience und moderne Webtechnologien, um intuitive und performante Nutzererlebnisse zu schaffen. Ich arbeite gerne an der Schnittstelle zwischen Konzeption, Design und Entwicklung und nutze KI als festen Bestandteil meines Entwicklungsprozesses - von Recherche und Prototyping über Debugging bis hin zu Refactoring. Die Entscheidungen zu Produkt, UX und technischer Umsetzung treffe dabei ich."
+        },
+        "epilogue": {
+        "title": "Jedes Produkt beginnt mit einer Idee.",
+        "content": "Die besten entstehen dort, wo Konzept, Design und Entwicklung zusammenkommen. Ich freue mich darauf, die nächsten Ideen gemeinsam umzusetzen."
         },
         "contact": {
         "title": "Lass uns zusammenarbeiten!",
-        "description": "Ich bin immer offen für neue Projekte, kreative Ideen oder Möglichkeiten, Teil Ihrer Visionen zu werden."
+        "description": "Haben Sie eine Idee oder suchen Unterstützung für Ihr nächstes digitales Produkt? Dann freue ich mich auf Ihre Nachricht."
         }
     },
     "buttons": {
@@ -43,27 +47,27 @@
     },
     "storybox": {
         "interactionsMotion": {
-        "title": "Interaktionen & Motion",
+        "title": "💜 Interaktionen & Motion",
         "points": [
-            "Mikrointeraktionen",
-            "Scroll-Animationen",
-            "Motion Prototyping"
+            "Motion Design",
+            "Microinteractions",
+            "Scroll-driven Experiences"
         ]
         },
         "uiEngineering": {
-        "title": "UI Engineering",
+        "title": "💡 Product Thinking",
         "points": [
-            "Komponentenbasierte Entwicklung",
-            "Design-Systeme",
-            "React & TypeScript"
+            "Nutzerzentriertes Design",
+            "Concept Development",
+            "Von der Idee bis zum Prototyp"
         ]
         },
         "problemSolving": {
-        "title": "Kreative Problemlösung",
+        "title": "💻 Frontend Engineering",
         "points": [
-            "Zusammenarbeit mit Design",
-            "Übersetzen von Konzepten in Erlebnisse",
-            "Visuelle Logik & Ideenfindung"
+            "Design Systems",
+            "Modern Web Technologies",
+            "React & TypeScript"
         ]
         }
     },
@@ -73,6 +77,9 @@
         },
         "project2": {
             "title": "Interaktive Produktseite"
+        },
+        "project3": {
+            "title": "Interactive Web Experience"
         }
     },
     "tarotCards": [
@@ -127,6 +134,23 @@
             "contentMobile": "Dieses Projekt konzentrierte sich auf den Aufbau interaktiver, motion-gesteuerter Produkterfahrungen für eine hochwertige Consumer-Website. Meine Arbeit konzentrierte sich auf Frontend-Prototyping, Komponentenentwicklung und die Integration interaktiver Inhalte in eine CMS-gesteuerte Umgebung.",
             "media": "hymer",
             "altText": "Screenshot der interaktiven Produktseite der Automotive Web-Plattform"
+        },
+        "project-3": {
+            "title": "Fortune Slip — Interaktive Web Experience",
+            "overview": "Konzeption und Entwicklung einer interaktiven Web-Anwendung, die tägliche Glückslose mit animierten Dialogen und einer spielerischen Nutzerführung verbindet. Ziel war es, eine emotionale, performante und wiederkehrende User Experience zu schaffen.",
+            "myRole": [
+                "Konzeption der gesamten User Experience und Nutzerführung",
+                "Design und Entwicklung der Benutzeroberfläche in React und TypeScript",
+                "Entwicklung eines wiederverwendbaren Dialog- und Glückslos-Systems",
+                "Umsetzung animierter Übergänge und interaktiver Mikroanimationen",
+                "Responsive Umsetzung für Desktop und mobile Endgeräte"
+            ],
+            "interactionMotion": "Animationen unterstützen die emotionale Wirkung der Anwendung und begleiten Nutzer:innen durch das tägliche Glückslos - von der Auswahl bis zur Enthüllung des Ergebnisses.",
+            "techStack": "React | TypeScript | SCSS | Cloudinary",
+            "note": "Eigenständiges Herzensprojekt mit Fokus auf UX, Interaktionsdesign und Frontend-Architektur. Von der Idee über das UI-Konzept bis zur technischen Umsetzung vollständig selbst entwickelt.",
+            "contentMobile": "Diese Web-Anwendung verbindet spielerische Interaktion mit einer klaren Nutzerführung. Besonderer Fokus lag auf einer flüssigen User Experience, wiederverwendbaren Komponenten und performanten Animationen.",
+            "media": "fortuneSlip",
+            "altText": "Screenshot der Fortune Slip Web-Anwendung"
         }
     }
 }
